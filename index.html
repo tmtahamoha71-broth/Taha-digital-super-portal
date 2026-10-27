@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10213b">
+<meta name="description" content="Taha Digital Super Portal — መረጃ፣ እውቀትና ዲጂታል አገልግሎቶች በአንድ ቦታ።">
+<title>Taha Digital Super Portal | TM Studio</title>
+<style>
+:root{--bg:#f3f6fb;--card:#fff;--text:#18263d;--muted:#697990;--primary:#1769e0;--soft:#eaf2ff;--line:#e1e8f1;--header:#10213b;--shadow:0 5px 22px #172c4810}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:12px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,"Noto Sans Ethiopic",sans-serif;padding-bottom:86px;line-height:1.6}
+body.dark{--bg:#0d1524;--card:#17243a;--text:#f0f4fc;--muted:#a7b6ce;--primary:#78adff;--soft:#243957;--line:#2b3b55;--header:#091222;--shadow:0 5px 22px #0002}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #7ab4ff;outline-offset:3px}
+.topbar{background:var(--header);color:#fff;padding:12px 15px}
+.toprow{max-width:1100px;margin:auto;display:flex;align-items:center;gap:11px}
+.brandphoto,.brandicon{width:52px;height:52px;border-radius:50%;flex:0 0 52px;border:2px solid #fff;box-shadow:0 2px 10px #0003}
+.brandphoto{object-fit:cover;object-position:center}
+.brandicon{background:#fff;color:#1769e0;display:none;place-items:center;font-weight:900;font-size:18px}
+.brand{flex:1;min-width:0}
+.brand h1{font-size:16px;line-height:1.4;margin:0 0 3px}
+.brand p{font-size:11px;color:#c8d7ee;margin:0}
+.topbtn{background:#20334f;color:#fff;border:1px solid #465a77;border-radius:12px;padding:9px 10px;min-height:39px}
+.container{max-width:1100px;margin:auto;padding:14px}
+.hero{position:relative;isolation:isolate;overflow:hidden;border-radius:23px;padding:24px 18px;color:#fff;background:linear-gradient(125deg,#1459c7,#5948c7 90%);margin-top:13px;box-shadow:0 10px 28px #172c4818}
+.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:url("taha-photo.jpg") center 35%/cover no-repeat;opacity:.09;pointer-events:none}
+.hero h2{font-size:clamp(21px,5vw,30px);line-height:1.5;margin:0 0 8px}
+.hero p{font-size:13px;line-height:1.8;color:#e7efff;margin:0 0 16px;max-width:650px}
+.searchbox{display:flex;gap:7px;background:#fff;padding:5px;border-radius:13px}
+.searchbox input{min-width:0;flex:1;border:0;outline:0;background:#fff;color:#18263d;padding:10px;font-size:14px}
+.searchbox button,.primarybtn{border:0;border-radius:10px;background:#1769e0;color:white;font-weight:bold;padding:10px 14px}
+.tagline{font-size:12px;color:#d6e5ff;margin-top:13px}
+.shortcuts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:14px}
+.shortcut{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:12px 4px;text-align:center;color:var(--text);transition:transform .15s}
+.shortcut:active{transform:scale(.98)}
+.shortcut span{display:block;font-size:23px;margin-bottom:5px}
+.shortcut b{font-size:11px;font-weight:600}
+.sectionhead{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:25px 0 12px}
+.sectionhead h2{font-size:17px;margin:0}
+.muted{font-size:12px;color:var(--muted)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 1px 8px;scrollbar-width:thin}
+.chip{white-space:nowrap;border:1px solid var(--line);border-radius:24px;background:var(--card);color:var(--text);padding:8px 13px;font-size:12px}
+.chip.active{background:var(--primary);border-color:var(--primary);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.service{min-width:0;background:var(--card);border:1px solid var(--line);border-radius:17px;padding:13px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+.service-top{display:flex;gap:10px;align-items:center}
+.service-icon{width:43px;height:43px;flex-shrink:0;border-radius:13px;background:var(--soft);display:grid;place-items:center;font-size:23px}
+.service-info{flex:1;min-width:0}
+.service h3{font-size:13px;line-height:1.5;margin:0 0 3px;overflow-wrap:anywhere}
+.service p{font-size:11px;line-height:1.6;color:var(--muted);margin:0}
+.service-actions{display:flex;align-items:center;gap:8px;margin-top:auto}
+.openlink{display:block;flex:1;text-align:center;padding:9px 6px;border-radius:10px;background:var(--soft);color:var(--primary);font-size:12px;font-weight:bold}
+.favbtn{border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--muted);width:39px;height:38px;font-size:20px}
+.favbtn.saved{color:#e64b74}
+.empty{grid-column:1/-1;text-align:center;padding:25px 15px;border-radius:15px;background:var(--card);color:var(--muted)}
+.notice{margin-top:17px;border:1px solid var(--line);background:var(--card);border-radius:15px;padding:14px;font-size:12px;color:var(--muted)}
+.notice strong{color:var(--text)}
+.contact{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:16px}
+.contact p{font-size:13px;color:var(--muted)}
+.contact label{display:block;font-size:12px;margin:12px 0 5px}
+.contact input,.contact textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px;color:var(--text);background:var(--bg)}
+.contact textarea{min-height:100px;resize:vertical}
+.contact .primarybtn{margin-top:12px;width:100%}
+.footer{text-align:center;color:var(--muted);font-size:11px;padding:28px 10px;line-height:2}
+.bottomnav{position:fixed;z-index:10;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--line);padding:8px 4px calc(8px + env(safe-area-inset-bottom))}
+.navinner{max-width:650px;margin:auto;display:flex;justify-content:space-around}
+.navitem{border:0;background:transparent;color:var(--muted);min-width:65px;padding:2px 5px;display:flex;flex-direction:column;align-items:center;gap:3px}
+.navitem b{font-size:21px;font-weight:400}
+.navitem span{font-size:10px}
+.navitem.active{color:var(--primary)}
+.hidden{display:none!important}
+.form-status{font-size:12px;overflow-wrap:anywhere}
+.section-anchor{scroll-margin-top:12px}
+@media(min-width:600px){.container{padding:22px}.hero{padding:30px}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.shortcuts{grid-template-columns:repeat(8,minmax(0,1fr))}}
+@media(min-width:900px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:380px){.toprow{gap:6px}.brand h1{font-size:13px}.brandphoto,.brandicon{width:43px;height:43px;flex-basis:43px}.topbtn{padding:7px;font-size:12px}.grid{gap:7px}.service{padding:10px}.service-icon{width:36px;height:36px;font-size:20px}.shortcuts{gap:6px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar">
+ <div class="toprow">
+  <img class="brandphoto" id="brandPhoto" src="taha-photo.jpg" alt="TM Studio" onerror="this.style.display='none';document.getElementById('brandFallback').style.display='grid'">
+  <div class="brandicon" id="brandFallback" aria-hidden="true">TD</div>
+  <div class="brand">
+   <h1>Taha Digital Super Portal</h1>
+   <p id="subtitle">መረጃ፣ እውቀትና ዲጂታል አገልግሎት</p>
+  </div>
+  <button class="topbtn" id="langBtn" type="button" aria-label="Change language">EN</button>
+  <button class="topbtn" id="themeBtn" type="button" aria-label="ገጽታ ቀይር">☾</button>
+ </div>
+</header>
+
+<main class="container">
+ <section class="hero section-anchor" id="home">
+  <h2 id="welcome">እንኳን ወደ ዲጂታል መድረካችን በደህና መጡ!</h2>
+  <p id="welcomeDesc">የዜና፣ የትምህርት፣ የእስልምና፣ የቴክኖሎጂና የተለያዩ የድረ-ገጽ አገልግሎቶች ማዕከል።</p>
+  <form class="searchbox" id="searchForm" role="search">
+   <input id="search" type="search" placeholder="አገልግሎት ፈልግ..." aria-label="አገልግሎት ፈልግ">
+   <button id="searchBtn" type="submit">ፈልግ</button>
+  </form>
+  <div class="tagline">TM STUDIO · መረጃን በጥራት፤ እውነትን በማስረጃ።</div>
+ </section>
+
+ <section class="shortcuts" aria-label="ፈጣን አገናኞች">
+  <a class="shortcut" href="https://www.google.com/" target="_blank" rel="noopener noreferrer"><span>🔎</span><b>Google</b></a>
+  <a class="shortcut" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><span>▶️</span><b>YouTube</b></a>
+  <a class="shortcut" href="https://m.facebook.com/" target="_blank" rel="noopener noreferrer"><span>👥</span><b>Facebook</b></a>
+  <a class="shortcut" href="https://web.telegram.org/" target="_blank" rel="noopener noreferrer"><span>✈️</span><b>Telegram</b></a>
+ </section>
+
+ <section id="servicesSection" class="section-anchor">
+  <div class="sectionhead">
+   <h2 id="categoryHeading">የአገልግሎት ምድቦች</h2>
+   <span class="muted" id="count" aria-live="polite"></span>
+  </div>
+  <div class="chips" id="chips">
+   <button class="chip active" data-cat="all" type="button">ሁሉም</button>
+   <button class="chip" data-cat="news" type="button">ዜና</button>
+   <button class="chip" data-cat="learn" type="button">ትምህርት</button>
+   <button class="chip" data-cat="faith" type="button">እስልምና</button>
+   <button class="chip" data-cat="tech" type="button">ቴክኖሎጂ</button>
+   <button class="chip" data-cat="ethiopia" type="button">ኢትዮጵያ</button>
+   <button class="chip" data-cat="finance" type="button">ፋይናንስ</button>
+   <button class="chip" data-cat="social" type="button">ማኅበራዊ</button>
+   <button class="chip" data-cat="tools" type="button">መሣሪያዎች</button>
+  </div>
+  <div class="sectionhead">
+   <h2 id="listHeading">አገልግሎቶች</h2>
+   <span class="muted" id="listHint">ለመክፈት ይጫኑ</span>
+  </div>
+  <div class="grid" id="grid" aria-live="polite"></div>
+ </section>
+
+ <section id="contactSection" class="section-anchor">
+  <div class="sectionhead"><h2 id="contactHeading">ከTM Studio ጋር ይገናኙ</h2></div>
+  <div class="contact">
+   <p id="contactDesc">ጥያቄ፣ ሐሳብ ወይም የማሻሻያ ጥቆማ ካለዎት መልዕክት ያዘጋጁ።</p>
+   <form id="contactForm">
+    <label for="visitorName" id="nameLabel">ስም</label>
+    <input id="visitorName" name="name" maxlength="100" autocomplete="name" required>
+    <label for="visitorEmail" id="emailLabel">ኢሜይል (አማራጭ)</label>
+    <input id="visitorEmail" name="email" type="email" maxlength="150" autocomplete="email">
+    <label for="visitorMessage" id="messageLabel">መልዕክት</label>
+    <textarea id="visitorMessage" name="message" maxlength="3000" required></textarea>
+    <button class="primarybtn" type="submit" id="sendBtn">መልዕክቱን አዘጋጅ</button>
+   </form>
+   <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+  </div>
+ </section>
+
+ <div class="notice" id="privacyNotice">
+  <strong>የመረጃ ጥንቃቄ፦</strong>
+  ከባንክ ወይም ከመንግሥት ጋር የተያያዙ ጉዳዮች ላይ የግል መረጃህን ከማስገባትህ በፊት የአድራሻውን ትክክለኛነት አረጋግጥ።
+ </div>
+
+ <footer class="footer">
+  <strong>Taha Digital Super Portal</strong><br>
+  <span id="footerText">የመረጃ፣ የእውቀትና የዲጂታል አገልግሎት መድረክ።</span><br>
+  © <span id="year"></span> Taha Digital · TM Studio
+ </footer>
+</main>
+
+<nav class="bottomnav" aria-label="ዋና አሰሳ">
+ <div class="navinner">
+  <button class="navitem active" data-view="home" type="button"><b>⌂</b><span id="navHome">ዋና ገጽ</span></button>
+  <button class="navitem" data-view="all" type="button"><b>▦</b><span id="navServices">አገልግሎቶች</span></button>
+  <button class="navitem" data-view="favorites" type="button"><b>♡</b><span id="navFavorites">ተወዳጆች</span></button>
+  <button class="navitem" data-view="contact" type="button"><b>✉</b><span id="navContact">ያግኙን</span></button>
+ </div>
+</nav>
+
+<script>
+'use strict';
+
+const services = [
+{id:'google',name:'Google',desc:'የድረ-ገጽ ፍለጋ',icon:'🔎',cat:'tools',url:'https://www.google.com/'},
+{id:'youtube',name:'YouTube',desc:'ቪዲዮዎችና ትምህርት',icon:'▶️',cat:'learn',url:'https://www.youtube.com/'},
+{id:'facebook',name:'Facebook',desc:'ማኅበራዊ ግንኙነት',icon:'👥',cat:'social',url:'https://m.facebook.com/'},
+{id:'telegram',name:'Telegram',desc:'መልዕክትና ቻናሎች',icon:'✈️',cat:'social',url:'https://web.telegram.org/'},
+{id:'bbc',name:'BBC News',desc:'ዓለም አቀፍ ዜና',icon:'🌍',cat:'news',url:'https://www.bbc.com/news'},
+{id:'reuters',name:'Reuters',desc:'ዜናና የዓለም መረጃ',icon:'📰',cat:'news',url:'https://www.reuters.com/'},
+{id:'aljazeera',name:'Al Jazeera',desc:'ዓለም አቀፍ ዜና',icon:'🌐',cat:'news',url:'https://www.aljazeera.com/'},
+{id:'fana',name:'Fana Media',desc:'የኢትዮጵያ ዜና ምንጭ',icon:'📡',cat:'news',url:'https://www.fanamedia.com/'},
+{id:'wikipedia',name:'Wikipedia',desc:'ነፃ ኢንሳይክሎፒዲያ',icon:'📚',cat:'learn',url:'https://www.wikipedia.org/'},
+{id:'coursera',name:'Coursera',desc:'የመስመር ላይ ትምህርት',icon:'🎓',cat:'learn',url:'https://www.coursera.org/'},
+{id:'khan',name:'Khan Academy',desc:'ነፃ የትምህርት ሀብቶች',icon:'📖',cat:'learn',url:'https://www.khanacademy.org/'},
+{id:'chatgpt',name:'ChatGPT',desc:'የAI የእውቀት ረዳት',icon:'🤖',cat:'tech',url:'https://chatgpt.com/'},
+{id:'github',name:'GitHub',desc:'ኮድና የሶፍትዌር ፕሮጀክቶች',icon:'💻',cat:'tech',url:'https://github.com/'},
+{id:'mozilla',name:'Mozilla',desc:'የድረ-ገጽ ቴክኖሎጂ',icon:'🦊',cat:'tech',url:'https://www.mozilla.org/'},
+{id:'quran',name:'Quran.com',desc:'ቁርኣንን ማንበብና ማዳመጥ',icon:'☪️',cat:'faith',url:'https://quran.com/'},
+{id:'sunnah',name:'Sunnah.com',desc:'የሐዲስ ምንጮች',icon:'📜',cat:'faith',url:'https://sunnah.com/'},
+{id:'islamqa',name:'IslamQA',desc:'የእስልምና ጥያቄና መልስ',icon:'🕌',cat:'faith',url:'https://islamqa.info/'},
+{id:'cbe',name:'Commercial Bank of Ethiopia',desc:'የባንክ አገልግሎት',icon:'🏦',cat:'finance',url:'https://www.combanketh.et/'},
+{id:'nbe',name:'National Bank of Ethiopia',desc:'የኢትዮጵያ ብሔራዊ ባንክ',icon:'💳',cat:'finance',url:'https://nbe.gov.et/'},
+{id:'telebirr',name:'telebirr',desc:'የዲጂታል ክፍያ አገልግሎት',icon:'📱',cat:'finance',url:'https://www.ethiotelecom.et/'},
+{id:'gov',name:'Ethiopia Government',desc:'የመንግሥት መረጃ',icon:'🇪🇹',cat:'ethiopia',url:'https://www.ethiopia.gov.et/'},
+{id:'ethiopianairlines',name:'Ethiopian Airlines',desc:'በረራና ትኬት',icon:'✈️',cat:'ethiopia',url:'https://www.ethiopianairlines.com/'},
+{id:'ethiojobs',name:'Ethiojobs',desc:'ሥራ ፍለጋ',icon:'💼',cat:'ethiopia',url:'https://www.ethiojobs.net/'},
+{id:'ssgi',name:'SSGI መረጃ',desc:'የSSGI አገልግሎት ፍለጋ',icon:'🔍',cat:'ethiopia',url:'https://www.google.com/search?q=SSGI+Ethiopia+official+website'},
+{id:'translate',name:'Google Translate',desc:'ቋንቋ መተርጎሚያ',icon:'🌐',cat:'tools',url:'https://translate.google.com/'},
+{id:'maps',name:'Google Maps',desc:'ካርታና አቅጣጫ',icon:'🗺️',cat:'tools',url:'https://maps.google.com/'},
+{id:'drive',name:'Google Drive',desc:'ፋይሎችን ማስቀመጥ',icon:'☁️',cat:'tools',url:'https://drive.google.com/'},
+{id:'speedtest',name:'Speedtest',desc:'የኢንተርኔት ፍጥነት መለኪያ',icon:'⚡',cat:'tools',url:'https://www.speedtest.net/'},
+{id:'zoom',name:'Zoom',desc:'የቪዲዮ ስብሰባ',icon:'🎥',cat:'tech',url:'https://zoom.us/'},
+{id:'linkedin',name:'LinkedIn',desc:'የሥራና ሙያ ግንኙነት',icon:'💼',cat:'social',url:'https://www.linkedin.com/'},
+{id:'instagram',name:'Instagram',desc:'ፎቶና ቪዲዮ ማጋራት',icon:'📷',cat:'social',url:'https://www.instagram.com/'},
+{id:'tiktok',name:'TikTok',desc:'አጭር ቪዲዮዎች',icon:'🎬',cat:'social',url:'https://www.tiktok.com/'},
+{id:'reddit',name:'Reddit',desc:'የማኅበረሰብ ውይይቶች',icon:'💬',cat:'social',url:'https://www.reddit.com/'},
+{id:'archive',name:'Internet Archive',desc:'ዲጂታል መጽሐፍትና ማህደር',icon:'🏛️',cat:'learn',url:'https://archive.org/'},
+{id:'openstreetmap',name:'OpenStreetMap',desc:'ነፃ የዓለም ካርታ',icon:'🧭',cat:'tools',url:'https://www.openstreetmap.org/'},
+{id:'mozillaMDN',name:'MDN Web Docs',desc:'የድረ-ገጽ ልማት መማሪያ',icon:'🧑‍💻',cat:'tech',url:'https://developer.mozilla.org/'},
+{id:'kaggle',name:'Kaggle',desc:'ዳታና የማሽን ለርኒንግ ሀብቶች',icon:'📊',cat:'tech',url:'https://www.kaggle.com/'}
+];
+
+const translations = {
+en:{
+subtitle:'Information, knowledge and digital services',
+welcome:'Welcome to your digital portal!',
+welcomeDesc:'News, learning, Islamic resources, technology and useful online services in one place.',
+search:'Search services...',searchBtn:'Search',categories:'Service categories',all:'All',news:'News',learn:'Learning',faith:'Islam',tech:'Technology',ethiopia:'Ethiopia',finance:'Finance',social:'Social',tools:'Tools',services:'Services',hint:'Select to open',home:'Home',favorites:'Favorites',contact:'Contact',
+contactDesc:'Prepare a message or suggestion for TM Studio. This page does not send or store messages on a server.',
+name:'Name',email:'Email (optional)',message:'Message',send:'Prepare message',open:'Open service ↗',empty:'No results found. Try another search.',count:'services',
+privacy:'Privacy reminder: Before entering personal information for a bank or government service, verify that the website address is official.',
+footer:'A platform for information, knowledge and digital services.',contactTitle:'Contact TM Studio',favoritesTitle:'Your favorite services',
+messageReady:'Your message draft is prepared. Choose an email app to send it; it has not been sent automatically.',
+noMail:'No email app opened. Copy your message or check that an email app is configured.',
+descriptions:{
+google:'Search the web',youtube:'Videos and learning',facebook:'Social networking',telegram:'Messages and channels',bbc:'International news',reuters:'World news and information',aljazeera:'International news',fana:'Ethiopian news',wikipedia:'Free encyclopedia',coursera:'Online learning',khan:'Free learning resources',chatgpt:'AI knowledge assistant',github:'Code and software projects',mozilla:'Web technology',quran:'Read and listen to Quran',sunnah:'Hadith resources',islamqa:'Islamic questions and answers',cbe:'Banking services',nbe:'National Bank of Ethiopia',telebirr:'Digital payment service',gov:'Government information',ethiopianairlines:'Flights and tickets',ethiojobs:'Job search',ssgi:'Search for SSGI information',translate:'Language translation',maps:'Maps and directions',drive:'Store files online',speedtest:'Test internet speed',zoom:'Video meetings',linkedin:'Professional networking',instagram:'Photos and videos',tiktok:'Short videos',reddit:'Community discussions',archive:'Digital books and archives',openstreetmap:'Free world map',mozillaMDN:'Web development guides',kaggle:'Data and machine learning'
+}},
+am:{
+subtitle:'መረጃ፣ እውቀትና ዲጂታል አገልግሎት',
+welcome:'እንኳን ወደ ዲጂታል መድረካችን በደህና መጡ!',
+welcomeDesc:'የዜና፣ የትምህርት፣ የእስልምና፣ የቴክኖሎጂና የተለያዩ የድረ-ገጽ አገልግሎቶች ማዕከል።',
+search:'አገልግሎት ፈልግ...',searchBtn:'ፈልግ',categories:'የአገልግሎት ምድቦች',all:'ሁሉም',news:'ዜና',learn:'ትምህርት',faith:'እስልምና',tech:'ቴክኖሎጂ',ethiopia:'ኢትዮጵያ',finance:'ፋይናንስ',social:'ማኅበራዊ',tools:'መሣሪያዎች',services:'አገልግሎቶች',hint:'ለመክፈት ይጫኑ',home:'ዋና ገጽ',favorites:'ተወዳጆች',contact:'ያግኙን',
+contactDesc:'ጥያቄ፣ ሐሳብ ወይም የማሻሻያ ጥቆማ ካለዎት መልዕክት ያዘጋጁ። ይህ ገጽ መልዕክቱን ወደ ሰርቨር አይልክም።',
+name:'ስም',email:'ኢሜይል (አማራጭ)',message:'መልዕክት',send:'መልዕክቱን አዘጋጅ',open:'አገልግሎቱን ክፈት ↗',empty:'ምንም ውጤት አልተገኘም። ሌላ ቃል ይፈልጉ።',count:'አገልግሎት',
+privacy:'የመረጃ ጥንቃቄ፦ ከባንክ ወይም ከመንግሥት ጋር በተያያዙ ጉዳዮች ላይ የግል መረጃ ከማስገባትዎ በፊት የድረ-ገጹን አድራሻ ኦፊሴላዊ መሆኑን ያረጋግጡ።',
+footer:'የመረጃ፣ የእውቀትና የዲጂታል አገልግሎት መድረክ።',contactTitle:'ከTM Studio ጋር ይገናኙ',favoritesTitle:'የወደድኳቸው አገልግሎቶች',
+messageReady:'የመልዕክት ረቂቁ ተዘጋጅቷል። ለመላክ የኢሜይል መተግበሪያ ይምረጡ፤ በራሱ አልተላከም።',
+noMail:'የኢሜይል መተግበሪያ አልተከፈተም። የኢሜይል መተግበሪያ ቅንብርዎን ያረጋግጡ።'
+}
+};
+
+let lang='am',category='all',onlyFavorites=false,favorites=[];
+
+try{
+ const saved=JSON.parse(localStorage.getItem('tdsp-favorites')||'[]');
+ if(Array.isArray(saved))favorites=saved.filter(id=>services.some(s=>s.id===id));
+}catch(e){}
+
+function t(key){return translations[lang][key]||key}
+function description(s){return lang==='en'?(translations.en.descriptions[s.id]||s.desc):s.desc}
+function saveFavorites(){try{localStorage.setItem('tdsp-favorites',JSON.stringify(favorites))}catch(e){}}
+
+function render(){
+ const grid=document.getElementById('grid');
+ const q=document.getElementById('search').value.trim().toLowerCase();
+ const filtered=services.filter(s=>{
+  const catMatch=category==='all'||s.cat===category;
+  const favMatch=!onlyFavorites||favorites.includes(s.id);
+  const searchable=(s.name+' '+s.desc+' '+(translations.en.descriptions[s.id]||'')+' '+s.cat).toLowerCase();
+  return catMatch&&favMatch&&searchable.includes(q);
+ });
+ grid.replaceChildren();
+ if(!filtered.length){
+  const empty=document.createElement('div');
+  empty.className='empty';
+  empty.textContent=t('empty');
+  grid.append(empty);
+ }
+ filtered.forEach(s=>{
+  const card=document.createElement('article');
+  card.className='service';
+  const top=document.createElement('div');
+  top.className='service-top';
+  const icon=document.createElement('div');
+  icon.className='service-icon';
+  icon.textContent=s.icon;
+  const info=document.createElement('div');
+  info.className='service-info';
+  const h=document.createElement('h3');
+  h.textContent=s.name;
+  const p=document.createElement('p');
+  p.textContent=description(s);
+  info.append(h,p);
+  top.append(icon,info);
+  const actions=document.createElement('div');
+  actions.className='service-actions';
+  const link=document.createElement('a');
+  link.className='openlink';
+  link.href=s.url;
+  link.target='_blank';
+  link.rel='noopener noreferrer';
+  link.textContent=t('open');
+  const fav=document.createElement('button');
+  fav.type='button';
+  const saved=favorites.includes(s.id);
+  fav.className='favbtn'+(saved?' saved':'');
+  fav.textContent=saved?'♥':'♡';
+  fav.setAttribute('aria-label',(saved?'Remove from':'Add to')+' favorites: '+s.name);
+  fav.setAttribute('aria-pressed',String(saved));
+  fav.addEventListener('click',()=>{
+   favorites=favorites.includes(s.id)?favorites.filter(id=>id!==s.id):[...favorites,s.id];
+   saveFavorites();
+   render();
+  });
+  actions.append(link,fav);
+  card.append(top,actions);
+  grid.append(card);
+ });
+ document.getElementById('count').textContent=filtered.length+' '+t('count');
+}
+
+function setCategory(cat){
+ category=cat;
+ onlyFavorites=false;
+ document.querySelectorAll('.chip').forEach(b=>b.classList.toggle('active',b.dataset.cat===cat));
+ document.getElementById('listHeading').textContent=t('services');
+ render();
+}
+
+document.getElementById('chips').addEventListener('click',e=>{
+ const b=e.target.closest('[data-cat]');
+ if(b)setCategory(b.dataset.cat);
+});
+
+document.getElementById('search').addEventListener('input',render);
+
+document.getElementById('searchForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ render();
+ document.getElementById('servicesSection').scrollIntoView({behavior:'smooth'});
+});
+
+document.getElementById('themeBtn').addEventListener('click',()=>{
+ const dark=document.body.classList.toggle('dark');
+ document.getElementById('themeBtn').textContent=dark?'☀':'☾';
+ try{localStorage.setItem('tdsp-theme',dark?'dark':'light')}catch(e){}
+});
+
+try{
+ if(localStorage.getItem('tdsp-theme')==='dark'){
+  document.body.classList.add('dark');
+  document.getElementById('themeBtn').textContent='☀';
+ }
+}catch(e){}
+
+function applyLanguage(){
+ document.documentElement.lang=lang==='en'?'en':'am';
+ document.getElementById('langBtn').textContent=lang==='en'?'አማ':'EN';
+ document.getElementById('subtitle').textContent=t('subtitle');
+ document.getElementById('welcome').textContent=t('welcome');
+ document.getElementById('welcomeDesc').textContent=t('welcomeDesc');
+ document.getElementById('search').placeholder=t('search');
+ document.getElementById('search').setAttribute('aria-label',t('search'));
+ document.getElementById('searchBtn').textContent=t('searchBtn');
+ document.getElementById('categoryHeading').textContent=t('categories');
+ document.getElementById('listHint').textContent=t('hint');
+ document.getElementById('contactHeading').textContent=t('contactTitle');
+ document.getElementById('contactDesc').textContent=t('contactDesc');
+ document.getElementById('nameLabel').textContent=t('name');
+ document.getElementById('emailLabel').textContent=t('email');
+ document.getElementById('messageLabel').textContent=t('message');
+ document.getElementById('sendBtn').textContent=t('send');
+ document.getElementById('navHome').textContent=t('home');
+ document.getElementById('navServices').textContent=t('services');
+ document.getElementById('navFavorites').textContent=t('favorites');
+ document.getElementById('navContact').textContent=t('contact');
+ document.getElementById('privacyNotice').textContent=t('privacy');
+ document.getElementById('footerText').textContent=t('footer');
+ document.querySelectorAll('.chip').forEach(b=>b.textContent=t(b.dataset.cat));
+ document.getElementById('listHeading').textContent=onlyFavorites?t('favoritesTitle'):t('services');
+ render();
+}
+
+document.getElementById('langBtn').addEventListener('click',()=>{
+ lang=lang==='am'?'en':'am';
+ applyLanguage();
+});
+
+document.querySelectorAll('.navitem').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('.navitem').forEach(b=>b.classList.toggle('active',b===btn));
+ const view=btn.dataset.view;
+ if(view==='favorites'){
+  onlyFavorites=true;
+  category='all';
+  document.querySelectorAll('.chip').forEach(b=>b.classList.toggle('active',b.dataset.cat==='all'));
+  document.getElementById('listHeading').textContent=t('favoritesTitle');
+  render();
+  document.getElementById('servicesSection').scrollIntoView({behavior:'smooth'});
+ }else if(view==='contact'){
+  document.getElementById('contactSection').scrollIntoView({behavior:'smooth'});
+ }else if(view==='all'){
+  setCategory('all');
+  document.getElementById('servicesSection').scrollIntoView({behavior:'smooth'});
+ }else{
+  setCategory('all');
+  document.getElementById('home').scrollIntoView({behavior:'smooth'});
+ }
+}));
+
+/* This form prepares an email draft; it does not upload or store messages. */
+document.getElementById('contactForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ const name=document.getElementById('visitorName').value.trim();
+ const email=document.getElementById('visitorEmail').value.trim();
+ const message=document.getElementById('visitorMessage').value.trim();
+ if(!name||!message)return;
+ const subject=encodeURIComponent('Taha Digital Portal — Contact');
+ const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\nMessage:\n'+message);
+ document.getElementById('formStatus').textContent=t('messageReady');
+ window.location.href='mailto:?subject='+subject+'&body='+body;
+});
+
+document.getElementById('year').textContent=new Date().getFullYear();
+render();
+</script>
+</body>
+</html>
