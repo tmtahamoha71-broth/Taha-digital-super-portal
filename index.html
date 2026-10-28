@@ -147,7 +147,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{
     <input id="visitorEmail" name="email" type="email" maxlength="150" autocomplete="email">
     <label for="visitorMessage" id="messageLabel">መልዕክት</label>
     <textarea id="visitorMessage" name="message" maxlength="3000" required></textarea>
-    <button class="primarybtn" type="submit" id="sendBtn">መልዕክቱን አዘጋጅ</button>
+    <button class="primarybtn" type="submit" id="sendBtn">መልዕክቱን ላክ</button>
    </form>
    <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
   </div>
@@ -176,6 +176,29 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{
 
 <script>
 'use strict';
+
+/* Supabase connection: use the publishable key only, never a secret key. */
+const SUPABASE_URL = 'https://tqvemkwvbikwnnulncgm.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_RVudC5rR1vHfaxF6OR_S-w_-8J2KJ52';
+
+async function insertSupabase(table, payload) {
+ const response = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
+  method: 'POST',
+  headers: {
+   'apikey': SUPABASE_PUBLISHABLE_KEY,
+   'Authorization': `Bearer ${SUPABASE_PUBLISHABLE_KEY}`,
+   'Content-Type': 'application/json',
+   'Prefer': 'return=minimal'
+  },
+  body: JSON.stringify(payload)
+ });
+
+ if (!response.ok) {
+  const details = await response.text();
+  console.error('Supabase request failed:', response.status, details);
+  throw new Error('Supabase request failed');
+ }
+}
 
 const services = [
 {id:'google',name:'Google',desc:'የድረ-ገጽ ፍለጋ',icon:'🔎',cat:'tools',url:'https://www.google.com/'},
@@ -223,12 +246,11 @@ subtitle:'Information, knowledge and digital services',
 welcome:'Welcome to your digital portal!',
 welcomeDesc:'News, learning, Islamic resources, technology and useful online services in one place.',
 search:'Search services...',searchBtn:'Search',categories:'Service categories',all:'All',news:'News',learn:'Learning',faith:'Islam',tech:'Technology',ethiopia:'Ethiopia',finance:'Finance',social:'Social',tools:'Tools',services:'Services',hint:'Select to open',home:'Home',favorites:'Favorites',contact:'Contact',
-contactDesc:'Prepare a message or suggestion for TM Studio. This page does not send or store messages on a server.',
-name:'Name',email:'Email (optional)',message:'Message',send:'Prepare message',open:'Open service ↗',empty:'No results found. Try another search.',count:'services',
+contactDesc:'Send a message or suggestion to TM Studio. Your message will be saved securely in our contact database.',
+name:'Name',email:'Email (optional)',message:'Message',send:'Send message',open:'Open service ↗',empty:'No results found. Try another search.',count:'services',
 privacy:'Privacy reminder: Before entering personal information for a bank or government service, verify that the website address is official.',
 footer:'A platform for information, knowledge and digital services.',contactTitle:'Contact TM Studio',favoritesTitle:'Your favorite services',
-messageReady:'Your message draft is prepared. Choose an email app to send it; it has not been sent automatically.',
-noMail:'No email app opened. Copy your message or check that an email app is configured.',
+messageReady:'Your message was submitted successfully.',noMail:'Message could not be sent. Please try again.',
 descriptions:{
 google:'Search the web',youtube:'Videos and learning',facebook:'Social networking',telegram:'Messages and channels',bbc:'International news',reuters:'World news and information',aljazeera:'International news',fana:'Ethiopian news',wikipedia:'Free encyclopedia',coursera:'Online learning',khan:'Free learning resources',chatgpt:'AI knowledge assistant',github:'Code and software projects',mozilla:'Web technology',quran:'Read and listen to Quran',sunnah:'Hadith resources',islamqa:'Islamic questions and answers',cbe:'Banking services',nbe:'National Bank of Ethiopia',telebirr:'Digital payment service',gov:'Government information',ethiopianairlines:'Flights and tickets',ethiojobs:'Job search',ssgi:'Search for SSGI information',translate:'Language translation',maps:'Maps and directions',drive:'Store files online',speedtest:'Test internet speed',zoom:'Video meetings',linkedin:'Professional networking',instagram:'Photos and videos',tiktok:'Short videos',reddit:'Community discussions',archive:'Digital books and archives',openstreetmap:'Free world map',mozillaMDN:'Web development guides',kaggle:'Data and machine learning'
 }},
@@ -237,12 +259,11 @@ subtitle:'መረጃ፣ እውቀትና ዲጂታል አገልግሎት',
 welcome:'እንኳን ወደ ዲጂታል መድረካችን በደህና መጡ!',
 welcomeDesc:'የዜና፣ የትምህርት፣ የእስልምና፣ የቴክኖሎጂና የተለያዩ የድረ-ገጽ አገልግሎቶች ማዕከል።',
 search:'አገልግሎት ፈልግ...',searchBtn:'ፈልግ',categories:'የአገልግሎት ምድቦች',all:'ሁሉም',news:'ዜና',learn:'ትምህርት',faith:'እስልምና',tech:'ቴክኖሎጂ',ethiopia:'ኢትዮጵያ',finance:'ፋይናንስ',social:'ማኅበራዊ',tools:'መሣሪያዎች',services:'አገልግሎቶች',hint:'ለመክፈት ይጫኑ',home:'ዋና ገጽ',favorites:'ተወዳጆች',contact:'ያግኙን',
-contactDesc:'ጥያቄ፣ ሐሳብ ወይም የማሻሻያ ጥቆማ ካለዎት መልዕክት ያዘጋጁ። ይህ ገጽ መልዕክቱን ወደ ሰርቨር አይልክም።',
-name:'ስም',email:'ኢሜይል (አማራጭ)',message:'መልዕክት',send:'መልዕክቱን አዘጋጅ',open:'አገልግሎቱን ክፈት ↗',empty:'ምንም ውጤት አልተገኘም። ሌላ ቃል ይፈልጉ።',count:'አገልግሎት',
+contactDesc:'ጥያቄ፣ ሐሳብ ወይም የማሻሻያ ጥቆማ ካለዎት መልዕክት ይላኩልን።',
+name:'ስም',email:'ኢሜይል (አማራጭ)',message:'መልዕክት',send:'መልዕክቱን ላክ',open:'አገልግሎቱን ክፈት ↗',empty:'ምንም ውጤት አልተገኘም። ሌላ ቃል ይፈልጉ።',count:'አገልግሎት',
 privacy:'የመረጃ ጥንቃቄ፦ ከባንክ ወይም ከመንግሥት ጋር በተያያዙ ጉዳዮች ላይ የግል መረጃ ከማስገባትዎ በፊት የድረ-ገጹን አድራሻ ኦፊሴላዊ መሆኑን ያረጋግጡ።',
 footer:'የመረጃ፣ የእውቀትና የዲጂታል አገልግሎት መድረክ።',contactTitle:'ከTM Studio ጋር ይገናኙ',favoritesTitle:'የወደድኳቸው አገልግሎቶች',
-messageReady:'የመልዕክት ረቂቁ ተዘጋጅቷል። ለመላክ የኢሜይል መተግበሪያ ይምረጡ፤ በራሱ አልተላከም።',
-noMail:'የኢሜይል መተግበሪያ አልተከፈተም። የኢሜይል መተግበሪያ ቅንብርዎን ያረጋግጡ።'
+messageReady:'መልዕክትዎ በተሳካ ሁኔታ ተልኳል።',noMail:'መልዕክቱን መላክ አልተሳካም። እባክዎ እንደገና ይሞክሩ።'
 }
 };
 
@@ -263,7 +284,7 @@ function render(){
  const filtered=services.filter(s=>{
   const catMatch=category==='all'||s.cat===category;
   const favMatch=!onlyFavorites||favorites.includes(s.id);
-  const searchable=(s.name+' '+s.desc+' '+(translations.en.descriptions[s.id]||'')+' '+s.cat).toLowerCase();
+  const searchable=(s.name+' '+s.desc+' '+((translations.en.descriptions||{})[s.id]||'')+' '+s.cat).toLowerCase();
   return catMatch&&favMatch&&searchable.includes(q);
  });
  grid.replaceChildren();
@@ -404,17 +425,50 @@ document.querySelectorAll('.navitem').forEach(btn=>btn.addEventListener('click',
  }
 }));
 
-/* This form prepares an email draft; it does not upload or store messages. */
-document.getElementById('contactForm').addEventListener('submit',e=>{
+/* Send contact messages to Supabase. Do not put a secret key in this file. */
+document.getElementById('contactForm').addEventListener('submit',async e=>{
  e.preventDefault();
+
+ const form=e.currentTarget;
+ const status=document.getElementById('formStatus');
+ const button=document.getElementById('sendBtn');
  const name=document.getElementById('visitorName').value.trim();
  const email=document.getElementById('visitorEmail').value.trim();
  const message=document.getElementById('visitorMessage').value.trim();
- if(!name||!message)return;
- const subject=encodeURIComponent('Taha Digital Portal — Contact');
- const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\nMessage:\n'+message);
- document.getElementById('formStatus').textContent=t('messageReady');
- window.location.href='mailto:?subject='+subject+'&body='+body;
+
+ if(!name||!message){
+  status.textContent=lang==='en'?'Please enter your name and message.':'እባክዎ ስምዎንና መልዕክትዎን ያስገቡ።';
+  return;
+ }
+
+ if(name.length<2||message.length<5){
+  status.textContent=lang==='en'?'Name must be at least 2 characters and message at least 5 characters.':'ስም ቢያንስ 2 ፊደል፣ መልዕክት ደግሞ ቢያንስ 5 ፊደል መሆን አለበት።';
+  return;
+ }
+
+ button.disabled=true;
+ button.style.opacity='.65';
+ status.textContent=lang==='en'?'Sending message…':'መልዕክቱ እየተላከ ነው…';
+
+ try{
+  await insertSupabase('contact_messages',{
+   name:name,
+   email:email||null,
+   subject:'Website contact',
+   message:message
+  });
+
+  status.textContent=t('messageReady');
+  form.reset();
+ }catch(error){
+  console.error(error);
+  status.textContent=lang==='en'
+   ?'Message could not be saved. Please try again later.'
+   :'መልዕክቱን ማስቀመጥ አልተቻለም። እባክዎ ቆይተው እንደገና ይሞክሩ።';
+ }finally{
+  button.disabled=false;
+  button.style.opacity='1';
+ }
 });
 
 document.getElementById('year').textContent=new Date().getFullYear();
