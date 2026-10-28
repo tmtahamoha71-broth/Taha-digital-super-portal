@@ -4,369 +4,314 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07111f">
-<meta name="description" content="Ethio Digital Super Portal - TM Studio">
-<title>Ethio Digital Super Portal | TM Studio</title>
+<meta name="description" content="Ethio Digital Super Portal — መረጃ፣ እውቀት፣ መጻሕፍትና ዲጂታል አገልግሎቶች">
+<title>ኢትዮ ዲጂታል ሱፐር ፖርታል</title>
+
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'am',
+    includedLanguages: 'am,om,ti,en,ar,fr,es,de,zh,it,ru'
+  }, 'google_translate_element');
+}
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
 
 <style>
 :root {
- --bg:#07111f;--panel:#0e1b2d;--cyan:#38bdf8;
- --purple:#a78bfa;--gold:#fbbf24;--green:#34d399;
- --text:#f1f5f9;--muted:#a9b8ca;--line:#24415e
+  --bg:#07111f; --panel:#0e1b2d; --panel2:#0a1525;
+  --cyan:#38bdf8; --purple:#a78bfa; --gold:#fbbf24;
+  --green:#34d399; --text:#f1f5f9; --muted:#a9b8ca;
+  --line:#24415e;
 }
 *{box-sizing:border-box}
-body{
- margin:0;padding:10px;color:var(--text);
- background:radial-gradient(ellipse at top,#182c53,#07111f 65%);
- font-family:system-ui,Arial,sans-serif;min-height:100vh
-}
-button,input,textarea,select{font:inherit}
+body{margin:0;padding:12px;background:radial-gradient(ellipse at top,#182c53,#07111f 65%);color:var(--text);font-family:system-ui,Arial,sans-serif;min-height:100vh}
 a{color:var(--cyan)}
-.container{width:min(1150px,100%);margin:auto;padding-bottom:35px}
-header,.bar,.panel,footer{
- border:1px solid var(--line);background:#0e1b2df5;
- border-radius:15px
-}
-header{text-align:center;padding:20px 12px;margin-bottom:12px}
-.bar{padding:12px;margin-bottom:12px;display:flex;
- align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.panel{padding:15px;margin-bottom:12px}
-h1{font-size:clamp(22px,4vw,34px);color:#67e8f9}
-h2{font-size:18px;color:#7dd3fc;margin-top:0}
-h3{font-size:14px;color:#7dd3fc}
-p{font-size:13px;color:var(--muted);line-height:1.8}
-.logo{font-size:38px}
-.tagline{font-size:12px;color:var(--muted)}
-.pills,.nav{display:flex;gap:8px;flex-wrap:wrap}
-.pills{justify-content:center}
-.pill{border:1px solid #b9872b;color:#fcd34d;
- border-radius:20px;padding:5px 10px;font-size:11px}
-.nav{flex-wrap:nowrap;overflow-x:auto;padding:5px 0 12px}
-.tab{flex:0 0 auto;background:#102037;color:white;
- border:1px solid var(--line);padding:10px;border-radius:9px;
- cursor:pointer;font-size:12px;font-weight:bold}
-.tab.active,.tab:hover{background:#075985}
+button,input,textarea,select{font:inherit}
+.container{width:min(1100px,100%);margin:auto;padding-bottom:45px}
+.bar,.panel,header,footer{border:1px solid var(--line);background:rgba(14,27,45,.96);border-radius:15px}
+.bar{padding:12px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+header{text-align:center;padding:24px 14px;margin-bottom:12px}
+header h1{font-size:clamp(22px,4vw,34px);background:linear-gradient(90deg,#67e8f9,#c4b5fd,#fcd34d);color:transparent;background-clip:text}
+.tagline{color:var(--muted);font-size:13px}
+.nav{display:flex;gap:7px;overflow-x:auto;margin:12px 0}
+.tab{flex-shrink:0;background:#102037;color:white;border:1px solid var(--line);padding:11px;border-radius:10px;cursor:pointer}
+.tab.active,.tab:hover{background:linear-gradient(120deg,#0284c7,#7c3aed)}
 .section{display:none}
 .section.active{display:block}
-.cards{display:grid;grid-template-columns:
- repeat(auto-fit,minmax(190px,1fr));gap:12px}
-.web-card{background:#081322;border:1px solid #203b57;
- border-radius:12px;padding:13px;display:flex;
- flex-direction:column;gap:8px}
-.web-card p{flex:1;margin:0}
-.btn{display:inline-flex;justify-content:center;align-items:center;
- text-align:center;width:100%;padding:11px;border:0;
- border-radius:9px;background:linear-gradient(120deg,#38bdf8,#0284c7);
- color:#03111d;font-size:12px;font-weight:bold;
- text-decoration:none;cursor:pointer}
+.panel{padding:17px;margin-bottom:12px}
+.panel h2{font-size:18px;color:#7dd3fc;margin-top:0}
+.panel p{font-size:13px;line-height:1.7;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:12px}
+.web-card{background:#081322;border:1px solid #203b57;border-radius:13px;padding:14px;display:flex;flex-direction:column;gap:9px}
+.web-card h3{font-size:14px;color:#7dd3fc;margin:0}
+.web-card p{font-size:12px;flex:1}
+.btn{display:inline-flex;justify-content:center;align-items:center;width:100%;padding:10px;border:0;border-radius:9px;background:linear-gradient(120deg,#38bdf8,#0284c7);color:#03111d;font-size:12px;font-weight:800;text-decoration:none;cursor:pointer}
 .btn.gold{background:linear-gradient(120deg,#fcd34d,#f59e0b)}
 .btn.green{background:linear-gradient(120deg,#34d399,#059669)}
 .field{margin:12px 0}
-.field label{display:block;margin-bottom:6px;font-size:12px}
-.field input,.field textarea,.field select,#siteSearch{
- width:100%;padding:11px;border:1px solid #294764;
- background:#07111f;color:white;border-radius:9px
-}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:6px;color:#dbeafe}
+.field input,.field textarea,.field select{width:100%;padding:11px;background:#07111f;color:white;border:1px solid #294764;border-radius:9px}
 .field textarea{min-height:90px}
-.result{display:none;margin-top:12px;padding:12px;
- border-radius:10px;background:#092a22;border:1px solid #176b51;
- font-size:13px;overflow-wrap:anywhere}
-.notice{padding:10px;border-left:3px solid var(--gold);
- background:#fbbf2410;font-size:12px;line-height:1.8}
-footer{text-align:center;padding:15px;color:var(--muted);font-size:11px}
-.hidden{display:none!important}
-.modal-backdrop{position:fixed;inset:0;z-index:9999;
- background:#020617ef;display:grid;place-items:center;padding:18px}
-.welcome-envelope{width:min(450px,100%);text-align:center;
- background:linear-gradient(145deg,#122843,#17102e);
- border:1px solid var(--purple);border-radius:20px;padding:22px}
-.envelope-icon{font-size:60px}
-.search-row{display:flex;gap:8px;flex:1}
-.search-row input{min-width:0;flex:1}
-@media(max-width:600px){
- body{padding:6px}.panel{padding:11px}
- .search-row{width:100%}.bar{align-items:flex-start}
-}
+.result{display:none;margin-top:12px;padding:12px;border-radius:10px;background:#092a22;border:1px solid #176b51;font-size:13px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
+.notice{border-left:3px solid var(--gold);padding:10px;background:#fbbf2410;font-size:12px;line-height:1.7}
+.media-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:9px}
+.media-link{display:block;background:var(--panel2);border:1px solid var(--line);padding:12px;border-radius:10px;text-decoration:none;color:white;font-size:13px;overflow-wrap:anywhere}
+.media-link small{display:block;color:var(--muted);margin-top:4px}
+.payment-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.pay-card{padding:14px;border:1px solid var(--line);border-radius:12px;background:#081322}
+.pay-card h3{color:#7dd3fc;font-size:15px}
+.pay-number{font-size:17px;font-weight:bold;color:#fde68a;overflow-wrap:anywhere}
+.copy-btn{margin-top:8px}
+footer{text-align:center;padding:16px;color:var(--muted);font-size:12px}
+#google_translate_element{max-width:100%}
+@media(max-width:600px){body{padding:7px}.panel{padding:13px}.bar{align-items:flex-start}header{padding:18px 10px}}
 </style>
 </head>
 
 <body>
-
-<div id="welcomeBackdrop" class="modal-backdrop">
- <div class="welcome-envelope">
-  <div class="envelope-icon">💌</div>
-  <h2>እንኳን ወደ ፖርታሉ በደህና መጡ!</h2>
-  <p>Ethio Digital Super Portal — እውቀት፣ መጻሕፍት፣
-  ሚዲያ፣ ቴክኖሎጂና ዲጂታል አገልግሎቶች በአንድ ቦታ።</p>
-  <button class="btn gold" id="openEnvelopeBtn">✉️ ደብዳቤውን ክፈት</button>
- </div>
-</div>
-
 <main class="container">
 
 <div class="bar">
- <strong>🌐 ቋንቋ ይምረጡ</strong>
- <a href="https://translate.google.com/" target="_blank"
- rel="noopener noreferrer">Google Translate ↗</a>
+<strong>🌐 ቋንቋ ይምረጡ / Select language</strong>
+<div id="google_translate_element"></div>
 </div>
 
 <div class="bar">
- <strong>📢 ማስታወቂያ ከ50–500 ETB</strong>
- <button class="btn gold" style="width:auto"
- data-open-tab="adApplyTab">ማስታወቂያ ያስገቡ</button>
+<strong style="color:#fcd34d">📢 ድርጅትዎን በፖርታላችን ያስተዋውቁ!</strong>
+<button class="btn gold" style="width:auto" onclick="switchTab('adApplyTab')">ማስታወቂያ ያስገቡ</button>
 </div>
 
 <header>
- <div class="logo">🌐</div>
- <h1>ኢትዮ ዲጂታል ሱፐር ፖርታል</h1>
- <p>መረጃ • እውቀት • መጻሕፍት • ፕሬስ • ሐይማኖት • AI</p>
- <div class="pills">
-  <span class="pill">🌍 ዓለም አቀፍ</span>
-  <span class="pill">🧠 የእውቀት ማዕከል</span>
-  <span class="pill">⭐ ነጥብ: <b id="points">0</b></span>
- </div>
+<div style="font-size:38px">🌐</div>
+<h1>ኢትዮ ዲጂታል ሱፐር ፖርታል</h1>
+<p class="tagline">መረጃ • እውቀት • መጻሕፍት • ዲጂታል መሳሪያዎች</p>
+<p>⭐ የጨዋታ ነጥብ፦ <strong id="points">0</strong></p>
 </header>
 
-<div class="bar">
- <strong>🔎 ፍለጋ</strong>
- <div class="search-row">
-  <input id="siteSearch" placeholder="Facebook፣ መጻሕፍት፣ AI...">
-  <button class="btn" style="width:auto" id="siteSearchBtn">ፈልግ</button>
- </div>
-</div>
-<div id="searchResult" class="result"></div>
-
-<nav class="nav">
- <button class="tab active" data-tab="booksTab">📚 መጻሕፍት</button>
- <button class="tab" data-tab="cultureTab">🏛️ ቅርስ</button>
- <button class="tab" data-tab="socialTab">📱 ማኅበራዊ ሚዲያ</button>
- <button class="tab" data-tab="islamicTab">🕌 እስላማዊ</button>
- <button class="tab" data-tab="faithTab">✝️ ሌሎች እምነቶች</button>
- <button class="tab" data-tab="newsTab">🔴 ዜና</button>
- <button class="tab" data-tab="mediaTab">🎬 AI እና ፊልም</button>
- <button class="tab" data-tab="cryptoTab">🪙 ፋይናንስ</button>
- <button class="tab" data-tab="gamesTab">🎮 ስፖርት</button>
- <button class="tab" data-tab="spinTab">🎡 ዊል</button>
- <button class="tab" data-tab="toolsTab">📍 GPS/Quiz</button>
- <button class="tab" data-tab="adApplyTab">📢 ማስታወቂያ</button>
- <button class="tab" data-tab="paymentTab">💳 ክፍያ</button>
- <button class="tab" data-tab="publishTab">✍️ ጽሑፍ</button>
+<nav class="nav" aria-label="ዋና ምናሌ">
+<button class="tab active" data-tab="booksTab" onclick="switchTab('booksTab',this)">📚 መጻሕፍት</button>
+<button class="tab" data-tab="socialTab" onclick="switchTab('socialTab',this)">🌍 ማኅበራዊ ሚዲያ</button>
+<button class="tab" data-tab="islamicTab" onclick="switchTab('islamicTab',this)">🕌 እስላማዊ ሚዲያ</button>
+<button class="tab" data-tab="faithTab" onclick="switchTab('faithTab',this)">🤝 ሌሎች እምነቶች</button>
+<button class="tab" data-tab="ethiopiaTab" onclick="switchTab('ethiopiaTab',this)">🇪🇹 ኢትዮጵያ</button>
+<button class="tab" data-tab="techTab" onclick="switchTab('techTab',this)">🤖 ቴክኖሎጂ</button>
+<button class="tab" data-tab="gamesTab" onclick="switchTab('gamesTab',this)">🎮 ጨዋታዎች</button>
+<button class="tab" data-tab="newsTab" onclick="switchTab('newsTab',this)">📰 ዜና</button>
+<button class="tab" data-tab="toolsTab" onclick="switchTab('toolsTab',this)">🧭 GPS & Quiz</button>
+<button class="tab" data-tab="spinTab" onclick="switchTab('spinTab',this)">🎡 ዊል</button>
+<button class="tab" data-tab="adApplyTab" onclick="switchTab('adApplyTab',this)">📢 ማስታወቂያ</button>
+<button class="tab" data-tab="paymentTab" onclick="switchTab('paymentTab',this)">💳 ክፍያ</button>
+<button class="tab" data-tab="publishTab" onclick="switchTab('publishTab',this)">✍️ ማተሚያ</button>
 </nav>
 
 <section id="booksTab" class="section active">
- <div class="panel">
-  <h2>📚 መጻሕፍትና ፕሬስ</h2>
-  <div class="cards">
-   <article class="web-card"><h3>📖 Project Gutenberg</h3>
-    <p>ነጻ ዲጂታል መጻሕፍት።</p>
-    <a class="btn" href="https://www.gutenberg.org/" target="_blank" rel="noopener">መጻሕፍት ክፈት ↗</a>
-   </article>
-   <article class="web-card"><h3>📰 ENA Ethiopia</h3>
-    <p>የኢትዮጵያ ዜና ኤጀንሲ።</p>
-    <a class="btn" href="https://www.ena.et/" target="_blank" rel="noopener">ENA ክፈት ↗</a>
-   </article>
-   <article class="web-card"><h3>🗞️ The Reporter</h3>
-    <p>የኢትዮጵያ ጋዜጣዊ ዘገባዎች።</p>
-    <a class="btn" href="https://www.thereporterethiopia.com/" target="_blank" rel="noopener">ጋዜጣውን ክፈት ↗</a>
-   </article>
-   <article class="web-card"><h3>🎓 Addis Ababa University</h3>
-    <p>የጥናት ሥራዎችና ተሲሶች።</p>
-    <a class="btn" href="https://etd.aau.edu.et/" target="_blank" rel="noopener">ማህደሩን ክፈት ↗</a>
-   </article>
-  </div>
- </div>
-</section>
-
-<section id="cultureTab" class="section">
- <div class="panel"><h2>🏛️ ባህል፣ ቅርስና ቱሪዝም</h2>
-  <div class="cards">
-   <article class="web-card"><h3>✈️ Ethiopian Airlines</h3>
-    <p>የበረራ መረጃና ትኬት።</p>
-    <a class="btn" href="https://www.ethiopianairlines.com/" target="_blank" rel="noopener">አየር መንገድ ↗</a>
-   </article>
-   <article class="web-card"><h3>🏺 UNESCO Ethiopia</h3>
-    <p>የዓለም ቅርስ ቦታዎች።</p>
-    <a class="btn" href="https://whc.unesco.org/en/statesparties/et/" target="_blank" rel="noopener">ቅርሶች ↗</a>
-   </article>
-   <article class="web-card"><h3>🇪🇹 Visit Ethiopia</h3>
-    <p>የቱሪዝም መረጃ።</p>
-    <a class="btn" href="https://visitethiopia.et/" target="_blank" rel="noopener">ጎብኝ ↗</a>
-   </article>
-  </div>
- </div>
+<div class="panel">
+<h2>📚 ነጻ መጻሕፍትና የምርምር ማዕከላት</h2>
+<div class="cards">
+<article class="web-card"><h3>Project Gutenberg</h3><p>ነጻ ዲጂታል መጻሕፍት።</p><a class="btn" href="https://www.gutenberg.org/" target="_blank" rel="noopener noreferrer">ክፈት ↗</a></article>
+<article class="web-card"><h3>Open Library</h3><p>መጻሕፍትን ፈልግ።</p><a class="btn" href="https://openlibrary.org/" target="_blank" rel="noopener noreferrer">ክፈት ↗</a></article>
+<article class="web-card"><h3>Internet Archive</h3><p>ዲጂታል መጻሕፍትና ማህደሮች።</p><a class="btn" href="https://archive.org/details/texts" target="_blank" rel="noopener noreferrer">ክፈት ↗</a></article>
+<article class="web-card"><h3>Google Books</h3><p>የመጻሕፍት ፍለጋ።</p><a class="btn" href="https://books.google.com/" target="_blank" rel="noopener noreferrer">ክፈት ↗</a></article>
+<article class="web-card"><h3>AAU Research</h3><p>የዩኒቨርሲቲ ጥናቶችና ተሲሶች።</p><a class="btn" href="https://etd.aau.edu.et/" target="_blank" rel="noopener noreferrer">ክፈት ↗</a></article>
+</div>
+</div>
 </section>
 
 <section id="socialTab" class="section">
- <div class="panel"><h2>📱 ማኅበራዊ ሚዲያዎች</h2>
-  <div class="cards">
-   <article class="web-card"><h3>📘 Facebook</h3><p>ማኅበራዊ ትስስር።</p><a class="btn" href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook ↗</a></article>
-   <article class="web-card"><h3>▶️ YouTube</h3><p>ቪዲዮና ሙዚቃ።</p><a class="btn" href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube ↗</a></article>
-   <article class="web-card"><h3>🎵 TikTok</h3><p>አጫጭር ቪዲዮዎች።</p><a class="btn" href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok ↗</a></article>
-   <article class="web-card"><h3>📸 Instagram</h3><p>ፎቶዎችና ማኅበራዊ ይዘቶች።</p><a class="btn" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram ↗</a></article>
-   <article class="web-card"><h3>✈️ Telegram</h3><p>መልዕክትና ቻናሎች።</p><a class="btn" href="https://web.telegram.org/" target="_blank" rel="noopener">Telegram ↗</a></article>
-   <article class="web-card"><h3>✖️ X</h3><p>ወቅታዊ ዜናና ሐሳቦች።</p><a class="btn" href="https://x.com/" target="_blank" rel="noopener">X ↗</a></article>
-  </div>
- </div>
+<div class="panel">
+<h2>🌍 ማኅበራዊ ሚዲያና የዓለም አገናኞች</h2>
+<div class="media-grid">
+<a class="media-link" href="https://m.facebook.com/" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Facebook<small>ፌስቡክ — ሞባይል ስሪት</small></a>
+<a class="media-link" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
+<a class="media-link" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok</a>
+<a class="media-link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+<a class="media-link" href="https://www.telegram.org/" target="_blank" rel="noopener noreferrer">Telegram</a>
+<a class="media-link" href="https://www.whatsapp.com/" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+<a class="media-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+<a class="media-link" href="https://www.x.com/" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+</div>
+</div>
 </section>
 
 <section id="islamicTab" class="section">
- <div class="panel"><h2>🕌 እስላማዊ ሚዲያና እውቀት</h2>
-  <div class="cards">
-   <article class="web-card"><h3>📺 Minber TV</h3><p>እስላማዊ ስርጭቶች።</p><a class="btn" href="https://www.youtube.com/@MinberTV" target="_blank" rel="noopener">Minber TV ↗</a></article>
-   <article class="web-card"><h3>🕌 Africa TV</h3><p>ዳዕዋና ትምህርቶች።</p><a class="btn" href="https://www.youtube.com/@africatv1" target="_blank" rel="noopener">Africa TV ↗</a></article>
-   <article class="web-card"><h3>📖 Quran.com</h3><p>ቁርአን፣ ትርጉምና ተፍሲር።</p><a class="btn" href="https://quran.com/" target="_blank" rel="noopener">ቁርአን ↗</a></article>
-   <article class="web-card"><h3>📚 Sunnah.com</h3><p>የሐዲስ ስብስቦች።</p><a class="btn" href="https://sunnah.com/" target="_blank" rel="noopener">ሐዲስ ↗</a></article>
-  </div>
- </div>
+<div class="panel">
+<h2>🕌 እስላማዊ ሚዲያና ትምህርቶች</h2>
+<div class="media-grid">
+<a class="media-link" href="https://www.youtube.com/@MinberTV" target="_blank" rel="noopener noreferrer">Minber TV<small>እስላማዊ ትምህርቶች</small></a>
+<a class="media-link" href="https://www.youtube.com/@africatv1" target="_blank" rel="noopener noreferrer">Africa TV</a>
+<a class="media-link" href="https://www.youtube.com/@HarunMedia" target="_blank" rel="noopener noreferrer">Harun Media</a>
+<a class="media-link" href="https://www.youtube.com/results?search_query=Makkah+live+Haram" target="_blank" rel="noopener noreferrer">መካ በቀጥታ</a>
+<a class="media-link" href="https://quran.com/" target="_blank" rel="noopener noreferrer">Quran.com</a>
+<a class="media-link" href="https://sunnah.com/" target="_blank" rel="noopener noreferrer">Sunnah.com</a>
+</div>
+</div>
 </section>
 
 <section id="faithTab" class="section">
- <div class="panel"><h2>✝️ የተለያዩ እምነቶች</h2>
-  <div class="cards">
-   <article class="web-card"><h3>⛪ ኦርቶዶክስ ተዋሕዶ</h3><p>የቤተ ክርስቲያን ሚዲያ።</p><a class="btn" href="https://www.youtube.com/results?search_query=Ethiopian+Orthodox+Tewahedo+Media" target="_blank" rel="noopener">ሚዲያ ፈልግ ↗</a></article>
-   <article class="web-card"><h3>✝️ ፕሮቴስታንት</h3><p>የወንጌል ትምህርቶች።</p><a class="btn" href="https://www.youtube.com/results?search_query=Ethiopian+Protestant+Media" target="_blank" rel="noopener">ሚዲያ ፈልግ ↗</a></article>
-   <article class="web-card"><h3>🤝 የእምነቶች ውይይት</h3><p>ሰላማዊ ውይይትና ትብብር።</p><a class="btn" href="https://www.youtube.com/results?search_query=Ethiopian+Interfaith+Dialogue" target="_blank" rel="noopener">ውይይት ፈልግ ↗</a></article>
-  </div>
- </div>
+<div class="panel">
+<h2>🤝 የተለያዩ እምነቶች መረጃ</h2>
+<p>የተለያዩ እምነቶችን ለማወቅ፣ ለመማርና ለመግባባት የሚረዱ የመረጃ ምንጮች።</p>
+<div class="media-grid">
+<a class="media-link" href="https://www.vatican.va/" target="_blank" rel="noopener noreferrer">Vatican — ካቶሊክ</a>
+<a class="media-link" href="https://www.oca.org/" target="_blank" rel="noopener noreferrer">Orthodox Church</a>
+<a class="media-link" href="https://www.jewishvirtuallibrary.org/" target="_blank" rel="noopener noreferrer">Jewish Virtual Library</a>
+<a class="media-link" href="https://www.bahai.org/" target="_blank" rel="noopener noreferrer">Bahá’í</a>
+<a class="media-link" href="https://www.britannica.com/topic/religion" target="_blank" rel="noopener noreferrer">የእምነቶች አጠቃላይ መረጃ</a>
+</div>
+</div>
 </section>
 
-<section id="newsTab" class="section">
- <div class="panel"><h2>🔴 ዜናዎች</h2>
-  <div class="cards">
-   <article class="web-card"><h3>ENA</h3><p>የኢትዮጵያ ዜና።</p><a class="btn" href="https://www.ena.et/" target="_blank" rel="noopener">ENA ↗</a></article>
-   <article class="web-card"><h3>BBC Amharic</h3><p>የአማርኛ ዜና።</p><a class="btn" href="https://www.bbc.com/amharic" target="_blank" rel="noopener">BBC ↗</a></article>
-   <article class="web-card"><h3>Al Jazeera</h3><p>ዓለም አቀፍ ዜና።</p><a class="btn" href="https://www.aljazeera.com/" target="_blank" rel="noopener">Al Jazeera ↗</a></article>
-   <article class="web-card"><h3>Reuters Africa</h3><p>የአፍሪካ ዜና።</p><a class="btn" href="https://www.reuters.com/world/africa/" target="_blank" rel="noopener">Reuters ↗</a></article>
-  </div>
- </div>
+<section id="ethiopiaTab" class="section">
+<div class="panel">
+<h2>🇪🇹 የኢትዮጵያ መረጃ፣ ባህልና ዜና</h2>
+<div class="media-grid">
+<a class="media-link" href="https://www.ena.et/" target="_blank" rel="noopener noreferrer">Ethiopian News Agency</a>
+<a class="media-link" href="https://www.ebc.et/" target="_blank" rel="noopener noreferrer">EBC</a>
+<a class="media-link" href="https://www.oromiatv.gov.et/" target="_blank" rel="noopener noreferrer">OBN — ኦሮሚያ ሚዲያ</a>
+<a class="media-link" href="https://amharic.voanews.com/" target="_blank" rel="noopener noreferrer">VOA Amharic</a>
+<a class="media-link" href="https://www.dw.com/am" target="_blank" rel="noopener noreferrer">DW Amharic</a>
+<a class="media-link" href="https://www.bbc.com/afaanoromoo" target="_blank" rel="noopener noreferrer">BBC Afaan Oromoo</a>
+<a class="media-link" href="https://www.aljazeera.com/" target="_blank" rel="noopener noreferrer">Al Jazeera</a>
+<a class="media-link" href="https://www.ethiopianairlines.com/" target="_blank" rel="noopener noreferrer">Ethiopian Airlines</a>
+<a class="media-link" href="https://www.visitethiopia.travel/" target="_blank" rel="noopener noreferrer">Visit Ethiopia</a>
+</div>
+</div>
 </section>
 
-<section id="mediaTab" class="section">
- <div class="panel"><h2>🎬 AI፣ ፊልምና ቴክኖሎጂ</h2>
-  <div class="cards">
-   <article class="web-card"><h3>🤖 ChatGPT</h3><p>የAI ረዳት።</p><a class="btn" href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT ↗</a></article>
-   <article class="web-card"><h3>✨ Gemini</h3><p>የGoogle AI።</p><a class="btn" href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini ↗</a></article>
-   <article class="web-card"><h3>🎬 Netflix</h3><p>ፊልሞችና ድራማዎች።</p><a class="btn" href="https://www.netflix.com/" target="_blank" rel="noopener">Netflix ↗</a></article>
-   <article class="web-card"><h3>🌐 Brave</h3><p>የድር አሳሽ።</p><a class="btn" href="https://brave.com/" target="_blank" rel="noopener">Brave ↗</a></article>
-   <article class="web-card"><h3>🧠 Perplexity AI</h3><p>AI ፍለጋ።</p><a class="btn" href="https://www.perplexity.ai/" target="_blank" rel="noopener">Perplexity ↗</a></article>
-  </div>
- </div>
-</section>
-
-<section id="cryptoTab" class="section">
- <div class="panel"><h2>🪙 ክሪፕቶከረንሲና ፋይናንስ</h2>
-  <div class="cards">
-   <article class="web-card"><h3>Binance</h3><p>የክሪፕቶ ገበያ።</p><a class="btn" href="https://www.binance.com/" target="_blank" rel="noopener">Binance ↗</a></article>
-   <article class="web-card"><h3>TradingView</h3><p>የገበያ ግራፎች።</p><a class="btn" href="https://www.tradingview.com/" target="_blank" rel="noopener">TradingView ↗</a></article>
-   <article class="web-card"><h3>XE Currency</h3><p>የምንዛሬ መረጃ።</p><a class="btn" href="https://www.xe.com/currencyconverter/" target="_blank" rel="noopener">ምንዛሬ ↗</a></article>
-  </div>
-  <p class="notice">የክሪፕቶ ንግድ ከፍተኛ አደጋ አለው። ገንዘብዎን ከማውጣትዎ በፊት ያረጋግጡ።</p>
- </div>
+<section id="techTab" class="section">
+<div class="panel">
+<h2>🤖 ቴክኖሎጂ፣ AIና ዲጂታል መሳሪያዎች</h2>
+<div class="media-grid">
+<a class="media-link" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT</a>
+<a class="media-link" href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">Google Gemini</a>
+<a class="media-link" href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer">Microsoft Copilot</a>
+<a class="media-link" href="https://www.canva.com/" target="_blank" rel="noopener noreferrer">Canva</a>
+<a class="media-link" href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Google Search</a>
+<a class="media-link" href="https://www.wikipedia.org/" target="_blank" rel="noopener noreferrer">Wikipedia</a>
+<a class="media-link" href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA</a>
+<a class="media-link" href="https://www.spacex.com/" target="_blank" rel="noopener noreferrer">SpaceX</a>
+<a class="media-link" href="https://www.starlink.com/" target="_blank" rel="noopener noreferrer">Starlink</a>
+<a class="media-link" href="https://www.coingecko.com/" target="_blank" rel="noopener noreferrer">Crypto prices</a>
+</div>
+</div>
 </section>
 
 <section id="gamesTab" class="section">
- <div class="panel"><h2>🎮 ጌሞችና ስፖርት</h2>
-  <div class="cards">
-   <article class="web-card"><h3>Chess.com</h3><p>የቼዝ ጨዋታ።</p><a class="btn" href="https://www.chess.com/" target="_blank" rel="noopener">Chess.com ↗</a></article>
-   <article class="web-card"><h3>Olympics</h3><p>የኦሎምፒክ ዜና።</p><a class="btn" href="https://olympics.com/" target="_blank" rel="noopener">Olympics ↗</a></article>
-   <article class="web-card"><h3>Formula 1</h3><p>የሬሲንግ ውድድር።</p><a class="btn" href="https://www.formula1.com/" target="_blank" rel="noopener">Formula 1 ↗</a></article>
-   <article class="web-card"><h3>Flashscore</h3><p>የስፖርት ውጤቶች።</p><a class="btn" href="https://www.flashscore.com/" target="_blank" rel="noopener">Flashscore ↗</a></article>
-  </div>
- </div>
+<div class="panel">
+<h2>🎮 ጨዋታዎች፣ ስፖርትና መዝናኛ</h2>
+<div class="media-grid">
+<a class="media-link" href="https://poki.com/" target="_blank" rel="noopener noreferrer">Poki Games</a>
+<a class="media-link" href="https://www.crazygames.com/" target="_blank" rel="noopener noreferrer">CrazyGames</a>
+<a class="media-link" href="https://www.chess.com/" target="_blank" rel="noopener noreferrer">Chess.com</a>
+<a class="media-link" href="https://www.olympics.com/" target="_blank" rel="noopener noreferrer">Olympics</a>
+<a class="media-link" href="https://www.formula1.com/" target="_blank" rel="noopener noreferrer">Formula 1</a>
+<a class="media-link" href="https://www.espn.com/" target="_blank" rel="noopener noreferrer">ESPN Sports</a>
+<a class="media-link" href="https://www.netflix.com/" target="_blank" rel="noopener noreferrer">Netflix</a>
+<a class="media-link" href="https://www.imdb.com/" target="_blank" rel="noopener noreferrer">IMDb</a>
+<a class="media-link" href="https://soundcloud.com/" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+<a class="media-link" href="https://music.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube Music</a>
+</div>
+</div>
 </section>
 
-<section id="spinTab" class="section">
- <div class="panel" style="text-align:center">
-  <h2>🎡 የዕድል ዊል</h2>
-  <p>ዊሉን አሽከርክርና ነጥብ አግኝ። ለመዝናኛ ብቻ ነው።</p>
-  <canvas id="wheel" width="300" height="300"
-  style="max-width:100%;border:4px solid #fbbf24;border-radius:50%"></canvas>
-  <button class="btn gold" id="spinBtn" style="max-width:240px;margin:12px auto">🎡 አሽከርክር</button>
-  <div id="wheelResult" class="result"></div>
- </div>
+<section id="newsTab" class="section">
+<div class="panel">
+<h2>📰 የዜና ምንጮች</h2>
+<p>የዜና ርዕሶችን ከማጋራት በፊት ከብዙ ታማኝ ምንጮች ያረጋግጡ።</p>
+<div class="media-grid">
+<a class="media-link" href="https://www.reuters.com/world/africa/" target="_blank" rel="noopener noreferrer">Reuters Africa</a>
+<a class="media-link" href="https://apnews.com/" target="_blank" rel="noopener noreferrer">Associated Press</a>
+<a class="media-link" href="https://www.bbc.com/news" target="_blank" rel="noopener noreferrer">BBC News</a>
+<a class="media-link" href="https://www.ena.et/" target="_blank" rel="noopener noreferrer">ENA</a>
+<a class="media-link" href="https://www.aljazeera.com/" target="_blank" rel="noopener noreferrer">Al Jazeera</a>
+</div>
+</div>
 </section>
 
 <section id="toolsTab" class="section">
- <div class="panel">
-  <h2>📍 GPS እና የእውቀት ጥያቄ</h2>
-  <button class="btn" id="locationBtn">📍 ቦታዬን አግኝ</button>
-  <div id="locationResult" class="result"></div>
-  <hr>
-  <h3>የኢትዮጵያ ዋና ከተማ የት ናት?</h3>
-  <div class="field">
-   <select id="quizAnswer">
-    <option value="">መልስ ይምረጡ</option>
-    <option value="ጅማ">ጅማ</option>
-    <option value="አዲስ አበባ">አዲስ አበባ</option>
-    <option value="አዳማ">አዳማ</option>
-   </select>
-  </div>
-  <button class="btn" id="quizBtn">መልስ አረጋግጥ</button>
-  <div id="quizResult" class="result"></div>
- </div>
+<div class="panel">
+<h2>🧭 GPS፣ ካርታና እውቀት ፈተና</h2>
+<div class="cards">
+<article class="web-card"><h3>Google Maps</h3><p>ካርታና የመንገድ መረጃ።</p><a class="btn" href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">ካርታ ክፈት</a></article>
+<article class="web-card"><h3>📍 GPS ቦታ</h3><p>ፈቃድ ከሰጡ የአሁኑን ቦታ ያሳያል።</p><button class="btn" onclick="getLocation()">ቦታዬን አሳይ</button><div id="locationResult" class="result"></div></article>
+<article class="web-card"><h3>❓ እውቀት ፈተና</h3><p>የኢትዮጵያ ዋና ከተማ የት ናት?</p><select id="quizAnswer"><option value="">መልስ ይምረጡ</option><option>ጅማ</option><option>አዲስ አበባ</option><option>ሐረር</option></select><button class="btn" style="margin-top:8px" onclick="checkQuiz()">መልስ አረጋግጥ</button><div id="quizResult" class="result"></div></article>
+</div>
+</div>
+</section>
+
+<section id="spinTab" class="section">
+<div class="panel">
+<h2>🎡 የነጥብ ዊል</h2>
+<p>ዊሉን ተጫን፤ ነጥብ ወይም የደስታ መልዕክት አግኝ። ይህ የጨዋታ ባህሪ ብቻ ነው፤ እውነተኛ ገንዘብ አያስገኝም።</p>
+<button class="btn gold" onclick="spinWheel()">🎡 አሽከርክር</button>
+<div id="wheelResult" class="result"></div>
+</div>
 </section>
 
 <section id="adApplyTab" class="section">
- <div class="panel">
-  <h2>📢 የማስታወቂያ ማመልከቻ</h2>
-  <p>ከ50 እስከ 500 ETB የሚደርስ የማስታወቂያ ጥያቄ ያዘጋጁ።</p>
-  <form id="adForm">
-   <div class="field"><label>የድርጅት ስም *</label><input id="bizName" required maxlength="150"></div>
-   <div class="field"><label>የማስታወቂያ መልዕክት *</label><textarea id="bizText" required maxlength="3000"></textarea></div>
-   <div class="field"><label>የመገኛ ስልክ</label><input id="bizContact" maxlength="100"></div>
-   <div class="field"><label>የማስታወቂያ ቦታ</label>
-    <select id="adPlacement"><option>ዋና ገጽ</option><option>የዜና ክፍል</option><option>የመጻሕፍት ክፍል</option><option>ሌላ</option></select>
-   </div>
-   <div class="field"><label>የማስታወቂያ ጊዜ</label>
-    <select id="adDuration"><option>1 ሳምንት</option><option>2 ሳምንት</option><option>1 ወር</option></select>
-   </div>
-   <div class="field"><label>የክፍያ መጠን (50–500 ETB) *</label>
-    <input id="adAmount" type="number" min="50" max="500" required>
-   </div>
-   <div class="field"><label>Txn ID</label><input id="txnId" maxlength="150"></div>
-   <div class="field"><label>የደረሰኝ ፋይል</label><input id="adReceipt" type="file" accept="image/*,.pdf"></div>
-   <button class="btn gold" type="submit">ማመልከቻውን አዘጋጅ</button>
-  </form>
-  <div id="adResult" class="result"></div>
- </div>
+<div class="panel">
+<h2>📢 የማስታወቂያ ማመልከቻ</h2>
+<p>ማመልከቻው ወደ Supabase ዳታቤዝ ለመላክ ይሞክራል። አስፈላጊ የዳታቤዝ ፈቃዶች ካልተዘጋጁ የስህተት መልዕክት ይታያል።</p>
+
+<form id="adForm">
+<div class="field"><label for="bizName">የድርጅት/ንግድ ስም *</label><input id="bizName" required maxlength="100"></div>
+<div class="field"><label for="bizText">የማስታወቂያ ጽሑፍ *</label><textarea id="bizText" required maxlength="1000"></textarea></div>
+<div class="field"><label for="adPlacement">የማስታወቂያ ቦታ *</label><select id="adPlacement" required><option value="">ይምረጡ</option><option>የላይኛው ባነር</option><option>የመነሻ ገጽ</option><option>የመጻሕፍት ክፍል</option><option>የዜና ክፍል</option><option>ሌላ</option></select></div>
+<div class="field"><label for="adDuration">የማስታወቂያ ጊዜ *</label><select id="adDuration" required><option value="">ይምረጡ</option><option>7 ቀናት</option><option>15 ቀናት</option><option>30 ቀናት</option></select></div>
+<div class="field"><label for="adAmount">የተስማሙበት ክፍያ (ብር)</label><input id="adAmount" type="number" min="0" step="0.01"></div>
+<div class="field"><label for="bizContact">ስልክ ወይም ኢሜይል</label><input id="bizContact" maxlength="100"></div>
+<div class="field"><label for="txnId">የክፍያ ማጣቀሻ ቁጥር</label><input id="txnId" maxlength="100"></div>
+<button class="btn green" type="submit">ማመልከቻውን ላክ</button>
+</form>
+<div id="adResult" class="result" role="status"></div>
+<button id="copyAd" class="btn" style="display:none;margin-top:10px" onclick="copyAdText()">መረጃውን ኮፒ አድርግ</button>
+<button id="sendAdWhatsApp" class="btn green" style="display:none;margin-top:10px" onclick="sendAdWhatsApp()" type="button">በWhatsApp ላክ</button>
+</div>
 </section>
 
 <section id="paymentTab" class="section">
- <div class="panel">
-  <h2>💳 የክፍያ መረጃ</h2>
-  <p>Telebirr: 0920836593</p>
-  <p>CBE: 1000257160077</p>
-  <p>Binance Pay ID: 903527741</p>
-  <div class="notice">ይህ ድረ-ገጽ ክፍያን በራሱ አያረጋግጥም። ከመክፈልዎ በፊት የክፍያ መለያዎቹን በተለየ መንገድ ያረጋግጡ።</div>
-  <form id="receiptForm">
-   <div class="field"><label>ስም/ማጣቀሻ *</label><input id="receiptName" required></div>
-   <div class="field"><label>የክፍያ ዘዴ</label>
-    <select id="receiptMethod"><option>Telebirr</option><option>CBE</option><option>Binance Pay</option></select>
-   </div>
-   <div class="field"><label>የክፍያ መጠን *</label><input id="receiptAmount" type="number" min="1" required></div>
-   <div class="field"><label>የክፍያ ዓላማ *</label>
-    <select id="receiptPurpose" required><option value="">ይምረጡ</option><option>ማስታወቂያ</option><option>ሌላ አገልግሎት</option></select>
-   </div>
-   <div class="field"><label>Txn ID *</label><input id="receiptTxn" required></div>
-   <button class="btn green" type="submit">የክፍያ መረጃውን አዘጋጅ</button>
-  </form>
-  <div id="receiptResult" class="result"></div>
- </div>
+<div class="panel">
+<h2>💳 የክፍያ መረጃ</h2>
+<p>ከመክፈልዎ በፊት የተቀባዩን ስም፣ የክፍያ ዓላማና መጠን ያረጋግጡ። ይህ ገጽ በራሱ ክፍያ አያረጋግጥም።</p>
+<div class="payment-grid">
+<div class="pay-card"><h3>📱 Telebirr</h3><div class="pay-number">0920836593</div><button class="btn copy-btn" onclick="copyValue('0920836593',this)">ቁጥሩን ኮፒ አድርግ</button></div>
+<div class="pay-card"><h3>🏦 CBE</h3><div class="pay-number">1000257160077</div><button class="btn copy-btn" onclick="copyValue('1000257160077',this)">ሂሳቡን ኮፒ አድርግ</button></div>
+<div class="pay-card"><h3>🟡 Binance Pay</h3><div class="pay-number">903527741</div><button class="btn copy-btn" onclick="copyValue('903527741',this)">Pay ID ኮፒ አድርግ</button></div>
+</div>
+<div class="notice" style="margin-top:12px">🔐 PIN፣ OTP፣ የባንክ ይለፍ ቃል ወይም Binance recovery phrase በዚህ ገጽ ፈጽሞ አታስገቡ።</div>
+<div class="field"><label for="receiptName">ስም</label><input id="receiptName"></div>
+<div class="field"><label for="receiptMethod">የክፍያ ዘዴ</label><select id="receiptMethod"><option>Telebirr</option><option>CBE</option><option>Binance Pay</option></select></div>
+<div class="field"><label for="receiptAmount">የከፈሉት መጠን</label><input id="receiptAmount" type="number" min="0"></div>
+<div class="field"><label for="receiptTxn">የግብይት ማጣቀሻ</label><input id="receiptTxn"></div>
+<button class="btn green" onclick="prepareReceipt()" type="button">ወደ WhatsApp ድጋፍ ላክ</button>
+</div>
 </section>
 
 <section id="publishTab" class="section">
- <div class="panel">
-  <h2>✍️ ጽሑፍ ማዘጋጃ</h2>
-  <div class="field"><label>ርዕስ</label><input id="publishTitle"></div>
-  <div class="field"><label>ጽሑፍ</label><textarea id="publishText" style="min-height:180px"></textarea></div>
-  <button class="btn" id="copyPublishBtn">ጽሑፉን ቅዳ</button>
-  <div id="publishResult" class="result"></div>
- </div>
+<div class="panel">
+<h2>✍️ የጽሑፍ ማተሚያ ስቱዲዮ</h2>
+<p>ጽሑፍ ያዘጋጁ፣ ቅድመ እይታ ይመልከቱ፣ ረቂቅ በአሳሹ ውስጥ ያስቀምጡ። ለሁሉም ጎብኚዎች ማተም የድረ-ገጹን ኮድ ማዘመን ይፈልጋል።</p>
+<div class="field"><label for="articleTitle">ርዕስ</label><input id="articleTitle" maxlength="180"></div>
+<div class="field"><label for="articleCategory">ምድብ</label><select id="articleCategory"><option>ወቅታዊ ትንታኔ</option><option>እስላማዊ ጥናት</option><option>ታሪክና ባህል</option><option>ቴክኖሎጂ</option><option>ሳይንስና ትምህርት</option></select></div>
+<div class="field"><label for="articleAuthor">ደራሲ/አዘጋጅ</label><input id="articleAuthor" value="TM Studio"></div>
+<div class="field"><label for="articleBody">ጽሑፍ</label><textarea id="articleBody" maxlength="30000" style="min-height:200px"></textarea></div>
+<div class="cards">
+<button class="btn" onclick="saveArticle()" type="button">💾 ረቂቅ አስቀምጥ</button>
+<button class="btn gold" onclick="previewArticle()" type="button">👁️ ቅድመ እይታ</button>
+<button class="btn green" onclick="downloadArticle()" type="button">HTML አውርድ</button>
+</div>
+<div id="articleStatus" class="result"></div>
+<div id="articlePreview" class="result" style="display:block;margin-top:12px">ቅድመ እይታው እዚህ ይታያል።</div>
+<div id="articleList"></div>
+</div>
 </section>
 
 <footer>
- © <span id="year"></span> Ethio Digital Super Portal | TM Studio
- <p>መረጃን በጥራት፣ እውነትን በማስረጃ።</p>
+© <span id="year"></span> ኢትዮ ዲጂታል ሱፐር ፖርታል<br>
+መረጃን በጥራት፤ እውነትን በማስረጃ።
 </footer>
+
 </main>
 
 <script>
@@ -374,302 +319,307 @@ footer{text-align:center;padding:15px;color:var(--muted);font-size:11px}
 
 const $ = id => document.getElementById(id);
 
-function safeGet(key, fallback=""){
- try {
-  const value=localStorage.getItem(key);
-  return value===null?fallback:value;
- } catch(e) { return fallback; }
+function switchTab(id, button) {
+  document.querySelectorAll(".section").forEach(section => {
+    section.classList.toggle("active", section.id === id);
+  });
+  document.querySelectorAll(".tab").forEach(tab => {
+    tab.classList.toggle("active", tab.dataset.tab === id);
+  });
+  if (button) button.classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
 }
 
-function safeSet(key,value){
- try { localStorage.setItem(key,String(value)); } catch(e) {}
-}
+$("year").textContent = new Date().getFullYear();
 
-let points=Math.max(0,Number(safeGet("edsp_points","0"))||0);
-function updatePoints(){
- $("points").textContent=String(points);
- safeSet("edsp_points",points);
-}
-updatePoints();
-
-function showResult(el,message){
- el.textContent=message;
- el.style.display="block";
-}
-
-function switchTab(id){
- const target=$(id);
- if(!target)return;
- document.querySelectorAll(".section").forEach(s=>{
-  s.classList.toggle("active",s.id===id);
- });
- document.querySelectorAll(".tab").forEach(b=>{
-  b.classList.toggle("active",b.dataset.tab===id);
- });
-}
-
-document.querySelectorAll(".tab[data-tab]").forEach(button=>{
- button.addEventListener("click",()=>switchTab(button.dataset.tab));
-});
-
-document.querySelectorAll("[data-open-tab]").forEach(button=>{
- button.addEventListener("click",()=>switchTab(button.dataset.openTab));
-});
-
-function closeWelcome(){
- $("welcomeBackdrop").classList.add("hidden");
- safeSet("edsp_welcome_seen","1");
-}
-
-$("openEnvelopeBtn").addEventListener("click",closeWelcome);
-$("welcomeBackdrop").addEventListener("click",e=>{
- if(e.target===$("welcomeBackdrop"))closeWelcome();
-});
-document.addEventListener("keydown",e=>{
- if(e.key==="Escape")closeWelcome();
-});
-if(safeGet("edsp_welcome_seen")==="1"){
- $("welcomeBackdrop").classList.add("hidden");
-}
-$("year").textContent=new Date().getFullYear();
-
-/* ፍለጋ */
-function runSearch(){
- const q=$("siteSearch").value.trim().toLocaleLowerCase();
- const cards=[...document.querySelectorAll(".web-card")];
- let count=0;
-
- cards.forEach(card=>{
-  const match=!q||card.textContent.toLocaleLowerCase().includes(q);
-  card.classList.toggle("hidden",!match);
-  if(match)count++;
- });
-
- if(!q){
-  $("searchResult").style.display="none";
-  document.querySelectorAll(".section").forEach(s=>s.classList.remove("hidden"));
-  return;
- }
-
- showResult($("searchResult"),"የተገኙ ውጤቶች: "+count);
-
- if(count){
-  const first=cards.find(c=>!c.classList.contains("hidden"));
-  if(first){
-   const section=first.closest(".section");
-   if(section)switchTab(section.id);
+async function copyValue(value, button) {
+  try {
+    await navigator.clipboard.writeText(value);
+  } catch (e) {
+    const area = document.createElement("textarea");
+    area.value = value;
+    document.body.appendChild(area);
+    area.select();
+    document.execCommand("copy");
+    area.remove();
   }
- }
+  const old = button.textContent;
+  button.textContent = "ተኮፒ ተደርጓል ✓";
+  setTimeout(() => button.textContent = old, 1800);
 }
-$("siteSearchBtn").addEventListener("click",runSearch);
-$("siteSearch").addEventListener("keydown",e=>{
- if(e.key==="Enter"){e.preventDefault();runSearch();}
-});
-$("siteSearch").addEventListener("input",()=>{
- if(!$("siteSearch").value.trim()){
-  document.querySelectorAll(".web-card").forEach(c=>c.classList.remove("hidden"));
-  $("searchResult").style.display="none";
- }
-});
 
-/* የዕድል ዊል */
-const slices=["+5 ነጥብ","+10 ነጥብ","መልካም ዕድል","+2 ነጥብ","እውቀት ይበልጣል","+3 ነጥብ"];
-const wheel=$("wheel");
-const ctx=wheel.getContext("2d");
-let angle=0,spinning=false;
-
-function drawWheel(){
- const c=150,r=145,arc=Math.PI*2/slices.length;
- ctx.clearRect(0,0,300,300);
- slices.forEach((label,i)=>{
-  const start=angle+i*arc-Math.PI/2;
-  const end=start+arc;
-  ctx.beginPath();
-  ctx.moveTo(c,c);
-  ctx.arc(c,c,r,start,end);
-  ctx.closePath();
-  ctx.fillStyle=["#0e7490","#6d28d9","#b45309","#047857","#1d4ed8","#9d174d"][i];
-  ctx.fill();
-  ctx.strokeStyle="#fff";
-  ctx.stroke();
-  ctx.save();
-  ctx.translate(c,c);
-  ctx.rotate(start+arc/2);
-  ctx.fillStyle="#fff";
-  ctx.font="bold 12px sans-serif";
-  ctx.textAlign="right";
-  ctx.fillText(label,r-10,4);
-  ctx.restore();
- });
- ctx.beginPath();
- ctx.moveTo(140,5);ctx.lineTo(160,5);ctx.lineTo(150,27);
- ctx.fillStyle="#fbbf24";ctx.fill();
+function getLocation() {
+  const out = $("locationResult");
+  out.style.display = "block";
+  if (!navigator.geolocation) {
+    out.textContent = "ይህ አሳሽ GPS አይደግፍም።";
+    return;
+  }
+  out.textContent = "የቦታ ፈቃድ እየጠየቀ ነው…";
+  navigator.geolocation.getCurrentPosition(position => {
+    const lat = position.coords.latitude.toFixed(5);
+    const lon = position.coords.longitude.toFixed(5);
+    const link = document.createElement("a");
+    link.href = "https://maps.google.com/?q=" + encodeURIComponent(lat + "," + lon);
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = "በGoogle Maps ክፈት ↗";
+    out.textContent = "ቦታ፦ " + lat + ", " + lon + " ";
+    out.appendChild(link);
+  }, () => {
+    out.textContent = "ቦታውን ማግኘት አልተቻለም። የስልክ Location ፈቃድ ያረጋግጡ።";
+  }, {enableHighAccuracy:true, timeout:10000});
 }
-drawWheel();
 
-$("spinBtn").addEventListener("click",()=>{
- if(spinning)return;
- spinning=true;
- $("spinBtn").disabled=true;
- const start=angle;
- const extra=Math.PI*2*(4+Math.random()*4)+Math.random()*Math.PI*2;
- const begin=performance.now();
- const duration=3000;
-
- function frame(now){
-  const t=Math.min(1,(now-begin)/duration);
-  const ease=1-Math.pow(1-t,4);
-  angle=start+extra*ease;
-  drawWheel();
-
-  if(t<1){
-   requestAnimationFrame(frame);
+function checkQuiz() {
+  const answer = $("quizAnswer").value;
+  const result = $("quizResult");
+  result.style.display = "block";
+  if (!answer) {
+    result.textContent = "መልስ ይምረጡ።";
+  } else if (answer === "አዲስ አበባ") {
+    result.textContent = "ትክክል! +1 ነጥብ";
+    $("points").textContent = Number($("points").textContent) + 1;
   } else {
-   spinning=false;
-   $("spinBtn").disabled=false;
-   const arc=Math.PI*2/slices.length;
-   const pos=((Math.PI*2-(angle%(Math.PI*2)))%(Math.PI*2));
-   const prize=slices[Math.floor(pos/arc)%slices.length];
-   const match=prize.match(/^\+(\d+)/);
-   if(match){points+=Number(match[1]);updatePoints();}
-   showResult($("wheelResult"),"ውጤት: "+prize);
+    result.textContent = "ትክክለኛው መልስ አዲስ አበባ ነው።";
   }
- }
- requestAnimationFrame(frame);
-});
-
-/* GPS */
-$("locationBtn").addEventListener("click",()=>{
- const out=$("locationResult");
- if(!navigator.geolocation){
-  showResult(out,"አሳሹ GPS አይደግፍም።");
-  return;
- }
- showResult(out,"ቦታዎ እየተፈለገ ነው...");
- navigator.geolocation.getCurrentPosition(pos=>{
-  const lat=pos.coords.latitude.toFixed(6);
-  const lon=pos.coords.longitude.toFixed(6);
-  out.replaceChildren();
-  const p=document.createElement("p");
-  p.textContent="Latitude: "+lat+" | Longitude: "+lon;
-  const a=document.createElement("a");
-  a.href="https://www.google.com/maps?q="+lat+","+lon;
-  a.target="_blank";
-  a.rel="noopener noreferrer";
-  a.textContent="በGoogle Maps ክፈት ↗";
-  out.append(p,a);
-  out.style.display="block";
- },err=>{
-  showResult(out,err.code===1?
-   "የGPS ፈቃድ አልተሰጠም።":
-   "ቦታውን ማግኘት አልተቻለም። HTTPS እና Location ፈቃድ ያረጋግጡ።");
- },{enableHighAccuracy:true,timeout:12000,maximumAge:60000});
-});
-
-/* የእውቀት ጥያቄ */
-$("quizBtn").addEventListener("click",()=>{
- const answer=$("quizAnswer").value;
- if(!answer){
-  showResult($("quizResult"),"እባክዎ መልስ ይምረጡ።");
-  return;
- }
- if(answer==="አዲስ አበባ"){
-  showResult($("quizResult"),"ትክክል! አዲስ አበባ የኢትዮጵያ ዋና ከተማ ናት።");
-  points++;
-  updatePoints();
- } else {
-  showResult($("quizResult"),"ትክክለኛው መልስ አዲስ አበባ ነው።");
- }
-});
-
-/* ቅጾች */
-function makeSummary(items){
- return items.map(([label,id])=>{
-  const el=$(id);
-  return label+": "+(el?el.value.trim():"");
- }).filter(line=>line.split(": ").slice(1).join(": ").trim()).join("\n");
 }
 
-function showCopyResult(el,title,text){
- el.replaceChildren();
- const p=document.createElement("p");
- p.textContent=title;
- const pre=document.createElement("pre");
- pre.style.whiteSpace="pre-wrap";
- pre.textContent=text;
- const button=document.createElement("button");
- button.className="btn green";
- button.textContent="መረጃውን ቅዳ";
- button.type="button";
- button.addEventListener("click",async()=>{
-  try{
-   await navigator.clipboard.writeText(text);
-   button.textContent="ተቀድቷል ✓";
-  }catch(e){
-   pre.focus();
-   const range=document.createRange();
-   range.selectNodeContents(pre);
-   const sel=window.getSelection();
-   sel.removeAllRanges();
-   sel.addRange(range);
-   button.textContent="ጽሑፉን ምረጥና ቅዳ";
-  }
- });
- el.append(p,pre,button);
- el.style.display="block";
+function spinWheel() {
+  const choices = [
+    {text:"+5 ነጥብ",points:5},
+    {text:"መልካም ዕድል",points:0},
+    {text:"+10 ነጥብ",points:10},
+    {text:"እንደገና ይሞክሩ",points:0},
+    {text:"+2 ነጥብ",points:2}
+  ];
+  const win = choices[Math.floor(Math.random()*choices.length)];
+  $("points").textContent = Number($("points").textContent) + win.points;
+  $("wheelResult").style.display = "block";
+  $("wheelResult").textContent = "ውጤት፦ " + win.text + (win.points ? " — ነጥብዎ ተጨምሯል።" : "");
 }
 
-$("adForm").addEventListener("submit",e=>{
- e.preventDefault();
- const amount=Number($("adAmount").value);
- if(amount<50||amount>500||!Number.isFinite(amount)){
-  showResult($("adResult"),"ክፍያው ከ50 እስከ 500 ETB መሆን አለበት።");
-  return;
- }
- let text=makeSummary([
-  ["የድርጅት ስም","bizName"],
-  ["የማስታወቂያ መልዕክት","bizText"],
-  ["ስልክ","bizContact"],
-  ["የማስታወቂያ ቦታ","adPlacement"],
-  ["የማስታወቂያ ጊዜ","adDuration"],
-  ["መጠን ETB","adAmount"],
-  ["Txn ID","txnId"]
- ]);
- const file=$("adReceipt").files[0];
- if(file)text+="\nየደረሰኝ ፋይል: "+file.name;
- showCopyResult($("adResult"),
-  "ማመልከቻው ተዘጋጅቷል። ወደ አስተዳዳሪ ገና አልተላከም። ጽሑፉን ቅዳና ላክ።",text);
+const SUPABASE_URL = "https://tqvemkwvbikwnnulncgm.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_RVudC5rR1vHfaxF6OR_S-w_-8J2KJ52";
+
+async function insertSupabase(table, payload) {
+  const response = await fetch(SUPABASE_URL + "/rest/v1/" + table, {
+    method: "POST",
+    headers: {
+      "apikey": SUPABASE_PUBLISHABLE_KEY,
+      "Authorization": "Bearer " + SUPABASE_PUBLISHABLE_KEY,
+      "Content-Type": "application/json",
+      "Prefer": "return=minimal"
+    },
+    body: JSON.stringify(payload)
+  });
+
+  if (!response.ok) {
+    const details = await response.text();
+    console.error("Supabase error:", response.status, details);
+    throw new Error("ዳታቤዝ ስህተት " + response.status + ": " + details);
+  }
+}
+
+let adDraft = "";
+
+$("adForm").addEventListener("submit", async event => {
+  event.preventDefault();
+
+  const business = $("bizName").value.trim();
+  const details = $("bizText").value.trim();
+  const placement = $("adPlacement").value;
+  const duration = $("adDuration").value;
+  const contact = $("bizContact").value.trim();
+  const txn = $("txnId").value.trim();
+  const amount = $("adAmount").value ? Number($("adAmount").value) : null;
+
+  adDraft =
+    "የማስታወቂያ ማመልከቻ\n" +
+    "ድርጅት፦ " + business + "\n" +
+    "ይዘት፦ " + details + "\n" +
+    "ቦታ፦ " + placement + "\n" +
+    "ጊዜ፦ " + duration + "\n" +
+    "ክፍያ፦ " + (amount === null ? "አልተገለጸም" : amount + " ብር") + "\n" +
+    "መገኛ፦ " + (contact || "አልተሰጠም") + "\n" +
+    "የግብይት ማጣቀሻ፦ " + (txn || "አልተሰጠም");
+
+  const result = $("adResult");
+  result.style.display = "block";
+  result.textContent = "ማመልከቻው ወደ ዳታቤዝ እየተላከ ነው…";
+  $("copyAd").style.display = "block";
+  $("sendAdWhatsApp").style.display = "block";
+
+  try {
+    await insertSupabase("advertising_requests", {
+      business_name: business,
+      contact_name: contact || null,
+      contact_phone: contact || null,
+      ad_type: placement,
+      duration: duration,
+      budget_etb: amount,
+      details: details + "\nየግብይት ማጣቀሻ፦ " + (txn || "አልተሰጠም"),
+      status: "pending"
+    });
+    result.textContent = "የማስታወቂያ ጥያቄዎ በዳታቤዝ ተቀምጧል።";
+  } catch (error) {
+    console.error(error);
+    result.textContent =
+      "ዳታቤዙ ጥያቄውን አልተቀበለም። " +
+      "በSupabase የadvertising_requests አምዶችና INSERT ፈቃድ (RLS policy) መፈተሽ ያስፈልጋል። " +
+      "የስህተቱን ዝርዝር በBrowser Console ይመልከቱ።";
+  }
 });
 
-$("receiptForm").addEventListener("submit",e=>{
- e.preventDefault();
- const text=makeSummary([
-  ["ስም/ማጣቀሻ","receiptName"],
-  ["የክፍያ ዘዴ","receiptMethod"],
-  ["መጠን ETB","receiptAmount"],
-  ["ዓላማ","receiptPurpose"],
-  ["Txn ID","receiptTxn"]
- ]);
- showCopyResult($("receiptResult"),
-  "የክፍያ መረጃው ተዘጋጅቷል። ክፍያው ገና አልተረጋገጠም።",text);
-});
+async function copyAdText() {
+  await copyValue(adDraft, $("copyAd"));
+}
 
-/* ጽሑፍ ማዘጋጃ */
-$("copyPublishBtn").addEventListener("click",async()=>{
- const title=$("publishTitle").value.trim();
- const body=$("publishText").value.trim();
- const text=(title?title+"\n\n":"")+body;
- if(!text){
-  showResult($("publishResult"),"እባክዎ ጽሑፍ ያስገቡ።");
-  return;
- }
- try{
-  await navigator.clipboard.writeText(text);
-  showResult($("publishResult"),"ጽሑፉ ተቀድቷል።");
- }catch(e){
-  showCopyResult($("publishResult"),"ጽሑፉን ቅዳ።",text);
- }
-});
+function sendAdWhatsApp() {
+  if (!adDraft) return;
+  const url = "https://wa.me/251920836593?text=" + encodeURIComponent(adDraft);
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
+function prepareReceipt() {
+  const message =
+    "የክፍያ ማረጋገጫ ጥያቄ\n" +
+    "ስም፦ " + $("receiptName").value.trim() + "\n" +
+    "የክፍያ ዘዴ፦ " + $("receiptMethod").value + "\n" +
+    "መጠን፦ " + $("receiptAmount").value + "\n" +
+    "የግብይት ማጣቀሻ፦ " + $("receiptTxn").value.trim() + "\n" +
+    "እባክዎ ክፍያውን በእጅ ያረጋግጡ።";
+  window.open(
+    "https://wa.me/251920836593?text=" + encodeURIComponent(message),
+    "_blank",
+    "noopener,noreferrer"
+  );
+}
+
+function getArticles() {
+  try {
+    return JSON.parse(localStorage.getItem("edspArticles") || "[]");
+  } catch (e) {
+    return [];
+  }
+}
+
+function previewArticle() {
+  const title = $("articleTitle").value.trim();
+  const body = $("articleBody").value.trim();
+  const category = $("articleCategory").value;
+  const author = $("articleAuthor").value.trim() || "TM Studio";
+  const box = $("articlePreview");
+  box.textContent = title + "\n" + category + " · " + author + "\n\n" + body;
+}
+
+function saveArticle() {
+  const title = $("articleTitle").value.trim();
+  const body = $("articleBody").value.trim();
+  const status = $("articleStatus");
+  status.style.display = "block";
+
+  if (!title || !body) {
+    status.textContent = "ርዕስና ጽሑፍ ያስገቡ።";
+    return;
+  }
+
+  const articles = getArticles();
+  articles.unshift({
+    id: Date.now(),
+    title,
+    body,
+    category: $("articleCategory").value,
+    author: $("articleAuthor").value.trim() || "TM Studio",
+    date: new Date().toLocaleDateString()
+  });
+
+  try {
+    localStorage.setItem("edspArticles", JSON.stringify(articles.slice(0,30)));
+    status.textContent = "ረቂቁ በዚህ አሳሽ ውስጥ ተቀምጧል።";
+    renderArticles();
+  } catch (e) {
+    status.textContent = "ረቂቁን ማስቀመጥ አልተቻለም።";
+  }
+}
+
+function renderArticles() {
+  const root = $("articleList");
+  root.replaceChildren();
+
+  getArticles().forEach(article => {
+    const item = document.createElement("div");
+    item.className = "web-card";
+
+    const title = document.createElement("h3");
+    title.textContent = article.title;
+
+    const body = document.createElement("p");
+    body.textContent = article.body.slice(0,250);
+
+    const edit = document.createElement("button");
+    edit.className = "btn";
+    edit.textContent = "አርትዕ";
+    edit.onclick = () => {
+      $("articleTitle").value = article.title;
+      $("articleBody").value = article.body;
+      $("articleCategory").value = article.category;
+      $("articleAuthor").value = article.author;
+      previewArticle();
+      switchTab("publishTab");
+    };
+
+    const remove = document.createElement("button");
+    remove.className = "btn gold";
+    remove.textContent = "ሰርዝ";
+    remove.onclick = () => {
+      if (confirm("ይህን ረቂቅ ሰርዘው?")) {
+        localStorage.setItem("edspArticles", JSON.stringify(
+          getArticles().filter(a => a.id !== article.id)
+        ));
+        renderArticles();
+      }
+    };
+
+    item.append(title, body, edit, remove);
+    root.appendChild(item);
+  });
+}
+
+function downloadArticle() {
+  const title = $("articleTitle").value.trim();
+  const body = $("articleBody").value.trim();
+  if (!title || !body) {
+    $("articleStatus").style.display = "block";
+    $("articleStatus").textContent = "ርዕስና ጽሑፍ ያስገቡ።";
+    return;
+  }
+
+  const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  }[char]));
+
+  const html = "<!DOCTYPE html><html lang='am'><head><meta charset='UTF-8'>" +
+    "<meta name='viewport' content='width=device-width,initial-scale=1'>" +
+    "<title>" + escapeHTML(title) + "</title></head><body>" +
+    "<h1>" + escapeHTML(title) + "</h1><p>" +
+    escapeHTML($("articleCategory").value) + " · " +
+    escapeHTML($("articleAuthor").value || "TM Studio") +
+    "</p><article style='white-space:pre-wrap;line-height:1.9'>" +
+    escapeHTML(body) + "</article></body></html>";
+
+  const blob = new Blob([html], {type:"text/html;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "tm-studio-article.html";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
+renderArticles();
 </script>
 </body>
 </html>
