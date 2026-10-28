@@ -1,625 +1,896 @@
-<!DOCTYPE html>
-<html lang="am">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#07111f">
-<meta name="description" content="Ethio Digital Super Portal — መረጃ፣ እውቀት፣ መጻሕፍትና ዲጂታል አገልግሎቶች">
-<title>ኢትዮ ዲጂታል ሱፐር ፖርታል</title>
-
-<script>
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'am',
-    includedLanguages: 'am,om,ti,en,ar,fr,es,de,zh,it,ru'
-  }, 'google_translate_element');
-}
-</script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
-
-<style>
-:root {
-  --bg:#07111f; --panel:#0e1b2d; --panel2:#0a1525;
-  --cyan:#38bdf8; --purple:#a78bfa; --gold:#fbbf24;
-  --green:#34d399; --text:#f1f5f9; --muted:#a9b8ca;
-  --line:#24415e;
-}
-*{box-sizing:border-box}
-body{margin:0;padding:12px;background:radial-gradient(ellipse at top,#182c53,#07111f 65%);color:var(--text);font-family:system-ui,Arial,sans-serif;min-height:100vh}
-a{color:var(--cyan)}
-button,input,textarea,select{font:inherit}
-.container{width:min(1100px,100%);margin:auto;padding-bottom:45px}
-.bar,.panel,header,footer{border:1px solid var(--line);background:rgba(14,27,45,.96);border-radius:15px}
-.bar{padding:12px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-header{text-align:center;padding:24px 14px;margin-bottom:12px}
-header h1{font-size:clamp(22px,4vw,34px);background:linear-gradient(90deg,#67e8f9,#c4b5fd,#fcd34d);color:transparent;background-clip:text}
-.tagline{color:var(--muted);font-size:13px}
-.nav{display:flex;gap:7px;overflow-x:auto;margin:12px 0}
-.tab{flex-shrink:0;background:#102037;color:white;border:1px solid var(--line);padding:11px;border-radius:10px;cursor:pointer}
-.tab.active,.tab:hover{background:linear-gradient(120deg,#0284c7,#7c3aed)}
-.section{display:none}
-.section.active{display:block}
-.panel{padding:17px;margin-bottom:12px}
-.panel h2{font-size:18px;color:#7dd3fc;margin-top:0}
-.panel p{font-size:13px;line-height:1.7;color:var(--muted)}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:12px}
-.web-card{background:#081322;border:1px solid #203b57;border-radius:13px;padding:14px;display:flex;flex-direction:column;gap:9px}
-.web-card h3{font-size:14px;color:#7dd3fc;margin:0}
-.web-card p{font-size:12px;flex:1}
-.btn{display:inline-flex;justify-content:center;align-items:center;width:100%;padding:10px;border:0;border-radius:9px;background:linear-gradient(120deg,#38bdf8,#0284c7);color:#03111d;font-size:12px;font-weight:800;text-decoration:none;cursor:pointer}
-.btn.gold{background:linear-gradient(120deg,#fcd34d,#f59e0b)}
-.btn.green{background:linear-gradient(120deg,#34d399,#059669)}
-.field{margin:12px 0}
-.field label{display:block;font-size:12px;font-weight:700;margin-bottom:6px;color:#dbeafe}
-.field input,.field textarea,.field select{width:100%;padding:11px;background:#07111f;color:white;border:1px solid #294764;border-radius:9px}
-.field textarea{min-height:90px}
-.result{display:none;margin-top:12px;padding:12px;border-radius:10px;background:#092a22;border:1px solid #176b51;font-size:13px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
-.notice{border-left:3px solid var(--gold);padding:10px;background:#fbbf2410;font-size:12px;line-height:1.7}
-.media-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:9px}
-.media-link{display:block;background:var(--panel2);border:1px solid var(--line);padding:12px;border-radius:10px;text-decoration:none;color:white;font-size:13px;overflow-wrap:anywhere}
-.media-link small{display:block;color:var(--muted);margin-top:4px}
-.payment-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
-.pay-card{padding:14px;border:1px solid var(--line);border-radius:12px;background:#081322}
-.pay-card h3{color:#7dd3fc;font-size:15px}
-.pay-number{font-size:17px;font-weight:bold;color:#fde68a;overflow-wrap:anywhere}
-.copy-btn{margin-top:8px}
-footer{text-align:center;padding:16px;color:var(--muted);font-size:12px}
-#google_translate_element{max-width:100%}
-@media(max-width:600px){body{padding:7px}.panel{padding:13px}.bar{align-items:flex-start}header{padding:18px 10px}}
-</style>
-</head>
-
-<body>
-<main class="container">
-
-<div class="bar">
-<strong>🌐 ቋንቋ ይምረጡ / Select language</strong>
-<div id="google_translate_element"></div>
-</div>
-
-<div class="bar">
-<strong style="color:#fcd34d">📢 ድርጅትዎን በፖርታላችን ያስተዋውቁ!</strong>
-<button class="btn gold" style="width:auto" onclick="switchTab('adApplyTab')">ማስታወቂያ ያስገቡ</button>
-</div>
-
-<header>
-<div style="font-size:38px">🌐</div>
-<h1>ኢትዮ ዲጂታል ሱፐር ፖርታል</h1>
-<p class="tagline">መረጃ • እውቀት • መጻሕፍት • ዲጂታል መሳሪያዎች</p>
-<p>⭐ የጨዋታ ነጥብ፦ <strong id="points">0</strong></p>
-</header>
-
-<nav class="nav" aria-label="ዋና ምናሌ">
-<button class="tab active" data-tab="booksTab" onclick="switchTab('booksTab',this)">📚 መጻሕፍት</button>
-<button class="tab" data-tab="socialTab" onclick="switchTab('socialTab',this)">🌍 ማኅበራዊ ሚዲያ</button>
-<button class="tab" data-tab="islamicTab" onclick="switchTab('islamicTab',this)">🕌 እስላማዊ ሚዲያ</button>
-<button class="tab" data-tab="faithTab" onclick="switchTab('faithTab',this)">🤝 ሌሎች እምነቶች</button>
-<button class="tab" data-tab="ethiopiaTab" onclick="switchTab('ethiopiaTab',this)">🇪🇹 ኢትዮጵያ</button>
-<button class="tab" data-tab="techTab" onclick="switchTab('techTab',this)">🤖 ቴክኖሎጂ</button>
-<button class="tab" data-tab="gamesTab" onclick="switchTab('gamesTab',this)">🎮 ጨዋታዎች</button>
-<button class="tab" data-tab="newsTab" onclick="switchTab('newsTab',this)">📰 ዜና</button>
-<button class="tab" data-tab="toolsTab" onclick="switchTab('toolsTab',this)">🧭 GPS & Quiz</button>
-<button class="tab" data-tab="spinTab" onclick="switchTab('spinTab',this)">🎡 ዊል</button>
-<button class="tab" data-tab="adApplyTab" onclick="switchTab('adApplyTab',this)">📢 ማስታወቂያ</button>
-<button class="tab" data-tab="paymentTab" onclick="switchTab('paymentTab',this)">💳 ክፍያ</button>
-<button class="tab" data-tab="publishTab" onclick="switchTab('publishTab',this)">✍️ ማተሚያ</button>
-</nav>
-
-<section id="booksTab" class="section active">
-<div class="panel">
-<h2>📚 ነጻ መጻሕፍትና የምርምር ማዕከላት</h2>
-<div class="cards">
-<article class="web-card"><h3>Project Gutenberg</h3><p>ነጻ ዲጂታል መጻሕፍት።</p><a class="btn" href="https://www.gutenberg.org/" target="_blank" rel="noopener noreferrer">ክፈት ↗</a></article>
-<article class="web-card"><h3>Open Library</h3><p>መጻሕፍትን ፈልግ።</p><a class="btn" href="https://openlibrary.org/" target="_blank" rel="noopener noreferrer">ክፈት ↗</a></article>
-<article class="web-card"><h3>Internet Archive</h3><p>ዲጂታል መጻሕፍትና ማህደሮች።</p><a class="btn" href="https://archive.org/details/texts" target="_blank" rel="noopener noreferrer">ክፈት ↗</a></article>
-<article class="web-card"><h3>Google Books</h3><p>የመጻሕፍት ፍለጋ።</p><a class="btn" href="https://books.google.com/" target="_blank" rel="noopener noreferrer">ክፈት ↗</a></article>
-<article class="web-card"><h3>AAU Research</h3><p>የዩኒቨርሲቲ ጥናቶችና ተሲሶች።</p><a class="btn" href="https://etd.aau.edu.et/" target="_blank" rel="noopener noreferrer">ክፈት ↗</a></article>
-</div>
-</div>
-</section>
-
-<section id="socialTab" class="section">
-<div class="panel">
-<h2>🌍 ማኅበራዊ ሚዲያና የዓለም አገናኞች</h2>
-<div class="media-grid">
-<a class="media-link" href="https://m.facebook.com/" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Facebook<small>ፌስቡክ — ሞባይል ስሪት</small></a>
-<a class="media-link" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
-<a class="media-link" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok</a>
-<a class="media-link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
-<a class="media-link" href="https://www.telegram.org/" target="_blank" rel="noopener noreferrer">Telegram</a>
-<a class="media-link" href="https://www.whatsapp.com/" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-<a class="media-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-<a class="media-link" href="https://www.x.com/" target="_blank" rel="noopener noreferrer">X / Twitter</a>
-</div>
-</div>
-</section>
-
-<section id="islamicTab" class="section">
-<div class="panel">
-<h2>🕌 እስላማዊ ሚዲያና ትምህርቶች</h2>
-<div class="media-grid">
-<a class="media-link" href="https://www.youtube.com/@MinberTV" target="_blank" rel="noopener noreferrer">Minber TV<small>እስላማዊ ትምህርቶች</small></a>
-<a class="media-link" href="https://www.youtube.com/@africatv1" target="_blank" rel="noopener noreferrer">Africa TV</a>
-<a class="media-link" href="https://www.youtube.com/@HarunMedia" target="_blank" rel="noopener noreferrer">Harun Media</a>
-<a class="media-link" href="https://www.youtube.com/results?search_query=Makkah+live+Haram" target="_blank" rel="noopener noreferrer">መካ በቀጥታ</a>
-<a class="media-link" href="https://quran.com/" target="_blank" rel="noopener noreferrer">Quran.com</a>
-<a class="media-link" href="https://sunnah.com/" target="_blank" rel="noopener noreferrer">Sunnah.com</a>
-</div>
-</div>
-</section>
-
-<section id="faithTab" class="section">
-<div class="panel">
-<h2>🤝 የተለያዩ እምነቶች መረጃ</h2>
-<p>የተለያዩ እምነቶችን ለማወቅ፣ ለመማርና ለመግባባት የሚረዱ የመረጃ ምንጮች።</p>
-<div class="media-grid">
-<a class="media-link" href="https://www.vatican.va/" target="_blank" rel="noopener noreferrer">Vatican — ካቶሊክ</a>
-<a class="media-link" href="https://www.oca.org/" target="_blank" rel="noopener noreferrer">Orthodox Church</a>
-<a class="media-link" href="https://www.jewishvirtuallibrary.org/" target="_blank" rel="noopener noreferrer">Jewish Virtual Library</a>
-<a class="media-link" href="https://www.bahai.org/" target="_blank" rel="noopener noreferrer">Bahá’í</a>
-<a class="media-link" href="https://www.britannica.com/topic/religion" target="_blank" rel="noopener noreferrer">የእምነቶች አጠቃላይ መረጃ</a>
-</div>
-</div>
-</section>
-
-<section id="ethiopiaTab" class="section">
-<div class="panel">
-<h2>🇪🇹 የኢትዮጵያ መረጃ፣ ባህልና ዜና</h2>
-<div class="media-grid">
-<a class="media-link" href="https://www.ena.et/" target="_blank" rel="noopener noreferrer">Ethiopian News Agency</a>
-<a class="media-link" href="https://www.ebc.et/" target="_blank" rel="noopener noreferrer">EBC</a>
-<a class="media-link" href="https://www.oromiatv.gov.et/" target="_blank" rel="noopener noreferrer">OBN — ኦሮሚያ ሚዲያ</a>
-<a class="media-link" href="https://amharic.voanews.com/" target="_blank" rel="noopener noreferrer">VOA Amharic</a>
-<a class="media-link" href="https://www.dw.com/am" target="_blank" rel="noopener noreferrer">DW Amharic</a>
-<a class="media-link" href="https://www.bbc.com/afaanoromoo" target="_blank" rel="noopener noreferrer">BBC Afaan Oromoo</a>
-<a class="media-link" href="https://www.aljazeera.com/" target="_blank" rel="noopener noreferrer">Al Jazeera</a>
-<a class="media-link" href="https://www.ethiopianairlines.com/" target="_blank" rel="noopener noreferrer">Ethiopian Airlines</a>
-<a class="media-link" href="https://www.visitethiopia.travel/" target="_blank" rel="noopener noreferrer">Visit Ethiopia</a>
-</div>
-</div>
-</section>
-
-<section id="techTab" class="section">
-<div class="panel">
-<h2>🤖 ቴክኖሎጂ፣ AIና ዲጂታል መሳሪያዎች</h2>
-<div class="media-grid">
-<a class="media-link" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT</a>
-<a class="media-link" href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">Google Gemini</a>
-<a class="media-link" href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer">Microsoft Copilot</a>
-<a class="media-link" href="https://www.canva.com/" target="_blank" rel="noopener noreferrer">Canva</a>
-<a class="media-link" href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Google Search</a>
-<a class="media-link" href="https://www.wikipedia.org/" target="_blank" rel="noopener noreferrer">Wikipedia</a>
-<a class="media-link" href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA</a>
-<a class="media-link" href="https://www.spacex.com/" target="_blank" rel="noopener noreferrer">SpaceX</a>
-<a class="media-link" href="https://www.starlink.com/" target="_blank" rel="noopener noreferrer">Starlink</a>
-<a class="media-link" href="https://www.coingecko.com/" target="_blank" rel="noopener noreferrer">Crypto prices</a>
-</div>
-</div>
-</section>
-
-<section id="gamesTab" class="section">
-<div class="panel">
-<h2>🎮 ጨዋታዎች፣ ስፖርትና መዝናኛ</h2>
-<div class="media-grid">
-<a class="media-link" href="https://poki.com/" target="_blank" rel="noopener noreferrer">Poki Games</a>
-<a class="media-link" href="https://www.crazygames.com/" target="_blank" rel="noopener noreferrer">CrazyGames</a>
-<a class="media-link" href="https://www.chess.com/" target="_blank" rel="noopener noreferrer">Chess.com</a>
-<a class="media-link" href="https://www.olympics.com/" target="_blank" rel="noopener noreferrer">Olympics</a>
-<a class="media-link" href="https://www.formula1.com/" target="_blank" rel="noopener noreferrer">Formula 1</a>
-<a class="media-link" href="https://www.espn.com/" target="_blank" rel="noopener noreferrer">ESPN Sports</a>
-<a class="media-link" href="https://www.netflix.com/" target="_blank" rel="noopener noreferrer">Netflix</a>
-<a class="media-link" href="https://www.imdb.com/" target="_blank" rel="noopener noreferrer">IMDb</a>
-<a class="media-link" href="https://soundcloud.com/" target="_blank" rel="noopener noreferrer">SoundCloud</a>
-<a class="media-link" href="https://music.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube Music</a>
-</div>
-</div>
-</section>
-
-<section id="newsTab" class="section">
-<div class="panel">
-<h2>📰 የዜና ምንጮች</h2>
-<p>የዜና ርዕሶችን ከማጋራት በፊት ከብዙ ታማኝ ምንጮች ያረጋግጡ።</p>
-<div class="media-grid">
-<a class="media-link" href="https://www.reuters.com/world/africa/" target="_blank" rel="noopener noreferrer">Reuters Africa</a>
-<a class="media-link" href="https://apnews.com/" target="_blank" rel="noopener noreferrer">Associated Press</a>
-<a class="media-link" href="https://www.bbc.com/news" target="_blank" rel="noopener noreferrer">BBC News</a>
-<a class="media-link" href="https://www.ena.et/" target="_blank" rel="noopener noreferrer">ENA</a>
-<a class="media-link" href="https://www.aljazeera.com/" target="_blank" rel="noopener noreferrer">Al Jazeera</a>
-</div>
-</div>
-</section>
-
+```html
+<div class="bar ad-bar"><div class="ad-copy" id="adSlideBox">📢 ድርጅትዎን በፖርታላችን ያስተዋውቁ።</div><button class="btn gold" style="width:auto" onclick="switchTab('adApplyTab')">ማስታወቂያ ያስገቡ</button></div>
+<div class="bar news-bar"><span class="live-label">🔴 ዜና</span><div class="ticker-window"><div class="ticker-track" id="tickerTrack"><span>የትኩስ ዜና ምንጮች እየተጫኑ ነው…</span><span>የትኩስ ዜና ምንጮች እየተጫኑ ነው…</span></div></div><button class="btn" style="width:auto;padding:7px 9px" onclick="switchTab('newsTab')">ዝርዝር</button></div>
+<header><img class="profile" src="taha-profile.jpg" alt="የTM Studio አዘጋጅ ፎቶ" onerror="this.style.display='none'"><div class="brand"><div class="logo" aria-hidden="true">🌐</div><h1>ኢትዮ ዲጂታል ሱፐር ፖርታል</h1></div><p class="tagline">መረጃ • እውቀት • መጻሕፍት • ዲጂታል መሳሪያዎች</p><div class="pills"><span class="pill">🌍 ዓለም አቀፍ አገናኝ መረብ</span><span class="pill">🧠 የእውቀት ማዕከል</span><span class="pill">⭐ ነጥብ፡ <b id="points">0</b></span></div></header>
+<nav class="nav" aria-label="ዋና ምናሌ"><button class="tab active" data-tab="booksTab" onclick="switchTab('booksTab',this)">📚 ነጻ መጻሕፍት</button><button class="tab" data-tab="externalTab" onclick="switchTab('externalTab',this)">🌐 ውጭ ውድድሮች</button><button class="tab" data-tab="islamicTab" onclick="switchTab('islamicTab',this)">🕌 እስላማዊ ሚዲያ</button><button class="tab" data-tab="spinTab" onclick="switchTab('spinTab',this)">🎡 የዕድል ዊል</button><button class="tab" data-tab="showsTab" onclick="switchTab('showsTab',this)">🤼 ሾዎችና ስፖርት</button><button class="tab" data-tab="newsTab" onclick="switchTab('newsTab',this)">🔴 ዜና</button><button class="tab" data-tab="adApplyTab" onclick="switchTab('adApplyTab',this)">📢 ማስታወቂያ</button><button class="tab" data-tab="toolsTab" onclick="switchTab('toolsTab',this)">🧩 GPS & Quiz</button><button class="tab" data-tab="paymentTab" onclick="switchTab('paymentTab',this)">💳 ክፍያ መረጃ</button><button class="tab" data-tab="publishTab" onclick="switchTab('publishTab',this)">✍️ ጽሑፍ ማተሚያ</button></nav>
+<section id="booksTab" class="section active"><div class="panel"><h2>📚 ነጻ መጻሕፍት</h2><div class="cards"><article class="web-card"><h3>📖 Project Gutenberg</h3><p>በሕጋዊ መንገድ የሚገኙ ነጻ ዲጂታል መጻሕፍት።</p><a class="btn" href="https://www.gutenberg.org/" target="_blank" rel="noopener noreferrer">መጻሕፍትን ክፈት ↗</a></article><article class="web-card"><h3>🌐 Open Library</h3><p>መጻሕፍትን ፈልግ፤ የብድር ሁኔታ እንደ መጽሐፉ ይለያያል።</p><a class="btn" href="https://openlibrary.org/" target="_blank" rel="noopener noreferrer">ማህደሩን ክፈት ↗</a></article><article class="web-card"><h3>📘 Internet Archive</h3><p>ዲጂታል መጻሕፍትና ታሪካዊ ማህደሮች።</p><a class="btn" href="https://archive.org/details/texts" target="_blank" rel="noopener noreferrer">ማህደሩን ክፈት ↗</a></article><article class="web-card"><h3>🎓 Addis Ababa University ETD</h3><p>የዩኒቨርሲቲ የጥናት ሥራዎችና ተሲሶች ማህደር፤ የመዳረሻ ሁኔታ በሰነዱ ሊለያይ ይችላል።</p><a class="btn" href="https://etd.aau.edu.et/" target="_blank" rel="noopener noreferrer">የጥናት ማህደር ↗</a></article><article class="web-card"><h3>📚 Google Books</h3><p>የመጻሕፍት ፍለጋ፣ የመጽሐፍ መረጃና የተመረጡ ነፃ እይታዎች።</p><a class="btn" href="https://books.google.com/" target="_blank" rel="noopener noreferrer">መጻሕፍትን ፈልግ ↗</a></article><article class="web-card"><h3>🔎 DOAJ የምርምር መጽሔቶች</h3><p>በክፍት መዳረሻ የሚታተሙ የምርምር መጽሔቶች።</p><a class="btn" href="https://doaj.org/" target="_blank" rel="noopener noreferrer">ምርምር ፈልግ ↗</a></article></div></div></section>
+<section id="externalTab" class="section"><div class="panel"><h2>🌐 የውጭ የእውቀትና ውድድር ድረ-ገጾች</h2><p>እነዚህ ድረ-ገጾች በራሳቸው የሚሰሩ ነፃ ወይም የተለያዩ የተሳትፎ መድረኮች ናቸው። ሊንኩን ሲጫኑ ከEthio Digital Super Portal ወደ ውጭ ድረ-ገጽ ይሄዳሉ፤ እነዚህን ውድድሮች እዚህ አናስተናግድም፣ ከእነሱም ጋር የአጋርነት ውል እንዳለ አንገልጽም። የእያንዳንዱን ድረ-ገጽ ደንብ፣ የዕድሜ ገደብ፣ ክፍያና የሽልማት መስፈርት ከመሳተፍዎ በፊት ያረጋግጡ።</p><div class="cards"><article class="web-card"><h3>🎯 Kahoot!</h3><p>የእውቀት ጨዋታዎችና የቡድን ፈተናዎች። አንዳንድ ባህሪያት መለያ ሊፈልጉ ይችላሉ።</p><a class="btn" href="https://kahoot.com/" target="_blank" rel="noopener noreferrer">Kahoot! ክፈት ↗</a></article><article class="web-card"><h3>🧠 Quizizz</h3><p>የትምህርት፣ የጥያቄና የእውቀት ፈተናዎች።</p><a class="btn" href="https://quizizz.com/" target="_blank" rel="noopener noreferrer">Quizizz ክፈት ↗</a></article><article class="web-card"><h3>🌍 JetPunk</h3><p>የአጠቃላይ እውቀት፣ ሀገራት፣ ጂኦግራፊና ሌሎች ጥያቄዎች።</p><a class="btn" href="https://www.jetpunk.com/" target="_blank" rel="noopener noreferrer">JetPunk ክፈት ↗</a></article><article class="web-card"><h3>🏆 Sporcle</h3><p>የተለያዩ የእውቀት ፈተናዎችና ጨዋታዎች።</p><a class="btn" href="https://www.sporcle.com/" target="_blank" rel="noopener noreferrer">Sporcle ክፈት ↗</a></article></div><div class="notice" style="margin-top:12px">የውጭ ሊንክ መኖሩ የሽልማት ዋስትና አይደለም። ለመሳተፍ ገንዘብ ከተጠየቁ፣ የምንጩን ታማኝነትና ሕጋዊ ሁኔታ በጥንቃቄ ያረጋግጡ።</div></div></section>
+<section id="islamicTab" class="section"><div class="panel"><h2>🕌 እስላማዊ ሚዲያና ትምህርቶች</h2><div class="cards"><article class="web-card"><h3>Minber TV</h3><p>የእስልምና ትምህርቶችና ፕሮግራሞች።</p><a class="btn" href="https://www.youtube.com/@MinberTV" target="_blank" rel="noopener noreferrer">ቻናሉን ክፈት ↗</a></article><article class="web-card"><h3>Africa TV</h3><p>የእስላማዊ ይዘቶች ምንጭ።</p><a class="btn" href="https://www.youtube.com/@africatv1" target="_blank" rel="noopener noreferrer">ቻናሉን ክፈት ↗</a></article><article class="web-card"><h3>Harun Media</h3><p>የእስልምና ፕሮግራሞችና ትምህርቶች።</p><a class="btn" href="https://www.youtube.com/@HarunMedia" target="_blank" rel="noopener noreferrer">ቻናሉን ክፈት ↗</a></article><article class="web-card"><h3>🕋 መካ በቀጥታ</h3><p>በሚሰራ የቀጥታ ስርጭት ለመመልከት የYouTube ፍለጋ።</p><a class="btn" href="https://www.youtube.com/results?search_query=Makkah+live+Haram" target="_blank" rel="noopener noreferrer">የቀጥታ ስርጭት ፈልግ ↗</a></article></div></div></section>
+<section id="spinTab" class="section"><div class="panel" style="text-align:center"><h2>🎡 ነጻ የዕድል ዊል</h2><p>ዊሉን አሽከርክር፤ የጨዋታ ነጥብ ወይም የደስታ መልዕክት አግኝ። ይህ ሙከራ ብቻ ነው፤ እውነተኛ ገንዘብ ወይም ሽልማት አያስገኝም።</p><div class="wheel-wrap"><div class="pointer">▼</div><canvas id="wheel" width="300" height="300" aria-label="የዕድል ዊል"></canvas><button class="btn gold" id="spinBtn" style="max-width:240px" onclick="spinWheel()">🎡 አሁን አሽከርክር</button><div id="wheelResult" class="result" role="status" aria-live="polite"></div></div></div></section>
+<section id="showsTab" class="section"><div class="panel"><h2>🤼 ሾዎች፣ ችሎታና ስፖርት</h2><div class="cards"><article class="web-card"><h3>🌟 Got Talent Global</h3><p>አስደናቂ ችሎታዎችና ትርኢቶች።</p><a class="btn" href="https://www.youtube.com/@gottalentglobal" target="_blank" rel="noopener noreferrer">ተመልከት ↗</a></article><article class="web-card"><h3>🤼 WWE</h3><p>የሬስሊንግ ትርኢቶችና ድምቀቶች።</p><a class="btn" href="https://www.youtube.com/@WWE" target="_blank" rel="noopener noreferrer">ተመልከት ↗</a></article><article class="web-card"><h3>🥷 Ninja Warrior</h3><p>የአቅምና የችሎታ ውድድሮች።</p><a class="btn" href="https://www.youtube.com/results?search_query=American+Ninja+Warrior+official" target="_blank" rel="noopener noreferrer">ተመልከት ↗</a></article></div></div></section>
+<section id="newsTab" class="section"><div class="panel"><h2>🔴 የዜና ማዕከል</h2><p>ዜናዎች በውጭ የRSS አገልግሎት በኩል ለመጫን ይሞከራሉ። የዜና ርዕስ ብቻ ማስረጃ አይደለም፤ ከማተም በፊት ምንጩንና ሌሎች ታማኝ ምንጮችን ያረጋግጡ።</p><div id="newsStatus" class="news-status">ዜናዎች እየተጫኑ ነው…</div><div id="newsList" class="news-list" style="margin-top:12px"></div><button class="btn" style="margin-top:12px" onclick="loadNews()">ዜናዎችን እንደገና አድስ</button><div class="notice" style="margin-top:12px">ማስታወሻ፦ ይህ የዜና ማሳያ የውጭ አገልግሎትን ይጠቀማል። የአገልግሎቱ መቋረጥ፣ የቋንቋ ልዩነት ወይም የአውታረ መረብ ገደብ ካለ ዜና ላይታይ ይችላል። ለሙያዊ የቀጥታ ዜና ስርጭት የተፈቀደ API/backend ይመከራል።</div></div></section>
+<section id="adApplyTab" class="section"><div class="panel"><h2>📢 የማስታወቂያ ማመልከቻ</h2><p>የማስታወቂያ ማመልከቻውና የተመረጡ ፋይሎች ወደ Supabase ለመላክ ይሞከራሉ። የክፍያ ደረሰኙ በራስ-ሰር ክፍያን አያረጋግጥም፤ እስኪመረመር ድረስ ማመልከቻው በጥበቃ ላይ ይቆያል።</p><form id="adForm"><div class="field"><label for="bizName">የድርጅት/ንግድ ስም *</label><input id="bizName" required maxlength="100" placeholder="ለምሳሌ፦ አባይ አልባሳት"></div><div class="field"><label for="bizText">የማስታወቂያ ጽሑፍ *</label><textarea id="bizText" required maxlength="500" placeholder="የንግድዎን አጭር መግለጫ ያስገቡ"></textarea></div><div class="field"><label for="adPlacement">የማስታወቂያ ቦታ *</label><select id="adPlacement" required><option value="">ቦታ ይምረጡ</option><option>የላይኛው ተንቀሳቃሽ ባነር</option><option>የመነሻ ገጽ ባነር</option><option>የመጻሕፍት ክፍል</option><option>የዜና ክፍል</option><option>የተወሰነ ክፍል ስፖንሰር</option><option>የአጋር ድረ-ገጽ/ሊንክ ማስተዋወቅ</option></select></div><div class="field"><label for="adDuration">የማስታወቂያ ጊዜ *</label><select id="adDuration" required><option value="">ጊዜ ይምረጡ</option><option>7 ቀናት</option><option>15 ቀናት</option><option>30 ቀናት</option><option>ሌላ (በስምምነት)</option></select></div><div class="field"><label for="adAmount">ከአስተዳዳሪ ጋር የተስማሙበት ቅድመ ክፍያ (ብር)</label><input id="adAmount" type="number" min="0" step="0.01" placeholder="ዋጋውን ከማረጋገጥ በኋላ ይሙሉ"></div><div class="field"><label for="paymentMethod">የክፍያ ዘዴ *</label><select id="paymentMethod" required><option value="">የክፍያ ዘዴ ይምረጡ</option><option value="CBE">የኢትዮጵያ ንግድ ባንክ (CBE)</option><option value="Telebirr">ቴሌብር (Telebirr)</option><option value="Awash Bank">አዋሽ ባንክ</option><option value="Other">ሌላ የክፍያ ዘዴ</option></select></div><div class="field"><label for="paymentSender">የከፋይ ስም (አማራጭ)</label><input id="paymentSender" type="text" maxlength="100" placeholder="በክፍያ መልዕክቱ ላይ ያለው ስም"></div><div class="field"><label for="adLogo">የድርጅት ሎጎ/የአመልካች ፋይል (PNG, JPG, PDF — አማራጭ)</label><input id="adLogo" type="file" accept="image/png,image/jpeg,image/webp,application/pdf"><div id="adLogoName" class="file-name"></div><div class="hint">ከፍተኛ መጠን 5 MB። ሎጎ ወይም የንግድ ማስረጃ ያያይዙ።</div></div><div class="field"><label for="adReceipt">የክፍያ ደረሰኝ ፎቶ/PDF (አማራጭ)</label><input id="adReceipt" type="file" accept="image/png,image/jpeg,image/webp,application/pdf"><div id="adReceiptName" class="file-name"></div><div class="hint">ከፍተኛ መጠን 8 MB። ደረሰኙ በአስተዳዳሪ በእጅ ይረጋገጣል።</div></div><div class="field"><label for="bizContact">የመገኛ መንገድ (ስልክ/ኢሜይል)</label><input id="bizContact" maxlength="100" placeholder="አማራጭ"></div><div class="field"><label for="txnId">የግብይት ማጣቀሻ ቁጥር (ካለ)</label><input id="txnId" maxlength="100" placeholder="አስተዳዳሪ ካረጋገጠ በኋላ ይሙሉ"></div><button class="btn green" type="submit">ማመልከቻውን አዘጋጅ</button></form><div id="adResult" class="result" role="status" aria-live="polite"></div><button id="copyAd" class="btn" style="display:none;margin-top:10px" onclick="copyAdText()">መረጃውን ኮፒ አድርግ</button><button id="sendAdWhatsApp" class="btn green" style="display:none;margin-top:10px" type="button" onclick="sendAdDraftWhatsApp()">በድጋፍ ቻት ላክ</button></div></section>
 <section id="toolsTab" class="section">
-<div class="panel">
-<h2>🧭 GPS፣ ካርታና እውቀት ፈተና</h2>
-<div class="cards">
-<article class="web-card"><h3>Google Maps</h3><p>ካርታና የመንገድ መረጃ።</p><a class="btn" href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">ካርታ ክፈት</a></article>
-<article class="web-card"><h3>📍 GPS ቦታ</h3><p>ፈቃድ ከሰጡ የአሁኑን ቦታ ያሳያል።</p><button class="btn" onclick="getLocation()">ቦታዬን አሳይ</button><div id="locationResult" class="result"></div></article>
-<article class="web-card"><h3>❓ እውቀት ፈተና</h3><p>የኢትዮጵያ ዋና ከተማ የት ናት?</p><select id="quizAnswer"><option value="">መልስ ይምረጡ</option><option>ጅማ</option><option>አዲስ አበባ</option><option>ሐረር</option></select><button class="btn" style="margin-top:8px" onclick="checkQuiz()">መልስ አረጋግጥ</button><div id="quizResult" class="result"></div></article>
-</div>
-</div>
-</section>
-
-<section id="spinTab" class="section">
-<div class="panel">
-<h2>🎡 የነጥብ ዊል</h2>
-<p>ዊሉን ተጫን፤ ነጥብ ወይም የደስታ መልዕክት አግኝ። ይህ የጨዋታ ባህሪ ብቻ ነው፤ እውነተኛ ገንዘብ አያስገኝም።</p>
-<button class="btn gold" onclick="spinWheel()">🎡 አሽከርክር</button>
-<div id="wheelResult" class="result"></div>
-</div>
-</section>
-
-<section id="adApplyTab" class="section">
-<div class="panel">
-<h2>📢 የማስታወቂያ ማመልከቻ</h2>
-<p>ማመልከቻው ወደ Supabase ዳታቤዝ ለመላክ ይሞክራል። አስፈላጊ የዳታቤዝ ፈቃዶች ካልተዘጋጁ የስህተት መልዕክት ይታያል።</p>
-
-<form id="adForm">
-<div class="field"><label for="bizName">የድርጅት/ንግድ ስም *</label><input id="bizName" required maxlength="100"></div>
-<div class="field"><label for="bizText">የማስታወቂያ ጽሑፍ *</label><textarea id="bizText" required maxlength="1000"></textarea></div>
-<div class="field"><label for="adPlacement">የማስታወቂያ ቦታ *</label><select id="adPlacement" required><option value="">ይምረጡ</option><option>የላይኛው ባነር</option><option>የመነሻ ገጽ</option><option>የመጻሕፍት ክፍል</option><option>የዜና ክፍል</option><option>ሌላ</option></select></div>
-<div class="field"><label for="adDuration">የማስታወቂያ ጊዜ *</label><select id="adDuration" required><option value="">ይምረጡ</option><option>7 ቀናት</option><option>15 ቀናት</option><option>30 ቀናት</option></select></div>
-<div class="field"><label for="adAmount">የተስማሙበት ክፍያ (ብር)</label><input id="adAmount" type="number" min="0" step="0.01"></div>
-<div class="field"><label for="bizContact">ስልክ ወይም ኢሜይል</label><input id="bizContact" maxlength="100"></div>
-<div class="field"><label for="txnId">የክፍያ ማጣቀሻ ቁጥር</label><input id="txnId" maxlength="100"></div>
-<button class="btn green" type="submit">ማመልከቻውን ላክ</button>
-</form>
-<div id="adResult" class="result" role="status"></div>
-<button id="copyAd" class="btn" style="display:none;margin-top:10px" onclick="copyAdText()">መረጃውን ኮፒ አድርግ</button>
-<button id="sendAdWhatsApp" class="btn green" style="display:none;margin-top:10px" onclick="sendAdWhatsApp()" type="button">በWhatsApp ላክ</button>
-</div>
+  <div class="panel">
+    <h2>🧩 GPS፣ ካርታና የእውቀት ፈተና</h2>
+    <div class="cards">
+      <article class="web-card">
+        <h3>📍 የአካባቢ ቦታ</h3>
+        <p>በፈቃድህ የመሣሪያህን የአካባቢ መረጃ ተጠቅመህ ቦታህን ለማወቅ።</p>
+        <button class="btn" onclick="getMyLocation()">አካባቢዬን አሳይ</button>
+        <div id="gpsResult" class="result" role="status" aria-live="polite"></div>
+        <a class="btn" href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">Google Maps ክፈት ↗</a>
+      </article>
+      <article class="web-card">
+        <h3>🧠 የእውቀት ፈተና</h3>
+        <p id="quizQuestion">የኢትዮጵያ ዋና ከተማ የት ናት?</p>
+        <div id="quizOptions" class="quiz-options">
+          <button class="btn" onclick="answerQuiz(0)">ጅማ</button>
+          <button class="btn" onclick="answerQuiz(1)">አዲስ አበባ</button>
+          <button class="btn" onclick="answerQuiz(2)">ሐረር</button>
+        </div>
+        <div id="quizResult" class="result" role="status" aria-live="polite"></div>
+        <button class="btn gold" onclick="nextQuiz()">ቀጣይ ጥያቄ</button>
+      </article>
+      <article class="web-card">
+        <h3>🌐 የዓለም ካርታ</h3>
+        <p>የአገራትን ቦታ፣ ከተሞችንና የጉዞ አቅጣጫዎችን ፈልግ።</p>
+        <a class="btn" href="https://www.openstreetmap.org/" target="_blank" rel="noopener noreferrer">ካርታውን ክፈት ↗</a>
+      </article>
+      <article class="web-card">
+        <h3>🤖 የAI መሳሪያዎች</h3>
+        <p>ለጽሑፍ፣ ለምርምርና ለፈጠራ የሚረዱ ዘመናዊ የAI መድረኮች።</p>
+        <a class="btn" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT ክፈት ↗</a>
+        <a class="btn" href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">Google Gemini ↗</a>
+      </article>
+    </div>
+  </div>
 </section>
 
 <section id="paymentTab" class="section">
-<div class="panel">
-<h2>💳 የክፍያ መረጃ</h2>
-<p>ከመክፈልዎ በፊት የተቀባዩን ስም፣ የክፍያ ዓላማና መጠን ያረጋግጡ። ይህ ገጽ በራሱ ክፍያ አያረጋግጥም።</p>
-<div class="payment-grid">
-<div class="pay-card"><h3>📱 Telebirr</h3><div class="pay-number">0920836593</div><button class="btn copy-btn" onclick="copyValue('0920836593',this)">ቁጥሩን ኮፒ አድርግ</button></div>
-<div class="pay-card"><h3>🏦 CBE</h3><div class="pay-number">1000257160077</div><button class="btn copy-btn" onclick="copyValue('1000257160077',this)">ሂሳቡን ኮፒ አድርግ</button></div>
-<div class="pay-card"><h3>🟡 Binance Pay</h3><div class="pay-number">903527741</div><button class="btn copy-btn" onclick="copyValue('903527741',this)">Pay ID ኮፒ አድርግ</button></div>
-</div>
-<div class="notice" style="margin-top:12px">🔐 PIN፣ OTP፣ የባንክ ይለፍ ቃል ወይም Binance recovery phrase በዚህ ገጽ ፈጽሞ አታስገቡ።</div>
-<div class="field"><label for="receiptName">ስም</label><input id="receiptName"></div>
-<div class="field"><label for="receiptMethod">የክፍያ ዘዴ</label><select id="receiptMethod"><option>Telebirr</option><option>CBE</option><option>Binance Pay</option></select></div>
-<div class="field"><label for="receiptAmount">የከፈሉት መጠን</label><input id="receiptAmount" type="number" min="0"></div>
-<div class="field"><label for="receiptTxn">የግብይት ማጣቀሻ</label><input id="receiptTxn"></div>
-<button class="btn green" onclick="prepareReceipt()" type="button">ወደ WhatsApp ድጋፍ ላክ</button>
-</div>
+  <div class="panel">
+    <h2>💳 የክፍያ መረጃ</h2>
+    <p>ለማስታወቂያ ክፍያ ከመፈጸምህ በፊት የተቀባዩን ስም፣ ቁጥርና የተስማማችሁበትን ዋጋ በቀጥታ ከፖርታሉ አስተዳዳሪ አረጋግጥ።</p>
+    <div class="notice">⚠️ የባንክ ቁጥሮች እዚህ በተለይ ካልተረጋገጡ አትገምት። የተሳሳተ ቁጥር ወደ ሌላ ሰው ገንዘብ ሊልክ ይችላል።</div>
+
+    <div class="cards" style="margin-top:14px">
+      <article class="web-card">
+        <h3>🏦 CBE — የኢትዮጵያ ንግድ ባንክ</h3>
+        <p>በአስተዳዳሪው የተረጋገጠውን የሂሳብ ቁጥር ከዚህ በታች ያስገቡ።</p>
+        <label for="cbeNumber">የሂሳብ ቁጥር</label>
+        <input id="cbeNumber" placeholder="የተረጋገጠ ቁጥር" inputmode="numeric">
+        <button class="btn" onclick="copyPaymentNumber('cbeNumber')">ቁጥሩን ኮፒ አድርግ</button>
+      </article>
+
+      <article class="web-card">
+        <h3>📱 Telebirr — ቴሌብር</h3>
+        <p>የተረጋገጠውን የቴሌብር ቁጥር አስገባ።</p>
+        <label for="telebirrNumber">የቴሌብር ቁጥር</label>
+        <input id="telebirrNumber" placeholder="የተረጋገጠ ቁጥር" inputmode="tel">
+        <button class="btn" onclick="copyPaymentNumber('telebirrNumber')">ቁጥሩን ኮፒ አድርግ</button>
+      </article>
+
+      <article class="web-card">
+        <h3>🏦 Awash Bank — አዋሽ ባንክ</h3>
+        <p>በባለቤቱ የተረጋገጠውን የሂሳብ ቁጥር ተጠቀም።</p>
+        <label for="awashNumber">የሂሳብ ቁጥር</label>
+        <input id="awashNumber" placeholder="የተረጋገጠ ቁጥር" inputmode="numeric">
+        <button class="btn" onclick="copyPaymentNumber('awashNumber')">ቁጥሩን ኮፒ አድርግ</button>
+      </article>
+    </div>
+
+    <div id="paymentResult" class="result" role="status" aria-live="polite"></div>
+    <p class="hint">ማስታወሻ፦ ይህ ክፍል የክፍያ መረጃን ለማሳየት ነው፤ ክፍያን አያስፈጽምም ወይም በራስ-ሰር አያረጋግጥም።</p>
+  </div>
 </section>
 
 <section id="publishTab" class="section">
-<div class="panel">
-<h2>✍️ የጽሑፍ ማተሚያ ስቱዲዮ</h2>
-<p>ጽሑፍ ያዘጋጁ፣ ቅድመ እይታ ይመልከቱ፣ ረቂቅ በአሳሹ ውስጥ ያስቀምጡ። ለሁሉም ጎብኚዎች ማተም የድረ-ገጹን ኮድ ማዘመን ይፈልጋል።</p>
-<div class="field"><label for="articleTitle">ርዕስ</label><input id="articleTitle" maxlength="180"></div>
-<div class="field"><label for="articleCategory">ምድብ</label><select id="articleCategory"><option>ወቅታዊ ትንታኔ</option><option>እስላማዊ ጥናት</option><option>ታሪክና ባህል</option><option>ቴክኖሎጂ</option><option>ሳይንስና ትምህርት</option></select></div>
-<div class="field"><label for="articleAuthor">ደራሲ/አዘጋጅ</label><input id="articleAuthor" value="TM Studio"></div>
-<div class="field"><label for="articleBody">ጽሑፍ</label><textarea id="articleBody" maxlength="30000" style="min-height:200px"></textarea></div>
-<div class="cards">
-<button class="btn" onclick="saveArticle()" type="button">💾 ረቂቅ አስቀምጥ</button>
-<button class="btn gold" onclick="previewArticle()" type="button">👁️ ቅድመ እይታ</button>
-<button class="btn green" onclick="downloadArticle()" type="button">HTML አውርድ</button>
-</div>
-<div id="articleStatus" class="result"></div>
-<div id="articlePreview" class="result" style="display:block;margin-top:12px">ቅድመ እይታው እዚህ ይታያል።</div>
-<div id="articleList"></div>
-</div>
+  <div class="panel">
+    <h2>✍️ የጽሑፍ ማተሚያ</h2>
+    <p>ዜና፣ ትንታኔ፣ ትምህርታዊ ጽሑፍና ሌሎች ይዘቶችን አዘጋጅ። ይህ አርታኢ ጽሑፉን በመሣሪያህ ላይ ለማዘጋጀት ነው፤ በራስ-ሰር በድረ-ገጹ ላይ አያትምም።
+    </p>
+    <div class="field">
+      <label for="articleTitle">የጽሑፍ ርዕስ</label>
+      <input id="articleTitle" maxlength="200" placeholder="ርዕስ ያስገቡ">
+    </div>
+    <div class="field">
+      <label for="articleCategory">የጽሑፍ ዓይነት</label>
+      <select id="articleCategory">
+        <option>ወቅታዊ ዜና</option>
+        <option>ትንታኔ</option>
+        <option>ትምህርታዊ</option>
+        <option>ሐይማኖታዊ</option>
+        <option>ታሪካዊ</option>
+        <option>ቴክኖሎጂ</option>
+        <option>ሌላ</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="articleBody">የጽሑፍ ይዘት</label>
+      <textarea id="articleBody" rows="12" maxlength="50000" placeholder="ጽሑፍህን እዚህ ጻፍ…"></textarea>
+    </div>
+    <div class="cards">
+      <button class="btn" onclick="previewArticle()">👁️ ቅድመ እይታ</button>
+      <button class="btn green" onclick="downloadArticle()">💾 እንደ TXT አስቀምጥ</button>
+      <button class="btn gold" onclick="printArticle()">🖨️ አትም / PDF</button>
+    </div>
+    <div id="articlePreview" class="article-preview" style="display:none;margin-top:16px"></div>
+    <div id="publishResult" class="result" role="status" aria-live="polite"></div>
+  </div>
 </section>
 
-<footer>
-© <span id="year"></span> ኢትዮ ዲጂታል ሱፐር ፖርታል<br>
-መረጃን በጥራት፤ እውነትን በማስረጃ።
+<footer class="panel" style="margin-top:20px;text-align:center">
+  <h3>🌐 Ethio Digital Super Portal</h3>
+  <p>መረጃን በጥራት፣ እውቀትን በነፃነት፣ አገልግሎትን በኃላፊነት።</p>
+  <p>© <span id="currentYear"></span> Ethio Digital Super Portal. መብቱ በሕግ የተጠበቀ ነው።</p>
+  <button class="btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆️ ወደ ላይ ተመለስ</button>
 </footer>
 
-</main>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 
+<!-- ክፍል 3፦ JavaScript ኮድ ከዚህ በኋላ ይቀጥላል። -->
 <script>
 "use strict";
 
-const $ = id => document.getElementById(id);
-
-function switchTab(id, button) {
-  document.querySelectorAll(".section").forEach(section => {
-    section.classList.toggle("active", section.id === id);
-  });
-  document.querySelectorAll(".tab").forEach(tab => {
-    tab.classList.toggle("active", tab.dataset.tab === id);
-  });
-  if (button) button.classList.add("active");
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
-$("year").textContent = new Date().getFullYear();
-
-async function copyValue(value, button) {
-  try {
-    await navigator.clipboard.writeText(value);
-  } catch (e) {
-    const area = document.createElement("textarea");
-    area.value = value;
-    document.body.appendChild(area);
-    area.select();
-    document.execCommand("copy");
-    area.remove();
-  }
-  const old = button.textContent;
-  button.textContent = "ተኮፒ ተደርጓል ✓";
-  setTimeout(() => button.textContent = old, 1800);
-}
-
-function getLocation() {
-  const out = $("locationResult");
-  out.style.display = "block";
-  if (!navigator.geolocation) {
-    out.textContent = "ይህ አሳሽ GPS አይደግፍም።";
-    return;
-  }
-  out.textContent = "የቦታ ፈቃድ እየጠየቀ ነው…";
-  navigator.geolocation.getCurrentPosition(position => {
-    const lat = position.coords.latitude.toFixed(5);
-    const lon = position.coords.longitude.toFixed(5);
-    const link = document.createElement("a");
-    link.href = "https://maps.google.com/?q=" + encodeURIComponent(lat + "," + lon);
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.textContent = "በGoogle Maps ክፈት ↗";
-    out.textContent = "ቦታ፦ " + lat + ", " + lon + " ";
-    out.appendChild(link);
-  }, () => {
-    out.textContent = "ቦታውን ማግኘት አልተቻለም። የስልክ Location ፈቃድ ያረጋግጡ።";
-  }, {enableHighAccuracy:true, timeout:10000});
-}
-
-function checkQuiz() {
-  const answer = $("quizAnswer").value;
-  const result = $("quizResult");
-  result.style.display = "block";
-  if (!answer) {
-    result.textContent = "መልስ ይምረጡ።";
-  } else if (answer === "አዲስ አበባ") {
-    result.textContent = "ትክክል! +1 ነጥብ";
-    $("points").textContent = Number($("points").textContent) + 1;
-  } else {
-    result.textContent = "ትክክለኛው መልስ አዲስ አበባ ነው።";
-  }
-}
-
-function spinWheel() {
-  const choices = [
-    {text:"+5 ነጥብ",points:5},
-    {text:"መልካም ዕድል",points:0},
-    {text:"+10 ነጥብ",points:10},
-    {text:"እንደገና ይሞክሩ",points:0},
-    {text:"+2 ነጥብ",points:2}
-  ];
-  const win = choices[Math.floor(Math.random()*choices.length)];
-  $("points").textContent = Number($("points").textContent) + win.points;
-  $("wheelResult").style.display = "block";
-  $("wheelResult").textContent = "ውጤት፦ " + win.text + (win.points ? " — ነጥብዎ ተጨምሯል።" : "");
-}
+/* ==========================================
+   ETHIO DIGITAL SUPER PORTAL
+   የJavaScript ዋና ተግባራት
+========================================== */
 
 const SUPABASE_URL = "https://tqvemkwvbikwnnulncgm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_RVudC5rR1vHfaxF6OR_S-w_-8J2KJ52";
+const STORAGE_BUCKET = "advertising-uploads";
 
-async function insertSupabase(table, payload) {
-  const response = await fetch(SUPABASE_URL + "/rest/v1/" + table, {
-    method: "POST",
-    headers: {
-      "apikey": SUPABASE_PUBLISHABLE_KEY,
-      "Authorization": "Bearer " + SUPABASE_PUBLISHABLE_KEY,
-      "Content-Type": "application/json",
-      "Prefer": "return=minimal"
-    },
-    body: JSON.stringify(payload)
+let userPoints = 0;
+let currentQuiz = 0;
+let spinning = false;
+let lastAdMessage = "";
+
+/* መሠረታዊ መርዳት ተግባራት */
+function byId(id) {
+  return document.getElementById(id);
+}
+
+function showToast(message) {
+  const toast = byId("toast");
+  if (!toast) {
+    alert(message);
+    return;
+  }
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3500);
+}
+
+function setResult(id, message, error = false) {
+  const el = byId(id);
+  if (!el) return;
+  el.textContent = message;
+  el.classList.toggle("error", error);
+}
+
+function switchTab(tabId, button) {
+  const target = byId(tabId);
+  if (!target) {
+    showToast("ይህ ክፍል አልተገኘም።");
+    return;
+  }
+
+  document.querySelectorAll(".section").forEach(section => {
+    section.classList.toggle("active", section.id === tabId);
   });
 
-  if (!response.ok) {
-    const details = await response.text();
-    console.error("Supabase error:", response.status, details);
-    throw new Error("ዳታቤዝ ስህተት " + response.status + ": " + details);
+  document.querySelectorAll(".tab").forEach(tab => {
+    tab.classList.toggle("active", tab.dataset.tab === tabId);
+  });
+
+  if (button && button.classList.contains("tab")) {
+    button.classList.add("active");
   }
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-let adDraft = "";
+/* የነጥብ ማሳያ */
+function updatePoints(amount) {
+  userPoints = Math.max(0, userPoints + amount);
+  const points = byId("points");
+  if (points) points.textContent = String(userPoints);
+}
 
-$("adForm").addEventListener("submit", async event => {
-  event.preventDefault();
+/* የዕድል ዊል */
+const wheelLabels = [
+  "እውቀት +1",
+  "ደስታ!",
+  "እውቀት +2",
+  "እንደገና",
+  "እድል!",
+  "እውቀት +3"
+];
 
-  const business = $("bizName").value.trim();
-  const details = $("bizText").value.trim();
-  const placement = $("adPlacement").value;
-  const duration = $("adDuration").value;
-  const contact = $("bizContact").value.trim();
-  const txn = $("txnId").value.trim();
-  const amount = $("adAmount").value ? Number($("adAmount").value) : null;
+function drawWheel() {
+  const canvas = byId("wheel");
+  if (!canvas) return;
 
-  adDraft =
-    "የማስታወቂያ ማመልከቻ\n" +
-    "ድርጅት፦ " + business + "\n" +
-    "ይዘት፦ " + details + "\n" +
-    "ቦታ፦ " + placement + "\n" +
-    "ጊዜ፦ " + duration + "\n" +
-    "ክፍያ፦ " + (amount === null ? "አልተገለጸም" : amount + " ብር") + "\n" +
-    "መገኛ፦ " + (contact || "አልተሰጠም") + "\n" +
-    "የግብይት ማጣቀሻ፦ " + (txn || "አልተሰጠም");
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
 
-  const result = $("adResult");
-  result.style.display = "block";
-  result.textContent = "ማመልከቻው ወደ ዳታቤዝ እየተላከ ነው…";
-  $("copyAd").style.display = "block";
-  $("sendAdWhatsApp").style.display = "block";
+  const size = canvas.width;
+  const center = size / 2;
+  const radius = center - 5;
+  const colors = [
+    "#00bcd4", "#6937d5", "#e5a928",
+    "#287f69", "#d64d65", "#4267a9"
+  ];
 
-  try {
-    await insertSupabase("advertising_requests", {
-      business_name: business,
-      contact_name: contact || null,
-      contact_phone: contact || null,
-      ad_type: placement,
-      duration: duration,
-      budget_etb: amount,
-      details: details + "\nየግብይት ማጣቀሻ፦ " + (txn || "አልተሰጠም"),
-      status: "pending"
+  ctx.clearRect(0, 0, size, size);
+
+  wheelLabels.forEach((label, i) => {
+    const start = (i * 2 * Math.PI) / wheelLabels.length;
+    const end = ((i + 1) * 2 * Math.PI) / wheelLabels.length;
+
+    ctx.beginPath();
+    ctx.moveTo(center, center);
+    ctx.arc(center, center, radius, start, end);
+    ctx.closePath();
+    ctx.fillStyle = colors[i];
+    ctx.fill();
+    ctx.strokeStyle = "#ffffff";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.save();
+    ctx.translate(center, center);
+    ctx.rotate(start + (end - start) / 2);
+    ctx.textAlign = "right";
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 12px sans-serif";
+    ctx.fillText(label, radius - 12, 4);
+    ctx.restore();
+  });
+
+  ctx.beginPath();
+  ctx.arc(center, center, 24, 0, Math.PI * 2);
+  ctx.fillStyle = "#ffffff";
+  ctx.fill();
+  ctx.strokeStyle = "#18233e";
+  ctx.lineWidth = 3;
+  ctx.stroke();
+}
+
+function spinWheel() {
+  if (spinning) return;
+
+  const canvas = byId("wheel");
+  const result = byId("wheelResult");
+  if (!canvas || !result) return;
+
+  spinning = true;
+  const button = byId("spinBtn");
+  if (button) button.disabled = true;
+
+  const selected = Math.floor(Math.random() * wheelLabels.length);
+  const angle = 1440 + Math.random() * 1440 + selected * 60;
+
+  canvas.style.transition = "transform 4s cubic-bezier(.12,.7,.1,1)";
+  canvas.style.transform = `rotate(${angle}deg)`;
+
+  setTimeout(() => {
+    const label = wheelLabels[selected];
+
+    if (label.includes("+1")) updatePoints(1);
+    if (label.includes("+2")) updatePoints(2);
+    if (label.includes("+3")) updatePoints(3);
+
+    result.textContent = "የዊሉ ውጤት፦ " + label +
+      " — ይህ የመዝናኛ ጨዋታ ብቻ ነው።";
+
+    spinning = false;
+    if (button) button.disabled = false;
+  }, 4100);
+}
+
+/* የእውቀት ፈተና */
+const quizData = [
+  {
+    q: "የኢትዮጵያ ዋና ከተማ የት ናት?",
+    a: ["ጅማ", "አዲስ አበባ", "ሐረር"],
+    correct: 1
+  },
+  {
+    q: "ምድር ዙሪያዋን በምን ይጨርሳል?",
+    a: ["በጨረቃ", "በፀሐይ ዙሪያ", "በማርስ"],
+    correct: 1
+  },
+  {
+    q: "የውሃ ኬሚካላዊ ቀመር ምንድን ነው?",
+    a: ["CO2", "O2", "H2O"],
+    correct: 2
+  },
+  {
+    q: "በአንድ ደቂቃ ስንት ሰከንድ አሉ?",
+    a: ["60", "100", "30"],
+    correct: 0
+  }
+];
+
+function renderQuiz() {
+  const item = quizData[currentQuiz];
+  if (!item) return;
+
+  const question = byId("quizQuestion");
+  const options = byId("quizOptions");
+  const result = byId("quizResult");
+
+  if (question) question.textContent = item.q;
+  if (result) result.textContent = "";
+
+  if (options) {
+    options.replaceChildren();
+
+    item.a.forEach((answer, index) => {
+      const button = document.createElement("button");
+      button.className = "btn";
+      button.type = "button";
+      button.textContent = answer;
+      button.addEventListener("click", () => answerQuiz(index));
+      options.appendChild(button);
     });
-    result.textContent = "የማስታወቂያ ጥያቄዎ በዳታቤዝ ተቀምጧል።";
-  } catch (error) {
-    console.error(error);
-    result.textContent =
-      "ዳታቤዙ ጥያቄውን አልተቀበለም። " +
-      "በSupabase የadvertising_requests አምዶችና INSERT ፈቃድ (RLS policy) መፈተሽ ያስፈልጋል። " +
-      "የስህተቱን ዝርዝር በBrowser Console ይመልከቱ።";
   }
-});
-
-async function copyAdText() {
-  await copyValue(adDraft, $("copyAd"));
 }
 
-function sendAdWhatsApp() {
-  if (!adDraft) return;
-  const url = "https://wa.me/251920836593?text=" + encodeURIComponent(adDraft);
-  window.open(url, "_blank", "noopener,noreferrer");
+function answerQuiz(index) {
+  const item = quizData[currentQuiz];
+  const options = byId("quizOptions");
+  if (!item || !options) return;
+
+  if (options.dataset.answered === "yes") return;
+  options.dataset.answered = "yes";
+
+  if (index === item.correct) {
+    setResult("quizResult", "✅ ትክክል ነው! 1 ነጥብ አግኝተሃል።");
+    updatePoints(1);
+  } else {
+    setResult(
+      "quizResult",
+      "❌ ትክክለኛው መልስ፦ " + item.a[item.correct]
+    );
+  }
+
+  options.querySelectorAll("button").forEach(button => {
+    button.disabled = true;
+  });
 }
 
-function prepareReceipt() {
-  const message =
-    "የክፍያ ማረጋገጫ ጥያቄ\n" +
-    "ስም፦ " + $("receiptName").value.trim() + "\n" +
-    "የክፍያ ዘዴ፦ " + $("receiptMethod").value + "\n" +
-    "መጠን፦ " + $("receiptAmount").value + "\n" +
-    "የግብይት ማጣቀሻ፦ " + $("receiptTxn").value.trim() + "\n" +
-    "እባክዎ ክፍያውን በእጅ ያረጋግጡ።";
-  window.open(
-    "https://wa.me/251920836593?text=" + encodeURIComponent(message),
-    "_blank",
-    "noopener,noreferrer"
+function nextQuiz() {
+  currentQuiz = (currentQuiz + 1) % quizData.length;
+  const options = byId("quizOptions");
+  if (options) delete options.dataset.answered;
+  renderQuiz();
+}
+
+/* GPS — የተጠቃሚውን ፈቃድ ብቻ ተጠቅሞ */
+function getMyLocation() {
+  const result = byId("gpsResult");
+
+  if (!navigator.geolocation) {
+    setResult("gpsResult", "መሣሪያህ GPS አገልግሎትን አይደግፍም።", true);
+    return;
+  }
+
+  setResult("gpsResult", "የአካባቢ ፈቃድ እየተጠየቀ ነው…");
+
+  navigator.geolocation.getCurrentPosition(
+    position => {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+
+      if (result) {
+        result.replaceChildren();
+
+        const text = document.createElement("p");
+        text.textContent =
+          "ኬክሮስ፦ " + lat.toFixed(5) +
+          " | ኬንትሮስ፦ " + lon.toFixed(5);
+
+        const link = document.createElement("a");
+        link.className = "btn";
+        link.href =
+          "https://www.google.com/maps?q=" +
+          encodeURIComponent(lat + "," + lon);
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "ቦታዬን በካርታ ክፈት ↗";
+
+        result.append(text, link);
+      }
+    },
+    error => {
+      let message = "የአካባቢ መረጃ ማግኘት አልተቻለም።";
+      if (error.code === 1) message = "የአካባቢ ፈቃድ አልተሰጠም።";
+      if (error.code === 2) message = "የአካባቢ መረጃ አልተገኘም።";
+      if (error.code === 3) message = "የአካባቢ ጥያቄው ጊዜ አልፎበታል።";
+      setResult("gpsResult", message, true);
+    },
+    { enableHighAccuracy: true, timeout: 15000, maximumAge: 30000 }
   );
 }
 
-function getArticles() {
+/* ኮፒ ማድረግ */
+async function copyText(text) {
   try {
-    return JSON.parse(localStorage.getItem("edspArticles") || "[]");
-  } catch (e) {
-    return [];
+    await navigator.clipboard.writeText(text);
+    showToast("መረጃው ተኮፒ ተደርጓል።");
+  } catch (error) {
+    const area = document.createElement("textarea");
+    area.value = text;
+    area.style.position = "fixed";
+    area.style.opacity = "0";
+    document.body.appendChild(area);
+    area.select();
+
+    let copied = false;
+    try {
+      copied = document.execCommand("copy");
+    } catch (_) {}
+
+    area.remove();
+    showToast(copied ? "መረጃው ተኮፒ ተደርጓል።" : "ኮፒ ማድረግ አልተቻለም።");
   }
+}
+
+function copyPaymentNumber(id) {
+  const input = byId(id);
+  if (!input || !input.value.trim()) {
+    setResult("paymentResult", "እባክህ መጀመሪያ የተረጋገጠ ቁጥር አስገባ።", true);
+    return;
+  }
+  copyText(input.value.trim());
+}
+
+/* ጽሑፍ ማተሚያ */
+function getArticleText() {
+  const title = byId("articleTitle")?.value.trim() || "ያልተሰየመ ጽሑፍ";
+  const category = byId("articleCategory")?.value || "";
+  const body = byId("articleBody")?.value || "";
+
+  return { title, category, body };
 }
 
 function previewArticle() {
-  const title = $("articleTitle").value.trim();
-  const body = $("articleBody").value.trim();
-  const category = $("articleCategory").value;
-  const author = $("articleAuthor").value.trim() || "TM Studio";
-  const box = $("articlePreview");
-  box.textContent = title + "\n" + category + " · " + author + "\n\n" + body;
-}
+  const article = getArticleText();
+  const preview = byId("articlePreview");
+  if (!preview) return;
 
-function saveArticle() {
-  const title = $("articleTitle").value.trim();
-  const body = $("articleBody").value.trim();
-  const status = $("articleStatus");
-  status.style.display = "block";
+  preview.replaceChildren();
 
-  if (!title || !body) {
-    status.textContent = "ርዕስና ጽሑፍ ያስገቡ።";
-    return;
-  }
+  const heading = document.createElement("h2");
+  heading.textContent = article.title;
 
-  const articles = getArticles();
-  articles.unshift({
-    id: Date.now(),
-    title,
-    body,
-    category: $("articleCategory").value,
-    author: $("articleAuthor").value.trim() || "TM Studio",
-    date: new Date().toLocaleDateString()
-  });
+  const category = document.createElement("p");
+  category.textContent = "ዓይነት፦ " + article.category;
 
-  try {
-    localStorage.setItem("edspArticles", JSON.stringify(articles.slice(0,30)));
-    status.textContent = "ረቂቁ በዚህ አሳሽ ውስጥ ተቀምጧል።";
-    renderArticles();
-  } catch (e) {
-    status.textContent = "ረቂቁን ማስቀመጥ አልተቻለም።";
-  }
-}
+  const body = document.createElement("p");
+  body.style.whiteSpace = "pre-wrap";
+  body.textContent = article.body;
 
-function renderArticles() {
-  const root = $("articleList");
-  root.replaceChildren();
-
-  getArticles().forEach(article => {
-    const item = document.createElement("div");
-    item.className = "web-card";
-
-    const title = document.createElement("h3");
-    title.textContent = article.title;
-
-    const body = document.createElement("p");
-    body.textContent = article.body.slice(0,250);
-
-    const edit = document.createElement("button");
-    edit.className = "btn";
-    edit.textContent = "አርትዕ";
-    edit.onclick = () => {
-      $("articleTitle").value = article.title;
-      $("articleBody").value = article.body;
-      $("articleCategory").value = article.category;
-      $("articleAuthor").value = article.author;
-      previewArticle();
-      switchTab("publishTab");
-    };
-
-    const remove = document.createElement("button");
-    remove.className = "btn gold";
-    remove.textContent = "ሰርዝ";
-    remove.onclick = () => {
-      if (confirm("ይህን ረቂቅ ሰርዘው?")) {
-        localStorage.setItem("edspArticles", JSON.stringify(
-          getArticles().filter(a => a.id !== article.id)
-        ));
-        renderArticles();
-      }
-    };
-
-    item.append(title, body, edit, remove);
-    root.appendChild(item);
-  });
+  preview.append(heading, category, body);
+  preview.style.display = "block";
+  setResult("publishResult", "ቅድመ እይታ ተዘጋጅቷል።");
 }
 
 function downloadArticle() {
-  const title = $("articleTitle").value.trim();
-  const body = $("articleBody").value.trim();
-  if (!title || !body) {
-    $("articleStatus").style.display = "block";
-    $("articleStatus").textContent = "ርዕስና ጽሑፍ ያስገቡ።";
+  const article = getArticleText();
+
+  if (!article.body.trim()) {
+    setResult("publishResult", "እባክህ መጀመሪያ የጽሑፍ ይዘት ጻፍ።", true);
     return;
   }
 
-  const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({
-    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
-  }[char]));
+  const content =
+    article.title + "\n" +
+    "ዓይነት፦ " + article.category + "\n\n" +
+    article.body;
 
-  const html = "<!DOCTYPE html><html lang='am'><head><meta charset='UTF-8'>" +
-    "<meta name='viewport' content='width=device-width,initial-scale=1'>" +
-    "<title>" + escapeHTML(title) + "</title></head><body>" +
-    "<h1>" + escapeHTML(title) + "</h1><p>" +
-    escapeHTML($("articleCategory").value) + " · " +
-    escapeHTML($("articleAuthor").value || "TM Studio") +
-    "</p><article style='white-space:pre-wrap;line-height:1.9'>" +
-    escapeHTML(body) + "</article></body></html>";
+  const blob = new Blob(["\uFEFF", content], {
+    type: "text/plain;charset=utf-8"
+  });
 
-  const blob = new Blob([html], {type:"text/html;charset=utf-8"});
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = "tm-studio-article.html";
+  link.download = "ethio-digital-article.txt";
   document.body.appendChild(link);
   link.click();
   link.remove();
   URL.revokeObjectURL(url);
+
+  setResult("publishResult", "የጽሑፍ ማስቀመጫ ጥያቄ ተልኳል።");
 }
 
-renderArticles();
+function printArticle() {
+  const article = getArticleText();
+
+  if (!article.body.trim()) {
+    setResult("publishResult", "እባክህ ለማተም ጽሑፍ አስገባ።", true);
+    return;
+  }
+
+  const printWindow = window.open("", "_blank");
+  if (!printWindow) {
+    setResult(
+      "publishResult",
+      "የህትመት መስኮቱ ታግዷል። የBrowser ብቅ-ባይ ፈቃድን አረጋግጥ።",
+      true
+    );
+    return;
+  }
+
+  const safeTitle = escapeHTML(article.title);
+  const safeCategory = escapeHTML(article.category);
+  const safeBody = escapeHTML(article.body);
+
+  printWindow.document.write(
+    "<!doctype html><html lang='am'><head><meta charset='utf-8'>" +
+    "<title>" + safeTitle + "</title>" +
+    "<style>body{font-family:sans-serif;max-width:850px;margin:40px auto;" +
+    "line-height:1.9;padding:20px;color:#111}" +
+    "h1{font-size:25px}p{white-space:pre-wrap}" +
+    "</style></head><body><h1>" + safeTitle + "</h1>" +
+    "<p>ዓይነት፦ " + safeCategory + "</p><hr><p>" +
+    safeBody + "</p></body></html>"
+  );
+
+  printWindow.document.close();
+  printWindow.focus();
+  setTimeout(() => printWindow.print(), 400);
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+/* Supabase REST API */
+async function insertSupabase(table, payload) {
+  const response = await fetch(
+    SUPABASE_URL + "/rest/v1/" + encodeURIComponent(table),
+    {
+      method: "POST",
+      headers: {
+        "apikey": SUPABASE_PUBLISHABLE_KEY,
+        "Authorization": "Bearer " + SUPABASE_PUBLISHABLE_KEY,
+        "Content-Type": "application/json",
+        "Prefer": "return=minimal"
+      },
+      body: JSON.stringify(payload)
+    }
+  );
+
+  if (!response.ok) {
+    const details = await response.text();
+    console.error("Supabase insert error:", response.status, details);
+    throw new Error(
+      "ማመልከቻው ወደ ዳታቤዝ አልገባም። Supabase table እና RLS policy ያረጋግጡ።"
+    );
+  }
+}
+
+/* የማስታወቂያ ፋይል መጫኛ፤ bucket የግል እንደሆነ ይቆያል */
+async function uploadAdFile(file, kind) {
+  if (!file) return "";
+
+  const allowedTypes = [
+    "image/jpeg",
+    "image/png",
+    "image/webp",
+    "application/pdf"
+  ];
+
+  const maxSize = kind === "logo"
+    ? 5 * 1024 * 1024
+    : 8 * 1024 * 1024;
+
+  if (!allowedTypes.includes(file.type)) {
+    throw new Error("የፋይሉ አይነት አይደገፍም። JPG, PNG, WEBP ወይም PDF ብቻ ይጠቀሙ።");
+  }
+
+  if (file.size > maxSize) {
+    throw new Error(
+      kind === "logo"
+        ? "የሎጎ ፋይሉ ከ5 MB መብለጥ የለበትም።"
+        : "የደረሰኝ ፋይሉ ከ8 MB መብለጥ የለበትም።"
+    );
+  }
+
+  const safeName = file.name
+    .normalize("NFKD")
+    .replace(/[^a-zA-Z0-9._-]/g, "_")
+    .slice(-90) || "upload";
+
+  const path =
+    "applications/" + Date.now() + "-" +
+    Math.random().toString(36).slice(2, 10) +
+    "-" + kind + "-" + safeName;
+
+  const response = await fetch(
+    SUPABASE_URL + "/storage/v1/object/" +
+      STORAGE_BUCKET + "/" +
+      path.split("/").map(encodeURIComponent).join("/"),
+    {
+      method: "POST",
+      headers: {
+        "apikey": SUPABASE_PUBLISHABLE_KEY,
+        "Authorization": "Bearer " + SUPABASE_PUBLISHABLE_KEY,
+        "Content-Type": file.type,
+        "x-upsert": "false"
+      },
+      body: file
+    }
+  );
+
+  if (!response.ok) {
+    const details = await response.text();
+    console.error("Supabase Storage error:", response.status, details);
+    throw new Error(
+      "ፋይሉ አልተጫነም። Supabase Storage bucket እና upload policy ያረጋግጡ።"
+    );
+  }
+
+  return path;
+}
+
+/* የፋይል ስሞችን ማሳያ */
+function showSelectedFile(inputId, displayId) {
+  const input = byId(inputId);
+  const display = byId(displayId);
+  if (!input || !display) return;
+
+  input.addEventListener("change", () => {
+    display.textContent = input.files?.[0]
+      ? "የተመረጠ ፋይል፦ " + input.files[0].name
+      : "";
+  });
+}
+
+/* የማስታወቂያ ማመልከቻ */
+const adForm = byId("adForm");
+
+if (adForm) {
+  adForm.addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const submitButton = adForm.querySelector('button[type="submit"]');
+    if (submitButton?.disabled) return;
+
+    const bizName = byId("bizName")?.value.trim() || "";
+    const bizText = byId("bizText")?.value.trim() || "";
+    const adPlacement = byId("adPlacement")?.value || "";
+    const adDuration = byId("adDuration")?.value || "";
+    const adAmount = byId("adAmount")?.value || "";
+    const paymentMethod = byId("paymentMethod")?.value || "";
+    const paymentSender = byId("paymentSender")?.value.trim() || "";
+    const contact = byId("bizContact")?.value.trim() || "";
+    const txnId = byId("txnId")?.value.trim() || "";
+
+    const logoFile = byId("adLogo")?.files?.[0] || null;
+    const receiptFile = byId("adReceipt")?.files?.[0] || null;
+
+    if (!bizName || !bizText || !adPlacement || !adDuration || !paymentMethod) {
+      setResult("adResult", "እባክህ አስፈላጊ የተባሉትን መስኮች ሙላ።", true);
+      return;
+    }
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "እየተላከ ነው…";
+    }
+
+    try {
+      setResult("adResult", "መረጃውና ፋይሎቹ እየተላኩ ነው…");
+
+      const logoPath = await uploadAdFile(logoFile, "logo");
+      const receiptPath = await uploadAdFile(receiptFile, "receipt");
+
+      const details = [
+        "የማስታወቂያ ጽሑፍ፦ " + bizText,
+        "የክፍያ ዘዴ፦ " + paymentMethod,
+        "የከፋይ ስም፦ " + (paymentSender || "አልተገለጸም"),
+        "የግብይት ማጣቀሻ፦ " + (txnId || "አልተገለጸም"),
+        "የሎጎ ፋይል መንገድ፦ " + (logoPath || "የለም"),
+        "የደረሰኝ ፋይል መንገድ፦ " + (receiptPath || "የለም")
+      ].join("\n");
+
+      const payload = {
+        business_name: bizName,
+        contact_name: paymentSender || bizName,
+        contact_phone: contact,
+        ad_type: adPlacement,
+        duration: adDuration,
+        budget_etb: adAmount === "" ? 0 : Number(adAmount),
+        details: details,
+        status: "pending"
+      };
+
+      if (
+        !Number.isFinite(payload.budget_etb) ||
+        payload.budget_etb < 0
+      ) {
+        throw new Error("የበጀት መጠኑ ትክክል አይደለም።");
+      }
+
+      await insertSupabase("advertising_requests", payload);
+
+      lastAdMessage =
+        "የማስታወቂያ ማመልከቻ\n" +
+        "ድርጅት፦ " + bizName + "\n" +
+        "ቦታ፦ " + adPlacement + "\n" +
+        "ጊዜ፦ " + adDuration + "\n" +
+        "የተጠየቀ በጀት፦ " + (adAmount || "ከአስተዳዳሪ ጋር ይረጋገጣል") + " ETB\n" +
+        "የክፍያ ዘዴ፦ " + paymentMethod + "\n" +
+        "የከፋይ ስም፦ " + (paymentSender || "አልተገለጸም") + "\n" +
+        "የግብይት ማጣቀሻ፦ " + (txnId || "አልተገለጸም") + "\n" +
+        "የመገኛ መረጃ፦ " + (contact || "አልተገለጸም") + "\n" +
+        "የሎጎ ፋይል፦ " + (logoPath ? "ተጭኗል" : "አልተያያዘም") + "\n" +
+        "የደረሰኝ ፋይል፦ " + (receiptPath ? "ተጭኗል" : "አልተያያዘም") + "\n\n" +
+        "ማስታወሻ፦ ክፍያው በአስተዳዳሪ መረጋገጥ አለበት።";
+
+      setResult(
+        "adResult",
+        "ማመልከቻው ተመዝግቧል። ክፍያውና የደረሰኙ መረጃ በአስተዳዳሪ ይረጋገጣል።"
+      );
+
+      if (byId("copyAd")) byId("copyAd").style.display = "block";
+      if (byId("sendAdWhatsApp")) byId("sendAdWhatsApp").style.display = "block";
+
+      showToast("ማመልከቻው ተመዝግቧል።");
+    } catch (error) {
+      console.error(error);
+      setResult(
+        "adResult",
+        error.message || "ስህተት ተፈጥሯል። እንደገና ሞክር።",
+        true
+      );
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "ማመልከቻውን አዘጋጅ";
+      }
+    }
+  });
+}
+
+function copyAdText() {
+  if (!lastAdMessage) {
+    showToast("መጀመሪያ ማመልከቻውን አስገባ።");
+    return;
+  }
+  copyText(lastAdMessage);
+}
+
+function sendAdDraftWhatsApp() {
+  if (!lastAdMessage) {
+    showToast("መጀመሪያ ማመልከቻውን አስገባ።");
+    return;
+  }
+
+  const url = "https://wa.me/?text=" + encodeURIComponent(lastAdMessage);
+  window.open(url, "_blank", "noopener,noreferrer");
+
+  showToast("የWhatsApp መልዕክት ተዘጋጅቷል። ፋይሎቹን በተለየ መንገድ መላክ ሊያስፈልግ ይችላል።");
+}
+
+/* ዜና፦ የውጭ RSS አገልግሎት ሙከራ */
+async function loadNews() {
+  const status = byId("newsStatus");
+  const list = byId("newsList");
+
+  if (!status || !list) return;
+
+  status.textContent = "ዜናዎች እየተፈለጉ ነው…";
+  list.replaceChildren();
+
+  const feeds = [
+    {
+      name: "BBC News",
+      url: "https://feeds.bbci.co.uk/news/world/rss.xml"
+    },
+    {
+      name: "Al Jazeera",
+      url: "https://www.aljazeera.com/xml/rss/all.xml"
+    }
+  ];
+
+  let loaded = 0;
+
+  for (const feed of feeds) {
+    try {
+      const proxy =
+        "https://api.rss2json.com/v1/api.json?rss_url=" +
+        encodeURIComponent(feed.url);
+
+      const response = await fetch(proxy);
+      if (!response.ok) continue;
+
+      const data = await response.json();
+      if (!Array.isArray(data.items)) continue;
+
+      data.items.slice(0, 6).forEach(item => {
+        if (!item.title || !item.link) return;
+
+        const article = document.createElement("article");
+        article.className = "web-card";
+
+        const heading = document.createElement("h3");
+        heading.textContent = item.title;
+
+        const source = document.createElement("p");
+        source.textContent = "ምንጭ፦ " + feed.name;
+
+        const link = document.createElement("a");
+        link.className = "btn";
+        link.href = item.link;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "ዜናውን አንብብ ↗";
+
+        article.append(heading, source, link);
+        list.appendChild(article);
+        loaded++;
+      });
+    } catch (error) {
+      console.warn("News feed unavailable:", feed.name, error);
+    }
+  }
+
+  status.textContent = loaded
+    ? "የተገኙ የዜና አገናኞች፦ " + loaded +
+      ". የዜናውን ይዘት ከዋናው ምንጭ ያረጋግጡ።"
+    : "ዜናዎቹ አልተጫኑም። የአውታረ መረብ ወይም የRSS አገልግሎት ችግር ሊሆን ይችላል።";
+}
+
+/* የፍለጋ እና የገጽ ማስጀመሪያ */
+function initPortal() {
+  const year = byId("currentYear");
+  if (year) year.textContent = String(new Date().getFullYear());
+
+  showSelectedFile("adLogo", "adLogoName");
+  showSelectedFile("adReceipt", "adReceiptName");
+
+  drawWheel();
+  renderQuiz();
+
+  const ticker = byId("tickerTrack");
+  if (ticker) {
+    ticker.replaceChildren();
+
+    [
+      "Ethio Digital Super Portal — መረጃን በጥራት!",
+      "ከመጻሕፍት እስከ ቴክኖሎጂ — የእውቀት መድረክ!",
+      "ከማተም በፊት መረጃን ያረጋግጡ!"
+    ].forEach(message => {
+      const span = document.createElement("span");
+      span.textContent = message;
+      ticker.appendChild(span);
+    });
+  }
+
+  loadNews();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initPortal);
+} else {
+  initPortal();
+}
 </script>
 </body>
 </html>
