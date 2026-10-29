@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#07111f">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index,follow">
-<meta name="description" content="ኢትዮ ዲጂታል ሱፐር ፖርታል — መረጃ፣ እውቀት፣ ሚዲያ፣ መጻሕፍትና መዝናኛዎች">
+<meta name="description" content="ኢትዮ ዲጂታል ሱፐር ፖርታል — መረጃ፣ እውቀት፣ መጻሕፍትና ዲጂታል መሳሪያዎች">
 <title>ኢትዮ ዲጂታል ሱፐር ፖርታል</title>
 <script>
 function googleTranslateElementInit(){
@@ -35,7 +35,7 @@ body{
 }
 a{color:var(--cyan)}
 button,input,textarea,select{font:inherit}
-.container{width:min(1150px,100%);margin:auto;padding-bottom:40px}
+.container{width:min(1100px,100%);margin:auto;padding-bottom:40px}
 .bar,.panel,header,footer{
   border:1px solid var(--line);
   background:rgba(14,27,45,.94);
@@ -90,18 +90,17 @@ header:before{
 .pills{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:15px;position:relative}
 .pill{font-size:11px;border:1px solid #b9872b;color:#fcd34d;border-radius:20px;padding:5px 10px;background:#fbbf2410}
 .nav{display:flex;gap:7px;overflow-x:auto;padding:2px 0 9px;margin-bottom:8px;scrollbar-width:thin}
-.tab{flex:0 0 auto;border:1px solid var(--line);background:#102037;color:var(--text);padding:10px 13px;border-radius:10px;font-size:12px;font-weight:750;cursor:pointer;transition:0.2s}
+.tab{flex:0 0 auto;border:1px solid var(--line);background:#102037;color:var(--text);padding:10px 13px;border-radius:10px;font-size:12px;font-weight:750;cursor:pointer}
 .tab.active,.tab:hover{background:linear-gradient(120deg,#0284c7,#7c3aed);border-color:transparent}
 .panel{padding:18px;margin-bottom:12px}
 .panel h2{font-size:17px;color:#7dd3fc;margin:0 0 13px}
 .panel p{color:var(--muted);font-size:13px;line-height:1.7}
-.cards,.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
-.web-card,.card{background:#081322;border:1px solid #203b57;border-radius:13px;padding:15px;display:flex;flex-direction:column;gap:8px;min-height:150px;transition:transform 0.2s}
-.web-card:hover,.card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.cards,.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:12px}
+.web-card,.card{background:#081322;border:1px solid #203b57;border-radius:13px;padding:15px;display:flex;flex-direction:column;gap:8px;min-height:155px}
 .web-card h3,.card h3{font-size:14px;color:#7dd3fc;margin:0}
 .web-card p,.card p{font-size:12px;margin:0 0 5px;flex:1}
 .btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;width:100%;padding:10px 12px;border:0;border-radius:9px;background:linear-gradient(120deg,#38bdf8,#0284c7);color:#03111d;font-weight:800;font-size:12px;text-decoration:none;cursor:pointer}
-.btn.gold{background:linear-gradient(120deg,#fcd34d,#f59e0b);color:#102037}
+.btn.gold{background:linear-gradient(120deg,#fcd34d,#f59e0b)}
 .btn.green{background:linear-gradient(120deg,#34d399,#059669);color:#032017}
 .field{margin:12px 0}
 .field label{display:block;font-size:12px;font-weight:750;color:#dbeafe;margin-bottom:6px}
@@ -112,7 +111,7 @@ header:before{
   position:fixed;inset:0;z-index:1000;background:#020617eF;
   display:grid;place-items:center;padding:18px;opacity:1;transition:opacity .35s
 }
-.modal-backdrop.hidden{opacity:0;pointer-events:none;display:none!important}
+.modal-backdrop.hidden{opacity:0;pointer-events:none}
 .welcome-envelope{
   width:min(480px,100%);text-align:center;
   background:linear-gradient(145deg,#122843,#17102e);
@@ -125,23 +124,34 @@ header:before{
 @keyframes envelopeFloat{50%{transform:translateY(-7px) rotate(-2deg)}}
 .chat-fab{position:fixed;right:15px;bottom:15px;z-index:90;width:auto!important;border-radius:999px!important;padding:13px 16px!important;box-shadow:0 8px 30px #0008}
 footer{text-align:center;padding:16px;color:var(--muted);font-size:11px;line-height:1.8;margin-top:16px}
-.tab-panel[hidden] {display: none !important;}
-.tab-panel.active:not([hidden]) {display: block;}
+#welcomeBackdrop.hidden {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+.tab-panel[hidden] {
+  display: none !important;
+}
+.tab-panel.active:not([hidden]) {
+  display: block;
+}
 </style>
 </head>
 <body>
 
-<!-- Welcome Modal Envelope -->
+<!-- Welcome Modal -->
 <div id="welcomeBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
   <div class="welcome-envelope">
     <div class="envelope-icon" aria-hidden="true">💌</div>
     <h2 id="welcomeTitle">እንኳን ወደ ፖርታሉ በደህና መጡ!</h2>
-    <p>Ethio Digital Super Portal — መረጃ፣ መጻሕፍት፣ ዜና፣ ቴክኖሎጂ፣ ጨዋታዎችና መዝናኛዎች በአንድ ቦታ።</p>
+    <p>Ethio Digital Super Portal — እውቀት፣ መጻሕፍት፣ ዜና፣ ቴክኖሎጂና አዳዲስ ሐሳቦች በአንድ ቦታ።</p>
     <button class="btn gold" id="openEnvelopeBtn" type="button">✉️ ደብዳቤውን ክፈት</button>
+    <p class="hint">በመጫንዎ የፖርታሉን ዋና ገጽ ይከፍታሉ።</p>
   </div>
 </div>
 
-<!-- Support Floating Button -->
+<!-- WhatsApp Support Floating Button -->
 <button class="btn green chat-fab" type="button" onclick="window.open('https://wa.me/251920836593','_blank','noopener,noreferrer')">💬 ድጋፍ ያግኙ</button>
 
 <main class="container">
@@ -162,7 +172,7 @@ footer{text-align:center;padding:16px;color:var(--muted);font-size:11px;line-hei
     <span class="live-label">🔴 ዜና</span>
     <div class="ticker-window">
       <div class="ticker-track" id="tickerTrack">
-        <span>ኢትዮ ዲጂታል ሱፐር ፖርታል መረጃዎችን፣ እውቀትን፣ ሚዲያዎችንና መዝናኛዎችን በአንድ ላይ ያቀርባል።</span>
+        <span>ኢትዮ ዲጂታል ሱፐር ፖርታል መረጃዎችን፣ እውቀትንና ቴክኖሎጂዎችን በአንድ ላይ ያቀርባል።</span>
         <span>እንኳን ወደ ፖርታላችን በደህና መጡ!</span>
       </div>
     </div>
@@ -173,10 +183,10 @@ footer{text-align:center;padding:16px;color:var(--muted);font-size:11px;line-hei
   <header>
     <img class="profile" src="taha-profile.jpg" alt="የTM Studio አዘጋጅ ፎቶ" onerror="this.style.display='none'">
     <div class="brand"><div class="logo" aria-hidden="true">🌐</div><h1>ኢትዮ ዲጂታል ሱፐር ፖርታል</h1></div>
-    <p class="tagline">መረጃ • እውቀት • መጻሕፍት • ሚዲያ • መዝናኛና ጨዋታዎች</p>
+    <p class="tagline">መረጃ • እውቀት • መጻሕፍት • ዲጂታል መሳሪያዎች</p>
     <div class="pills">
       <span class="pill">🌍 ዓለም አቀፍ አገናኝ መረብ</span>
-      <span class="pill">🧠 የእውቀትና መዝናኛ ማዕከል</span>
+      <span class="pill">🧠 የእውቀት ማዕከል</span>
       <span class="pill">⭐ ነጥብ፡ <b id="points">0</b></span>
     </div>
   </header>
@@ -184,121 +194,106 @@ footer{text-align:center;padding:16px;color:var(--muted);font-size:11px;line-hei
   <!-- Navigation Menu -->
   <nav class="nav" aria-label="ዋና ምናሌ">
     <button class="tab active" data-tab="homeTab" onclick="switchTab('homeTab')">🏠 መነሻ</button>
-    <button class="tab" data-tab="mediaTab" onclick="switchTab('mediaTab')">📺 ሚዲያዎች</button>
-    <button class="tab" data-tab="faithTab" onclick="switchTab('faithTab')">🕌 የእምነት ምንጮች</button>
-    <button class="tab" data-tab="pressTab" onclick="switchTab('pressTab')">📰 ፕሬስና መጻሕፍት</button>
-    <button class="tab" data-tab="entTab" onclick="switchTab('entTab')">🎬 ሙዚቃና ፊልም</button>
-    <button class="tab" data-tab="bettingTab" onclick="switchTab('bettingTab')">🎲 ቤቲንግና ካሲኖ</button>
+    <button class="tab" data-tab="ethiopiaTab" onclick="switchTab('ethiopiaTab')">🇪🇹 ኢትዮጵያ</button>
+    <button class="tab" data-tab="faithTab" onclick="switchTab('faithTab')">🕌 እምነት</button>
+    <button class="tab" data-tab="booksTab" onclick="switchTab('booksTab')">📚 መጻሕፍት</button>
     <button class="tab" data-tab="aiTab" onclick="switchTab('aiTab')">🤖 AI</button>
-    <button class="tab" data-tab="gamesTab" onclick="switchTab('gamesTab')">🎮 ጨዋታዎች</button>
+    <button class="tab" data-tab="mediaTab" onclick="switchTab('mediaTab')">📺 ሚዲያ</button>
+    <button class="tab" data-tab="techTab" onclick="switchTab('techTab')">🚀 ቴክኖሎጂ</button>
+    <button class="tab" data-tab="gamesTab" onclick="switchTab('gamesTab')">🎮 ጨዋታ</button>
+    <button class="tab" data-tab="newsTab" onclick="switchTab('newsTab')">📰 ዜና</button>
     <button class="tab" data-tab="adApplyTab" onclick="switchTab('adApplyTab')">📢 ማስታወቂያ</button>
-    <button class="tab" data-tab="paymentTab" onclick="switchTab('paymentTab')">💳 ክፍያና ደረሰኝ</button>
+    <button class="tab" data-tab="paymentTab" onclick="switchTab('paymentTab')">💳 ክፍያ</button>
+    <button class="tab" data-tab="receiptTab" onclick="switchTab('receiptTab')">🧾 ደረሰኝ</button>
+    <button class="tab" data-tab="publishTab" onclick="switchTab('publishTab')">✍️ ህትመት</button>
+    <button class="tab" data-tab="exploreTab" onclick="switchTab('exploreTab')">🧭 ፍለጋ</button>
   </nav>
 
   <!-- 1. Home Tab -->
   <section id="homeTab" class="section active tab-panel">
     <div class="panel">
       <h2>🌟 ወደ ዲጂታል ዓለምዎ እንኳን በደህና መጡ</h2>
-      <p>መረጃን በጥራት፣ እውቀትን በማስረጃ፣ ቴክኖሎጂንና መዝናኛን ለተግባራዊ ጥቅም የሚያቀርብ የዲጂታል መድረክ።</p>
+      <p>መረጃን በጥራት፣ እውቀትን በማስረጃ፣ ቴክኖሎጂን ለተግባራዊ ጥቅም የሚያቀርብ የዲጂታል መድረክ።</p>
       <div class="field">
         <label for="searchInput">🔎 በፖርታሉ ውስጥ ይፈልጉ</label>
-        <input id="searchInput" type="search" placeholder="መጻሕፍት፣ ዜና፣ AI፣ ፊልም፣ ቤቲንግ…">
+        <input id="searchInput" type="search" placeholder="መጻሕፍት፣ ዜና፣ AI፣ ቴክኖሎጂ…">
       </div>
       <button class="btn" id="searchBtn" type="button" onclick="runPortalSearch()">ፈልግ</button>
       <div id="searchResults" class="cards" style="margin-top:12px"></div>
     </div>
     <div class="panel">
-      <h2>⚡ ፈጣን አገልግሎቶች</h2>
+      <h2>⚡ ፈጣን አገናኞች</h2>
       <div class="cards">
         <article class="web-card"><h3>🔍 Google</h3><p>በድረ-ገጾች ላይ ይፈልጉ።</p><a class="btn" href="https://www.google.com/" target="_blank">Google ክፈት ↗</a></article>
-        <article class="web-card"><h3>▶️ YouTube</h3><p>ቪዲዮዎችንና ሙዚቃዎችን ይመልከቱ።</p><a class="btn" href="https://www.youtube.com/" target="_blank">YouTube ክፈት ↗</a></article>
-        <article class="web-card"><h3>💬 Telegram</h3><p>የመልዕክትና የቻናል መድረክ።</p><a class="btn" href="https://web.telegram.org/" target="_blank">Telegram ክፈት ↗</a></article>
         <article class="web-card"><h3>📘 Facebook</h3><p>የFacebook ድረ-ገጽን ይክፈቱ።</p><a class="btn" href="https://m.facebook.com/" target="_blank">Facebook ክፈት ↗</a></article>
+        <article class="web-card"><h3>▶️ YouTube</h3><p>ቪዲዮዎችንና የትምህርት ይዘቶችን ይመልከቱ።</p><a class="btn" href="https://www.youtube.com/" target="_blank">YouTube ክፈት ↗</a></article>
+        <article class="web-card"><h3>💬 Telegram</h3><p>የመልዕክት መድረኩን ይጠቀሙ።</p><a class="btn" href="https://web.telegram.org/" target="_blank">Telegram ክፈት ↗</a></article>
       </div>
     </div>
   </section>
 
-  <!-- 2. Media Tab (የሀገር ውስጥና የውጭ ዓለማዊ ሚዲያዎች) -->
-  <section id="mediaTab" class="section tab-panel" hidden>
+  <!-- 2. Ethiopia Tab -->
+  <section id="ethiopiaTab" class="section tab-panel" hidden>
     <div class="panel">
-      <h2>📺 የሀገር ውስጥና የዓለም አቀፍ ሚዲያዎች</h2>
+      <h2>🇪🇹 ኢትዮጵያ፣ ባህልና ቅርስ</h2>
       <div class="cards">
-        <article class="web-card"><h3>🇪🇹 EBC</h3><p>የኢትዮጵያ ብሮድካስቲንግ ኮርፖሬሽን።</p><a class="btn" href="https://www.ebc.et/" target="_blank">EBC ክፈት ↗</a></article>
-        <article class="web-card"><h3>📺 Fana Broadcasting</h3><p>ፋና ብሮድካስቲንግ ኮርፖሬት።</p><a class="btn" href="https://www.fanamc.com/" target="_blank">Fana ክፈት ↗</a></article>
-        <article class="web-card"><h3>📻 Walta Media</h3><p>ዋልታ ሚዲያና ኮሙኒኬሽን።</p><a class="btn" href="https://walta.com/" target="_blank">Walta ክፈት ↗</a></article>
-        <article class="web-card"><h3>🌐 BBC Amharic</h3><p>የቢቢሲ አማርኛ ዜና አገልግሎት።</p><a class="btn" href="https://www.bbc.com/amharic" target="_blank">BBC ክፈት ↗</a></article>
-        <article class="web-card"><h3>🌍 DW Amharic</h3><p>የዶይቼ ቬለ አማርኛ ክፍል።</p><a class="btn" href="https://www.dw.com/am/" target="_blank">DW ክፈት ↗</a></article>
-        <article class="web-card"><h3>📡 VOA Amharic</h3><p>የአሜሪካ ድምፅ ራዲዮ።</p><a class="btn" href="https://amharic.voanews.com/" target="_blank">VOA ክፈት ↗</a></article>
+        <article class="web-card"><h3>📰 Ethiopian News Agency</h3><p>የኢትዮጵያ ዜና ኤጀንሲ።</p><a class="btn" href="https://www.ena.et/" target="_blank">ዜናዎች ይመልከቱ</a></article>
+        <article class="web-card"><h3>✈️ Ethiopian Airlines</h3><p>በረራዎችንና የጉዞ አገልግሎቶችን ይመልከቱ።</p><a class="btn" href="https://www.ethiopianairlines.com/" target="_blank">ድረ-ገጹን ክፈት</a></article>
       </div>
     </div>
   </section>
 
-  <!-- 3. Faith Tab (ሃይማኖታዊ ሚዲያዎችና ምንጮች) -->
+  <!-- 3. Faith Tab -->
   <section id="faithTab" class="section tab-panel" hidden>
     <div class="panel">
-      <h2>🕌 ✝️ የሀገር ውስጥና የዓለም ሃይማኖታዊ ምንጮች</h2>
+      <h2>🕌 የእምነትና የመንፈሳዊ ትምህርት ምንጮች</h2>
       <div class="cards">
-        <article class="web-card"><h3>📖 Quran.com</h3><p>የተቀደሰው ቁርአን በድምፅና በትርጉም።</p><a class="btn" href="https://quran.com/" target="_blank">Quran ክፈት ↗</a></article>
-        <article class="web-card"><h3>✝️ Bible.com</h3><p>የመጽሐፍ ቅዱስ ንባብና የትርጉም ምንጮች።</p><a class="btn" href="https://www.bible.com/" target="_blank">Bible ክፈት ↗</a></article>
-        <article class="web-card"><h3>⛪ Mahibere Kidusan</h3><p>የማኅበረ ቅዱሳን ድረ-ገጽ።</p><a class="btn" href="https://eotc.org.et/" target="_blank">ማኅበረ ቅዱሳን ↗</a></article>
-        <article class="web-card"><h3>🕋 Sunnah.com</h3><p>የሐዲስ ስብስቦችና ማጣቀሻዎች።</p><a class="btn" href="https://sunnah.com/" target="_blank">Sunnah ክፈት ↗</a></article>
-        <article class="web-card"><h3>📺 EOTC TV</h3><p>የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተክርስቲያን ሚዲያ።</p><a class="btn" href="https://www.eotctv.org/" target="_blank">EOTC TV ↗</a></article>
-        <article class="web-card"><h3>🕊️ Africa TV</h3><p>የአፍሪካ ቲቪ እስላማዊ ስርጭት።</p><a class="btn" href="https://africatv.net/" target="_blank">Africa TV ↗</a></article>
+        <article class="web-card"><h3>📖 Quran.com</h3><p>ቁርአንን በተለያዩ ቋንቋዎች ለማንበብና ለማዳመጥ።</p><a class="btn" href="https://quran.com/" target="_blank">ቁርአን ክፈት</a></article>
+        <article class="web-card"><h3>✝️ Bible.com</h3><p>የመጽሐፍ ቅዱስ ንባብና የትርጉም ምንጮች።</p><a class="btn" href="https://www.bible.com/" target="_blank">መጽሐፍ ቅዱስ ክፈት</a></article>
       </div>
     </div>
   </section>
 
-  <!-- 4. Press & Books Tab (የኢትዮጵያ መጻሕፍትና ፕሬስ) -->
-  <section id="pressTab" class="section tab-panel" hidden>
+  <!-- 4. Books Tab -->
+  <section id="booksTab" class="section tab-panel" hidden>
     <div class="panel">
-      <h2>📰 የኢትዮጵያ ፕሬስ፣ ጋዜጦችና መጻሕፍት</h2>
+      <h2>📚 መጻሕፍትና የእውቀት ማዕከል</h2>
       <div class="cards">
-        <article class="web-card"><h3>🗞️ ENA (ኢዜአ)</h3><p>የኢትዮጵያ ዜና ኤጀንሲ።</p><a class="btn" href="https://www.ena.et/" target="_blank">ENA ክፈት ↗</a></article>
-        <article class="web-card"><h3>📜 EPA (የፕሬስ ድርጅት)</h3><p>የኢትዮጵያ ፕሬስ ድርጅት (አዲስ ዘመን)።</p><a class="btn" href="https://www.press.et/" target="_blank">Press.et ክፈት ↗</a></article>
-        <article class="web-card"><h3>📰 Reporter Amharic</h3><p>የሪፖርተር ጋዜጣ የመረጃ ፖርታል።</p><a class="btn" href="https://www.ethiopianreporter.com/" target="_blank">ሪፖርተር ↗</a></article>
-        <article class="web-card"><h3>📚 Internet Archive Books</h3><p>የቀደሙና የዘመኑ የኢትዮጵያ መጻሕፍት ማህደር።</p><a class="btn" href="https://archive.org/" target="_blank">መጻሕፍት ማህደር ↗</a></article>
-        <article class="web-card"><h3>📖 Ethiopian Language Books</h3><p>የአማርኛ እና የሀገር ውስጥ መጻሕፍት ስብስብ።</p><a class="btn" href="https://openlibrary.org/" target="_blank">Open Library ↗</a></article>
+        <article class="web-card"><h3>📘 Internet Archive</h3><p>የዲጂታል መጻሕፍትና ታሪካዊ ማህደሮች።</p><a class="btn" href="https://archive.org/" target="_blank">ማህደሩን ክፈት</a></article>
+        <article class="web-card"><h3>🎓 Google Scholar</h3><p>የምርምር ጽሑፎችና የሳይንስ ምንጮች።</p><a class="btn" href="https://scholar.google.com/" target="_blank">ምርምር ፈልግ</a></article>
       </div>
     </div>
   </section>
 
-  <!-- 5. Entertainment Tab (ሙዚቃና ፊልም) -->
-  <section id="entTab" class="section tab-panel" hidden>
-    <div class="panel">
-      <h2>🎬 የሙዚቃና የፊልም ኢንተርተይንመንት ዌብሳይቶች</h2>
-      <div class="cards">
-        <article class="web-card"><h3>🎵 Spotify</h3><p>የዓለም አቀፍና የሀገር ውስጥ ሙዚቃዎችን ያዳምጡ።</p><a class="btn" href="https://open.spotify.com/" target="_blank">Spotify ክፈት ↗</a></article>
-        <article class="web-card"><h3>🍿 Netflix</h3><p>ፊልሞችንና ተከታታይ ድራማዎችን ይመልከቱ።</p><a class="btn" href="https://www.netflix.com/" target="_blank">Netflix ክፈት ↗</a></article>
-        <article class="web-card"><h3>🎥 IMDb Movie Guide</h3><p>የፊልም ደረጃዎች፣ መረጃዎችና ትሬለሮች።</p><a class="btn" href="https://www.imdb.com/" target="_blank">IMDb ክፈት ↗</a></article>
-        <article class="web-card"><h3>🎶 Soundcloud</h3><p>አዳዲስ የሙዚቃ ትራኮችና ፖድካስቶች።</p><a class="btn" href="https://soundcloud.com/" target="_blank">Soundcloud ↗</a></article>
-        <article class="web-card"><h3>🎵 TikTok Trends</h3><p>አጫጭር የቪዲዮና የሙዚቃ መዝናኛዎች።</p><a class="btn" href="https://www.tiktok.com/" target="_blank">TikTok ክፈት ↗</a></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. Betting & Casino Tab (ቤቲንግና ካሲኖ) -->
-  <section id="bettingTab" class="section tab-panel" hidden>
-    <div class="panel">
-      <h2>🎲 የቤቲንግና የካሲኖ ጌሞች መድረክ</h2>
-      <p style="color:var(--gold); font-size:12px;">⚠️ ማሳሰቢያ፦ የቤቲንግና ካሲኖ ጨዋታዎች እድሜያቸው ከ18 ዓመት በላይ ለሆኑ ተጠቃሚዎች ብቻ የተፈቀዱ ናቸው።</p>
-      <div class="cards">
-        <article class="web-card"><h3>⚽ Lebihir Sport Betting</h3><p>የስፖርት ቤቲንግና የቀጥታ ግጥሚያዎች።</p><a class="btn gold" href="https://www.haba.bet/" target="_blank">Habesha Betting ↗</a></article>
-        <article class="web-card"><h3>🎯 HuluBet Betting</h3><p>የአካባቢና የዓለም አቀፍ ስፖርት ቤቲንግ።</p><a class="btn gold" href="https://hulubet.com/" target="_blank">HuluBet ክፈት ↗</a></article>
-        <article class="web-card"><h3>🎰 1xBet Casino & Sports</h3><p>የዓለም አቀፍ ካሲኖና የቁማር ጨዋታዎች።</p><a class="btn gold" href="https://1xbet.com/" target="_blank">1xBet ክፈት ↗</a></article>
-        <article class="web-card"><h3>🃏 Bet365 Online Games</h3><p>የካሲኖ፣ ፖከርና የስፖርት ጨዋታዎች።</p><a class="btn gold" href="https://www.bet365.com/" target="_blank">Bet365 ክፈት ↗</a></article>
-        <article class="web-card"><h3>🎮 Aviator & Slot Games</h3><p>የካሲኖ ስሎትና ኦንላይን ጌሞች።</p><a class="btn gold" href="https://www.predictortech.com/" target="_blank">Casino Games ↗</a></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. AI Tab -->
+  <!-- 5. AI Tab -->
   <section id="aiTab" class="section tab-panel" hidden>
     <div class="panel">
       <h2>🤖 የሰው ሠራሽ አስተውሎት (AI)</h2>
       <div class="cards">
-        <article class="web-card"><h3>🧠 ChatGPT</h3><p>ለመጻፍ፣ ለምርምርና ለሐሳብ ማደራጀት።</p><a class="btn" href="https://chatgpt.com/" target="_blank">ChatGPT ክፈት ↗</a></article>
-        <article class="web-card"><h3>🔎 Gemini AI</h3><p>የGoogle AI መሳሪያዎችና ፍለጋ።</p><a class="btn" href="https://gemini.google.com/" target="_blank">Gemini ክፈት ↗</a></article>
-        <article class="web-card"><h3>🎨 Canva Design AI</h3><p>ለዲዛይንና ለቪዲዮ ዝግጅት።</p><a class="btn" href="https://www.canva.com/" target="_blank">Canva ክፈት ↗</a></article>
+        <article class="web-card"><h3>🧠 ChatGPT</h3><p>ለመጻፍ፣ ለምርምርና ለሐሳብ ማደራጀት።</p><a class="btn" href="https://chatgpt.com/" target="_blank">ChatGPT ክፈት</a></article>
+        <article class="web-card"><h3>🔎 Gemini</h3><p>የGoogle AI መሳሪያዎች።</p><a class="btn" href="https://gemini.google.com/" target="_blank">Gemini ክፈት</a></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Media Tab -->
+  <section id="mediaTab" class="section tab-panel" hidden>
+    <div class="panel">
+      <h2>📺 ሚዲያና የመረጃ ምንጮች</h2>
+      <div class="cards">
+        <article class="web-card"><h3>Facebook</h3><p>ማህበራዊ መድረክ</p><a class="btn" href="https://m.facebook.com/" target="_blank">Facebook ክፈት ↗</a></article>
+        <article class="web-card"><h3>YouTube</h3><p>ቪዲዮዎችና የቀጥታ ስርጭቶች</p><a class="btn" href="https://www.youtube.com/" target="_blank">YouTube ክፈት ↗</a></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Tech Tab -->
+  <section id="techTab" class="section tab-panel" hidden>
+    <div class="panel">
+      <h2>🚀 ቴክኖሎጂና ሰው ሰራሽ አስተውሎት</h2>
+      <div class="cards">
+        <article class="web-card"><h3>ChatGPT</h3><p>የጽሑፍ፣ የምርምርና የሃሳብ አጋዥ</p><a class="btn" href="https://chatgpt.com/" target="_blank">ChatGPT ክፈት ↗</a></article>
+        <article class="web-card"><h3>GitHub</h3><p>የፕሮግራሚንግ ፕሮጀክቶችና ኮድ</p><a class="btn" href="https://github.com/" target="_blank">GitHub ክፈት ↗</a></article>
       </div>
     </div>
   </section>
@@ -306,25 +301,283 @@ footer{text-align:center;padding:16px;color:var(--muted);font-size:11px;line-hei
   <!-- 8. Games Tab -->
   <section id="gamesTab" class="section tab-panel" hidden>
     <div class="panel">
-      <h2>🎮 ነፃ የመስመር ላይ ጨዋታዎች</h2>
+      <h2>🎮 ጨዋታና መዝናኛ</h2>
       <div class="cards">
-        <article class="web-card"><h3>🕹️ CrazyGames</h3><p>በድረገጽ ላይ የሚጫወቱ ነፃ ጨዋታዎች።</p><a class="btn" href="https://www.crazygames.com/" target="_blank">CrazyGames ↗</a></article>
-        <article class="web-card"><h3>🎯 Poki Online Games</h3><p>የተለያዩ አዝናኝ ጨዋታዎች።</p><a class="btn" href="https://poki.com/" target="_blank">Poki ክፈት ↗</a></article>
-        <article class="web-card"><h3>♟️ Chess.com</h3><p>የቼዝ ጨዋታና ልምምድ።</p><a class="btn" href="https://www.chess.com/" target="_blank">Chess.com ↗</a></article>
+        <article class="web-card"><h3>CrazyGames</h3><p>በድረገጽ ላይ የሚጫወቱ ጨዋታዎች</p><a class="btn" href="https://www.crazygames.com/" target="_blank">ጨዋታዎችን ክፈት ↗</a></article>
       </div>
     </div>
   </section>
 
-  <!-- 9. Ad Apply Tab -->
+  <!-- 9. News Tab -->
+  <section id="newsTab" class="section tab-panel" hidden>
+    <div class="panel">
+      <h2>📰 ዜናና የምርምር ምንጮች</h2>
+      <div class="cards">
+        <article class="web-card"><h3>Google News</h3><p>ከተለያዩ የዜና ምንጮች የተሰበሰቡ ዜናዎች</p><a class="btn" href="https://news.google.com/" target="_blank">Google News ክፈት ↗</a></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Ad Apply Tab -->
   <section id="adApplyTab" class="section tab-panel" hidden>
     <div class="panel">
-      <h2>📢 የማስታወቂያ ማመልከቻ ቅጽ</h2>
+      <h2>📢 የማስታወቂያ ማመልከቻ</h2>
       <form id="adForm" class="card">
         <label for="bizName">የንግድ ስም</label>
-        <input id="bizName" required placeholder="የድርጅትዎ ስም">
+        <input id="bizName" name="bizName" required maxlength="120" placeholder="የድርጅትዎ ስም">
         <label for="bizText">የማስታወቂያ መግለጫ</label>
-        <textarea id="bizText" required placeholder="ስለ ማስታወቂያዎ አጭር መግለጫ"></textarea>
-        <label for="bizContact">ስልክ ወይም ኢሜይል</label>
-        <input id="bizContact" required placeholder="ስልክ / ኢሜይል">
-        <button class="btn gold" type="submit" style="margin-top:10px">ማመልከቻውን አዘጋጅ</button>
-        <p
+        <textarea id="bizText" name="bizText" required maxlength="2000" placeholder="ስለ ማስታወቂያዎ አጭር መግለጫ"></textarea>
+        <label for="bizContact">የመገኛ ስልክ ወይም ኢሜይል</label>
+        <input id="bizContact" name="bizContact" required maxlength="150" placeholder="ስልክ / ኢሜይል">
+        <label for="adPlacement">የማስታወቂያ ቦታ</label>
+        <select id="adPlacement" name="adPlacement" required>
+          <option value="">ይምረጡ</option>
+          <option value="home">ዋና ገጽ</option>
+          <option value="banner">ላይኛው ባነር</option>
+        </select>
+        <label for="adDuration">የማስታወቂያ ጊዜ</label>
+        <select id="adDuration" name="adDuration" required>
+          <option value="">ይምረጡ</option>
+          <option value="7 days">7 ቀናት</option>
+          <option value="30 days">30 ቀናት</option>
+        </select>
+        <label for="adAmount">በጀት (ብር)</label>
+        <input id="adAmount" name="adAmount" type="number" min="50" max="500000" step="1" required placeholder="ለምሳሌ 500">
+        <button class="btn" type="submit">ማመልከቻውን አዘጋጅ</button>
+        <p id="adResult" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- 11. Payment Tab -->
+  <section id="paymentTab" class="section tab-panel" hidden>
+    <div class="panel">
+      <h2>💳 የክፍያ መረጃ</h2>
+      <div class="card">
+        <p>ክፍያ ከመፈጸምዎ በፊት የአስተዳዳሪውን የክፍያ መመሪያ ያረጋግጡ።</p>
+        <button class="btn" type="button" onclick="switchTab('receiptTab')">ወደ ደረሰኝ ማስገቢያ ሂድ</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. Receipt Tab -->
+  <section id="receiptTab" class="section tab-panel" hidden>
+    <div class="panel">
+      <h2>🧾 የክፍያ ደረሰኝ መረጃ</h2>
+      <form id="receiptForm" class="card">
+        <label for="receiptName">ሙሉ ስም</label>
+        <input id="receiptName" name="receiptName" required maxlength="120">
+        <label for="receiptMethod">የክፍያ ዘዴ</label>
+        <select id="receiptMethod" name="receiptMethod" required>
+          <option value="">ይምረጡ</option>
+          <option value="CBE">CBE</option>
+          <option value="Telebirr">Telebirr</option>
+        </select>
+        <label for="receiptAmount">የተከፈለው መጠን (ብር)</label>
+        <input id="receiptAmount" name="receiptAmount" type="number" min="1" step="0.01" required>
+        <label for="receiptPurpose">የክፍያው ዓላማ</label>
+        <input id="receiptPurpose" name="receiptPurpose" required maxlength="200">
+        <label for="receiptTxn">የግብይት ቁጥር</label>
+        <input id="receiptTxn" name="receiptTxn" required maxlength="150">
+        <button class="btn" type="submit">መረጃውን አዘጋጅ</button>
+        <p id="receiptResult" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- 13. Publish Tab -->
+  <section id="publishTab" class="section tab-panel" hidden>
+    <div class="panel">
+      <h2>✍️ የጽሑፍ ማዘጋጃ</h2>
+      <form id="articleForm" class="card">
+        <label for="articleTitle">የጽሑፉ ርዕስ</label>
+        <input id="articleTitle" required maxlength="200">
+        <label for="articleCategory">ምድብ</label>
+        <select id="articleCategory" required>
+          <option value="">ይምረጡ</option>
+          <option value="news">ዜና</option>
+          <option value="technology">ቴክኖሎጂ</option>
+        </select>
+        <label for="articleBody">የጽሑፉ ይዘት</label>
+        <textarea id="articleBody" required maxlength="10000" placeholder="ጽሑፍዎን እዚህ ይጻፉ"></textarea>
+        <button class="btn" type="submit">ቅድመ እይታ አዘጋጅ</button>
+        <p id="articleStatus" role="status" aria-live="polite"></p>
+      </form>
+      <div id="articlePreview" class="card" hidden></div>
+    </div>
+  </section>
+
+  <!-- 14. Explore Tab -->
+  <section id="exploreTab" class="section tab-panel" hidden>
+    <div class="panel">
+      <h2>🧭 ፖርታሉን ይመርምሩ</h2>
+      <div class="card">
+        <label for="portalExplore">የሚፈልጉትን ይጻፉ</label>
+        <input id="portalExplore" placeholder="ለምሳሌ፦ መጽሐፍ፣ ዜና፣ AI">
+        <p id="exploreMessage" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 ኢትዮ ዲጂታል ሱፐር ፖርታል | መብቱ በህግ የተጠበቀ ነው።</p>
+</footer>
+
+<script>
+"use strict";
+function openPortal() {
+  const backdrop = document.getElementById("welcomeBackdrop");
+  if (backdrop) {
+    backdrop.classList.add("hidden");
+    backdrop.setAttribute("aria-hidden", "true");
+    window.setTimeout(() => backdrop.remove(), 450);
+  }
+  document.body.style.overflow = "";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const envelopeButton = document.getElementById("openEnvelopeBtn");
+  if (envelopeButton) {
+    envelopeButton.addEventListener("click", openPortal);
+  }
+
+  window.setTimeout(function () {
+    const backdrop = document.getElementById("welcomeBackdrop");
+    if (backdrop && !backdrop.classList.contains("hidden")) {
+      openPortal();
+    }
+  }, 12000);
+
+  const searchButton = document.getElementById("searchBtn");
+  const searchInput = document.getElementById("searchInput");
+
+  if (searchButton) {
+    searchButton.addEventListener("click", runPortalSearch);
+  }
+  if (searchInput) {
+    searchInput.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        runPortalSearch();
+      }
+    });
+  }
+
+  initializeAdForm();
+  initializeReceiptForm();
+  initializeArticleForm();
+
+  const activePanel = document.querySelector(".tab-panel.active");
+  const firstPanel = document.getElementById("homeTab");
+  if (!activePanel && firstPanel) {
+    document.querySelectorAll(".tab-panel").forEach(function (panel) {
+      panel.hidden = panel.id !== "homeTab";
+    });
+    firstPanel.classList.add("active");
+  }
+});
+
+function switchTab(tabId) {
+  const target = document.getElementById(tabId);
+  if (!target) return;
+  
+  document.querySelectorAll(".tab-panel").forEach(function (panel) {
+    panel.hidden = true;
+    panel.classList.remove("active");
+  });
+  
+  target.hidden = false;
+  target.classList.add("active");
+
+  document.querySelectorAll("[data-tab]").forEach(function (button) {
+    const selected = button.getAttribute("data-tab") === tabId;
+    button.classList.toggle("active", selected);
+    button.setAttribute("aria-selected", selected ? "true" : "false");
+  });
+
+  openPortal();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function runPortalSearch() {
+  const input = document.getElementById("searchInput");
+  const query = input ? input.value.trim().toLowerCase() : "";
+  const resultBox = document.getElementById("searchResults");
+  if (!resultBox) return;
+  
+  resultBox.replaceChildren();
+  if (!query) {
+    resultBox.textContent = "እባክዎ የሚፈልጉትን ቃል ያስገቡ።";
+    return;
+  }
+
+  const searchable = Array.from(document.querySelectorAll(".tab-panel .card, .tab-panel h2, .tab-panel .web-card"));
+  const matches = searchable.filter(function (element) {
+    return element.textContent.toLowerCase().includes(query);
+  }).slice(0, 15);
+
+  if (matches.length === 0) {
+    resultBox.textContent = "የፈለጉት ቃል አልተገኘም። ሌላ ቃል ይሞክሩ።";
+    return;
+  }
+
+  const heading = document.createElement("p");
+  heading.textContent = "የተገኙ ውጤቶች፦ " + matches.length;
+  resultBox.appendChild(heading);
+
+  matches.forEach(function (element) {
+    const item = document.createElement("div");
+    item.className = "search-result-item";
+    item.style.padding = "8px";
+    item.style.margin = "5px 0";
+    item.style.background = "#07111f";
+    item.style.borderRadius = "8px";
+    item.textContent = element.textContent.trim().slice(0, 180);
+    resultBox.appendChild(item);
+  });
+}
+
+function initializeAdForm() {
+  const form = document.getElementById("adForm");
+  if (!form) return;
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const result = document.getElementById("adResult");
+    result.textContent = "ማመልከቻው ተዘጋጅቷል!";
+  });
+}
+
+function initializeReceiptForm() {
+  const form = document.getElementById("receiptForm");
+  if (!form) return;
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const result = document.getElementById("receiptResult");
+    result.textContent = "የደረሰኝ መረጃው ተዘጋጅቷል!";
+  });
+}
+
+function initializeArticleForm() {
+  const form = document.getElementById("articleForm");
+  if (!form) return;
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const title = document.getElementById("articleTitle").value.trim();
+    const body = document.getElementById("articleBody").value.trim();
+    const preview = document.getElementById("articlePreview");
+    const status = document.getElementById("articleStatus");
+
+    preview.replaceChildren();
+    const heading = document.createElement("h3");
+    heading.textContent = title;
+    const content = document.createElement("p");
+    content.textContent = body;
+    preview.append(heading, content);
+    preview.hidden = false;
+    status.textContent = "ቅድመ እይታ ተዘጋጅቷል።";
+  });
+}
+</script>
+</body>
+</html>
