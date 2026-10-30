@@ -6,8 +6,8 @@
 <meta name="theme-color" content="#07111f">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index,follow">
-<meta name="description" content="ኢትዮ ዲጂታል ሱፐር ፖርታል — መረጃ፣ መጻሕፍት፣ ሚዲያ፣ መዝናኛና ቤቲንግ መድረክ">
-<title>ኢትዮ ዲጂታል ሱፐር ፖርታል</title>
+<meta name="description" content="ኢትዮ ዲጂታል ሱፐር ፖርታል — TAHA Portal: መረጃ፣ ሚዲያ፣ መዝናኛ፣ ቤቲንግና ዲጂታል መሳሪያዎች">
+<title>ኢትዮ ዲጂታል ሱፐር ፖርታል (TAHA)</title>
 <script>
 function googleTranslateElementInit(){
   new google.translate.TranslateElement({
@@ -20,15 +20,15 @@ function googleTranslateElementInit(){
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
 <style>
 :root{
-  --bg:#07111f;--panel:#0e1b2d;--panel2:#0a1525;
-  --cyan:#38bdf8;--purple:#a78bfa;--gold:#fbbf24;
-  --green:#34d399;--red:#fb5050;--text:#f1f5f9;
-  --muted:#a9b8ca;--line:#24415e
+  --bg:#050b14;--panel:#0d1829;--panel2:#091220;
+  --cyan:#38bdf8;--purple:#a78bfa;--gold:#f59e0b;--gold-light:#fbbf24;
+  --green:#34d399;--red:#fb5050;--text:#f8fafc;
+  --muted:#94a3b8;--line:#1e3450;--gold-gradient:linear-gradient(135deg,#f59e0b,#fbbf24,#d97706);
 }
 *{box-sizing:border-box}
 body{
-  margin:0;padding:14px;
-  background:radial-gradient(ellipse at top,#182c53 0,#07111f 55%);
+  margin:0;padding:12px;
+  background:radial-gradient(circle at top,#112240 0,#050b14 60%);
   color:var(--text);
   font-family:system-ui,'Segoe UI',Arial,sans-serif;
   min-height:100vh
@@ -36,112 +36,123 @@ body{
 a{color:var(--cyan);text-decoration:none}
 a:hover{text-decoration:underline}
 button,input,textarea,select{font:inherit}
-.container{width:min(1150px,100%);margin:auto;padding-bottom:40px}
+.container{width:min(1180px,100%);margin:auto;padding-bottom:50px}
 .bar,.panel,header,footer{
   border:1px solid var(--line);
-  background:rgba(14,27,45,.94);
-  border-radius:16px
+  background:rgba(13,24,41,.96);
+  border-radius:18px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.35)
 }
 .bar{
-  padding:10px 13px;margin-bottom:11px;
+  padding:10px 14px;margin-bottom:12px;
   display:flex;align-items:center;justify-content:space-between;
   gap:12px;flex-wrap:wrap
 }
-.translate-bar{border-color:#287aa2}
-.ad-bar{background:linear-gradient(100deg,#251946,#102c46);border-color:#7654a7}
-.ad-copy{font-size:13px;color:#fcd981;font-weight:700}
-.news-bar{border-color:#a92e3d;overflow:hidden;justify-content:flex-start}
+.translate-bar{border-color:#1e3a5f}
+.ad-bar{background:linear-gradient(100deg,#1e1b4b,#0f172a);border-color:#4c1d95}
+.ad-copy{font-size:13px;color:#fde047;font-weight:700}
+.news-bar{border-color:#7f1d1d;overflow:hidden;justify-content:flex-start}
 .live-label{
-  background:#c92b3b;border-radius:7px;padding:5px 8px;font-size:11px;font-weight:900;white-space:nowrap
+  background:#dc2626;border-radius:8px;padding:5px 9px;font-size:11px;font-weight:900;white-space:nowrap;color:#fff
 }
 .ticker-window{overflow:hidden;flex:1;min-width:0}
 .ticker-track{
   display:flex;gap:44px;width:max-content;white-space:nowrap;
-  animation:ticker 38s linear infinite;font-size:13px
+  animation:ticker 40s linear infinite;font-size:13px;color:#cbd5e1
 }
 .ticker-window:hover .ticker-track{animation-play-state:paused}
 @keyframes ticker{to{transform:translateX(-50%)}}
+
+/* Header & TAHA Logo Styling */
 header{
-  padding:24px 18px;text-align:center;margin-bottom:12px;
-  position:relative;overflow:hidden;box-shadow:0 12px 35px #0004
+  padding:28px 20px;text-align:center;margin-bottom:14px;
+  position:relative;overflow:hidden;
+  border:1px solid rgba(245,158,11,0.3);
+  background:linear-gradient(180deg, rgba(13,24,41,0.98) 0%, rgba(8,15,28,0.98) 100%);
 }
 header:before{
   content:"";position:absolute;inset:0;
-  background:radial-gradient(circle at 10% 20%,#38bdf81b,transparent 35%),
-  radial-gradient(circle at 90% 80%,#a78bfa1c,transparent 35%);
+  background:radial-gradient(circle at 50% 0%,rgba(245,158,11,0.12),transparent 50%),
+  radial-gradient(circle at 10% 90%,rgba(56,189,248,0.08),transparent 40%);
   pointer-events:none
 }
-.brand{display:flex;justify-content:center;align-items:center;gap:13px;position:relative}
-.logo{
-  width:58px;height:58px;border-radius:17px;display:grid;place-items:center;
-  background:linear-gradient(135deg,#38bdf8,#7c3aed);
-  font-size:30px;box-shadow:0 0 24px #38bdf84c
+.brand{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;position:relative}
+.taha-logo-box{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  padding:10px 24px;border-radius:20px;
+  background:linear-gradient(135deg, rgba(245,158,11,0.15), rgba(13,24,41,0.8));
+  border:2px solid var(--gold);
+  box-shadow:0 0 35px rgba(245,158,11,0.25);
+}
+.logo-icon{font-size:36px;filter:drop-shadow(0 2px 5px rgba(0,0,0,0.5))}
+.taha-title{
+  margin:0;font-size:clamp(32px, 6vw, 48px);font-weight:900;letter-spacing:2px;
+  background:var(--gold-gradient);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  text-shadow:0 5px 15px rgba(245,158,11,0.2);
 }
 .brand h1{
-  margin:0;font-size:clamp(20px,4vw,32px);line-height:1.35;
-  background:linear-gradient(90deg,#67e8f9,#c4b5fd,#fcd34d);
-  color:transparent;background-clip:text
+  margin:0;font-size:clamp(18px,3vw,26px);color:#f1f5f9;font-weight:700;
 }
-.tagline{color:var(--muted);font-size:13px;margin:10px 0 0;position:relative}
-.profile{
-  position:absolute;right:15px;top:15px;width:74px;height:74px;
-  border-radius:50%;object-fit:cover;border:2px solid var(--gold);
-  box-shadow:0 0 18px #fbbf2440;background:#17283c
+.tagline{color:var(--muted);font-size:13px;margin:6px 0 0;position:relative}
+
+.pills{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:16px;position:relative}
+.pill{font-size:11px;border:1px solid rgba(245,158,11,0.4);color:var(--gold-light);border-radius:20px;padding:5px 12px;background:rgba(245,158,11,0.08);font-weight:600}
+
+/* Navigation Tabs with Golden accents */
+.nav{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px;margin-bottom:12px;scrollbar-width:thin}
+.tab{flex:0 0 auto;border:1px solid var(--line);background:#0f1c30;color:var(--text);padding:11px 16px;border-radius:12px;font-size:13px;font-weight:750;cursor:pointer;transition:all .2s}
+.tab.active,.tab:hover{
+  background:var(--gold-gradient);color:#050b14;border-color:transparent;
+  box-shadow:0 0 20px rgba(245,158,11,0.4);font-weight:800;transform:translateY(-1px)
 }
-.pills{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:15px;position:relative}
-.pill{font-size:11px;border:1px solid #b9872b;color:#fcd34d;border-radius:20px;padding:5px 10px;background:#fbbf2410}
-.nav{display:flex;gap:7px;overflow-x:auto;padding:2px 0 9px;margin-bottom:8px;scrollbar-width:thin}
-.tab{flex:0 0 auto;border:1px solid var(--line);background:#102037;color:var(--text);padding:10px 13px;border-radius:10px;font-size:12px;font-weight:750;cursor:pointer}
-.tab.active,.tab:hover{background:linear-gradient(120deg,#0284c7,#7c3aed);border-color:transparent}
-.panel{padding:18px;margin-bottom:12px}
-.panel h2{font-size:17px;color:#7dd3fc;margin:0 0 13px;display:flex;align-items:center;gap:8px}
+
+.panel{padding:20px;margin-bottom:14px}
+.panel h2{font-size:18px;color:var(--gold-light);margin:0 0 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:8px}
 .panel p{color:var(--muted);font-size:13px;line-height:1.7}
-.cards,.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
-.web-card,.card{background:#081322;border:1px solid #203b57;border-radius:13px;padding:15px;display:flex;flex-direction:column;gap:8px;min-height:150px;transition:transform .2s}
-.web-card:hover,.card:hover{transform:translateY(-2px);border-color:var(--cyan)}
-.web-card h3,.card h3{font-size:14px;color:#7dd3fc;margin:0}
-.web-card p,.card p{font-size:12px;margin:0 0 5px;flex:1;color:var(--muted)}
-.badge{display:inline-block;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:bold;background:#fbbf2433;color:var(--gold);width:fit-content}
-.badge.red{background:#fb505033;color:var(--red)}
-.badge.green{background:#34d39933;color:var(--green)}
-.btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;width:100%;padding:10px 12px;border:0;border-radius:9px;background:linear-gradient(120deg,#38bdf8,#0284c7);color:#03111d;font-weight:800;font-size:12px;text-decoration:none;cursor:pointer}
-.btn.gold{background:linear-gradient(120deg,#fcd34d,#f59e0b)}
-.btn.green{background:linear-gradient(120deg,#34d399,#059669);color:#032017}
-.btn.purple{background:linear-gradient(120deg,#a78bfa,#7c3aed);color:#fff}
+.cards,.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.web-card,.card{background:#091424;border:1px solid #1e3656;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;min-height:155px;transition:all .2s}
+.web-card:hover,.card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 5px 20px rgba(245,158,11,0.15)}
+.web-card h3,.card h3{font-size:14px;color:#f8fafc;margin:0;font-weight:700}
+.web-card p,.card p{font-size:12px;margin:0 0 6px;flex:1;color:var(--muted)}
+.badge{display:inline-block;padding:2px 7px;border-radius:5px;font-size:10px;font-weight:bold;background:rgba(245,158,11,0.15);color:var(--gold-light);width:fit-content;border:1px solid rgba(245,158,11,0.3)}
+.badge.red{background:rgba(239,68,68,0.15);color:#f87171;border-color:rgba(239,68,68,0.3)}
+.badge.green{background:rgba(52,211,153,0.15);color:#34d399;border-color:rgba(52,211,153,0.3)}
+.badge.purple{background:rgba(167,139,250,0.15);color:#a78bfa;border-color:rgba(167,139,250,0.3)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;width:100%;padding:10px 14px;border:0;border-radius:10px;background:linear-gradient(135deg,#38bdf8,#0284c7);color:#050b14;font-weight:800;font-size:12px;text-decoration:none;cursor:pointer;transition:opacity .2s}
+.btn:hover{opacity:0.9}
+.btn.gold{background:var(--gold-gradient);color:#050b14;box-shadow:0 0 15px rgba(245,158,11,0.3)}
+.btn.green{background:linear-gradient(135deg,#34d399,#059669);color:#052e16}
+
 .field{margin:12px 0}
-.field label{display:block;font-size:12px;font-weight:750;color:#dbeafe;margin-bottom:6px}
-.field input,.field textarea,.field select{width:100%;border:1px solid #294764;background:#07111f;color:white;border-radius:9px;padding:11px}
-.field textarea{min-height:80px;resize:vertical}
+.field label{display:block;font-size:12px;font-weight:750;color:#e2e8f0;margin-bottom:6px}
+.field input,.field textarea,.field select{width:100%;border:1px solid #1e3656;background:#050b14;color:white;border-radius:10px;padding:12px}
+.field textarea{min-height:90px;resize:vertical}
 .hint{font-size:11px;color:var(--muted)}
+
+/* Modal & Floating Support */
 .modal-backdrop{
-  position:fixed;inset:0;z-index:1000;background:#020617eF;
+  position:fixed;inset:0;z-index:1000;background:rgba(2,6,23,0.9);
   display:grid;place-items:center;padding:18px;opacity:1;transition:opacity .35s
 }
 .modal-backdrop.hidden{opacity:0;pointer-events:none}
 .welcome-envelope{
   width:min(480px,100%);text-align:center;
-  background:linear-gradient(145deg,#122843,#17102e);
-  border:1px solid #a78bfa;border-radius:22px;padding:24px;
-  box-shadow:0 25px 90px #000a
+  background:linear-gradient(145deg,#0d1829,#17102e);
+  border:2px solid var(--gold);border-radius:24px;padding:26px;
+  box-shadow:0 25px 90px rgba(245,158,11,0.3)
 }
-.envelope-icon{font-size:70px;filter:drop-shadow(0 8px 18px #fbbf2466);animation:envelopeFloat 2s ease-in-out infinite}
-.welcome-envelope h2{color:#fde68a;margin:8px 0}
-.welcome-envelope p{color:#dbeafe;font-size:13px}
+.envelope-icon{font-size:70px;filter:drop-shadow(0 8px 18px rgba(245,158,11,0.4));animation:envelopeFloat 2s ease-in-out infinite}
+.welcome-envelope h2{color:var(--gold-light);margin:10px 0}
+.welcome-envelope p{color:#cbd5e1;font-size:13px}
 @keyframes envelopeFloat{50%{transform:translateY(-7px) rotate(-2deg)}}
-.chat-fab{position:fixed;right:15px;bottom:15px;z-index:90;width:auto!important;border-radius:999px!important;padding:13px 16px!important;box-shadow:0 8px 30px #0008}
-footer{text-align:center;padding:16px;color:var(--muted);font-size:11px;line-height:1.8;margin-top:16px}
-#welcomeBackdrop.hidden {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-.tab-panel[hidden] {
-  display: none !important;
-}
-.tab-panel.active:not([hidden]) {
-  display: block;
-}
+.chat-fab{position:fixed;right:16px;bottom:16px;z-index:90;width:auto!important;border-radius:999px!important;padding:14px 18px!important;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px;line-height:1.8;margin-top:20px}
+#welcomeBackdrop.hidden{display:none !important;visibility:hidden !important;opacity:0 !important;pointer-events:none !important}
+.tab-panel[hidden]{display:none !important}
+.tab-panel.active:not([hidden]){display:block}
 </style>
 </head>
 <body>
@@ -150,10 +161,10 @@ footer{text-align:center;padding:16px;color:var(--muted);font-size:11px;line-hei
 <div id="welcomeBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
   <div class="welcome-envelope">
     <div class="envelope-icon" aria-hidden="true">💌</div>
-    <h2 id="welcomeTitle">እንኳን ወደ ፖርታሉ በደህና መጡ!</h2>
-    <p>Ethio Digital Super Portal — ሚዲያ፣ መጻሕፍት፣ መዝናኛ፣ ቤቲንግ፣ ዜና እና ዲጂታል አገልግሎቶች በአንድ ቦታ።</p>
-    <button class="btn gold" id="openEnvelopeBtn" type="button">✉️ ደብዳቤውን ክፈት</button>
-    <p class="hint">በመጫንዎ የፖርታሉን ዋና ገጽ ይከፍታሉ።</p>
+    <h2 id="welcomeTitle">እንኳን ወደ TAHA ፖርታል በደህና መጡ!</h2>
+    <p>Ethio Digital Super Portal — የሀገር ውስጥ ሚዲያዎች፣ መጻሕፍት፣ መዝናኛዎች፣ የቤቲንግ ሳይቶችና ዲጂታል መሳሪያዎች በአንድ ቦታ።</p>
+    <button class="btn gold" id="openEnvelopeBtn" type="button">✉️ ፖርታሉን ክፈት</button>
+    <p class="hint">በመጫንዎ ወደ ዋናው ገጽ ይገባሉ።</p>
   </div>
 </div>
 
@@ -163,14 +174,14 @@ footer{text-align:center;padding:16px;color:var(--muted);font-size:11px;line-hei
 <main class="container">
   <!-- Translate Bar -->
   <div class="bar translate-bar">
-    <strong style="font-size:12px;color:#7dd3fc">🌐 ቋንቋ ይምረጡ / Select language</strong>
+    <strong style="font-size:12px;color:var(--gold-light)">🌐 ቋንቋ ይምረጡ / Select Language</strong>
     <div id="google_translate_element"></div>
   </div>
 
   <!-- Ad Bar -->
   <div class="bar ad-bar">
-    <div class="ad-copy" id="adSlideBox">📢 ድርጅትዎን ወይም አገልግሎትዎን በፖርታላችን ያስተዋውቁ።</div>
-    <button class="btn gold" style="width:auto" onclick="switchTab('adApplyTab')">ማስታወቂያ ያስገቡ</button>
+    <div class="ad-copy" id="adSlideBox">📢 ድርጅትዎን ወይም ምርትዎን በTAHA ፖርታል ላይ ያስተዋውቁ።</div>
+    <button class="btn gold" style="width:auto;padding:6px 14px" onclick="switchTab('adApplyTab')">ማስታወቂያ ያስገቡ</button>
   </div>
 
   <!-- News Bar -->
@@ -178,37 +189,44 @@ footer{text-align:center;padding:16px;color:var(--muted);font-size:11px;line-hei
     <span class="live-label">🔴 ዜና</span>
     <div class="ticker-window">
       <div class="ticker-track" id="tickerTrack">
-        <span>ኢትዮ ዲጂታል ሱፐር ፖርታል - የሀገር ውስጥ ሚዲያዎች፣ መጻሕፍት፣ የፊልምና ሙዚቃ መዝናኛዎች እንዲሁም የክለብ ቤቲንግ አገልግሎቶች በአንድ ላይ!</span>
-        <span>እንኳን ወደ ፖርታላችን በደህና መጡ!</span>
+        <span>TAHA ፖርታል - የሀገር ውስጥ ዓለማዊና ሃይማኖታዊ ሚዲያዎች፣ ፊልም፣ ሙዚቃ፣ የቤቲንግ ሳይቶች እና መጻሕፍት በአንድ የዘመነ መድረክ!</span>
+        <span>እንኳን ወደ ዲጂታል ማዕከላችን በደህና መጡ!</span>
       </div>
     </div>
-    <button class="btn" style="width:auto;padding:7px 9px" onclick="switchTab('newsTab')">ዝርዝር</button>
+    <button class="btn" style="width:auto;padding:6px 10px" onclick="switchTab('newsTab')">ዝርዝር</button>
   </div>
 
-  <!-- Header -->
+  <!-- Header with TAHA Logo -->
   <header>
-    <img class="profile" src="taha-profile.jpg" alt="የTM Studio አዘጋጅ ፎቶ" onerror="this.style.display='none'">
-    <div class="brand"><div class="logo" aria-hidden="true">🌐</div><h1>ኢትዮ ዲጂታል ሱፐር ፖርታል</h1></div>
-    <p class="tagline">የሀገር ውስጥና የዓለም አቀፍ መረጃ፣ መዝናኛ፣ ሚዲያና ዲጂታል መሳሪያዎች</p>
+    <img class="profile" src="taha-profile.jpg" alt="የTM Studio አዘጋጅ ፎቶ" onerror="this.style.display='none'" style="position:absolute;right:18px;top:18px;width:68px;height:68px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 15px rgba(245,158,11,0.4)">
+    <div class="brand">
+      <div class="taha-logo-box">
+        <span class="logo-icon">🌐</span>
+        <span class="taha-title">TAHA</span>
+        <span class="logo-icon">⭐</span>
+      </div>
+      <h1>ኢትዮ ዲጂታል ሱፐር ፖርታል</h1>
+      <p class="tagline">የሀገር ውስጥና የዓለም አቀፍ መረጃ፣ ሚዲያ፣ መዝናኛ፣ ቤቲንግና ዲጂታል ማዕከል</p>
+    </div>
     <div class="pills">
-      <span class="pill">🌍 Opera Mini Style Super-Portal</span>
-      <span class="pill">🧠 የእውቀትና መዝናኛ ማዕከል</span>
+      <span class="pill">🌟 Opera Mini Style Super-Hub</span>
+      <span class="pill">📚 እውቀትና መጻሕፍት</span>
+      <span class="pill">🎰 ቤቲንግና መዝናኛ</span>
       <span class="pill">⭐ ነጥብ፡ <b id="points">0</b></span>
     </div>
   </header>
 
-  <!-- Navigation Menu -->
+  <!-- Navigation Menu Tabs -->
   <nav class="nav" aria-label="ዋና ምናሌ">
     <button class="tab active" data-tab="homeTab" onclick="switchTab('homeTab')">🏠 መነሻ</button>
-    <button class="tab" data-tab="mediaTab" onclick="switchTab('mediaTab')">📺 ሀገር ውስጥ ሚዲያ</button>
+    <button class="tab" data-tab="mediaTab" onclick="switchTab('mediaTab')">📺 ዓለማዊ ሚዲያ</button>
     <button class="tab" data-tab="faithTab" onclick="switchTab('faithTab')">🕌 ሃይማኖታዊ ሚዲያ</button>
-    <button class="tab" data-tab="entertainmentTab" onclick="switchTab('entertainmentTab')">🎬 ፊልምና ሙዚቃ</button>
-
+    <button class="tab" data-tab="entertainmentTab" onclick="switchTab('entertainmentTab')">🎬 ሙዚቃና ፊልም</button>
     <button class="tab" data-tab="bettingTab" onclick="switchTab('bettingTab')">🎰 ካሲኖና ቤቲንግ</button>
     <button class="tab" data-tab="booksTab" onclick="switchTab('booksTab')">📚 መጻሕፍትና ፕሬስ</button>
-    <button class="tab" data-tab="toolsTab" onclick="switchTab('toolsTab')">⚡ Opera-Mini መሣሪያዎች</button>
-    <button class="tab" data-tab="aiTab" onclick="switchTab('aiTab')">🤖 AI እና ቴክኖሎጂ</button>
-    <button class="tab" data-tab="gamesTab" onclick="switchTab('gamesTab')">🎮 ጨዋታዎች</button>
+    <button class="tab" data-tab="toolsTab" onclick="switchTab('toolsTab')">⚡ ኦፔራ መሣሪያዎች</button>
+    <button class="tab" data-tab="aiTab" onclick="switchTab('aiTab')">🤖 AI እና ቴክ</button>
+    <button class="tab" data-tab="gamesTab" onclick="switchTab('gamesTab')">🎮 ነፃ ጨዋታዎች</button>
     <button class="tab" data-tab="newsTab" onclick="switchTab('newsTab')">📰 ዓለም አቀፍ ዜና</button>
     <button class="tab" data-tab="adApplyTab" onclick="switchTab('adApplyTab')">📢 ማስታወቂያ</button>
     <button class="tab" data-tab="paymentTab" onclick="switchTab('paymentTab')">💳 ክፍያና ደረሰኝ</button>
@@ -217,66 +235,66 @@ footer{text-align:center;padding:16px;color:var(--muted);font-size:11px;line-hei
   <!-- 1. Home Tab -->
   <section id="homeTab" class="section active tab-panel">
     <div class="panel">
-      <h2>🌟 ወደ ዲጂታል ዓለምዎ እንኳን በደህና መጡ</h2>
-      <p>መረጃን በጥራት፣ እውቀትን በማስረጃ፣ መዝናኛዎችንና ቴክኖሎጂን ለተግባራዊ ጥቅም የሚያቀርብ የዲጂታል ሱፐር ፖርታል መድረክ።</p>
+      <h2>🌟 ወደ TAHA ዲጂታል ሱፐር ፖርታል እንኳን በደህና መጡ</h2>
+      <p>እንደ ኦፔራ ሚኒ ሁሉንም ተወዳጅ መዝናኛዎች፣ ሚዲያዎች፣ የውጤት ሰሌዳዎች እና መጻሕፍት በአንድ ላይ የያዘ እጅግ ፈጣንና ዘመናዊ መድረክ።</p>
       <div class="field">
-        <label for="searchInput">🔎 በፖርታሉ ውስጥ ይፈልጉ</label>
-        <input id="searchInput" type="search" placeholder="መጻሕፍት፣ ዜና፣ ፊልም፣ ቤቲንግ፣ AI…">
+        <label for="searchInput">🔎 በፖርታሉ ውስጥ የሚፈልጉትን ይጻፉ</label>
+        <input id="searchInput" type="search" placeholder="መጻሕፍት፣ ሚዲያ፣ ፊልም፣ ቤቲንግ፣ AI…">
       </div>
-      <button class="btn" id="searchBtn" type="button" onclick="runPortalSearch()">ፈልግ</button>
+      <button class="btn gold" id="searchBtn" type="button" onclick="runPortalSearch()">በፖርታሉ ውስጥ ፈልግ</button>
       <div id="searchResults" class="cards" style="margin-top:12px"></div>
     </div>
 
-    <!-- Quick Dial / Opera Mini Shortcuts -->
+    <!-- Quick Access Hub -->
     <div class="panel">
-      <h2>⚡ ፈጣን አገልግሎቶች (Quick Access)</h2>
+      <h2>⚡ ፈጣን አገልግሎቶች (Opera Mini Quick Dials)</h2>
       <div class="cards">
         <article class="web-card">
-          <span class="badge green">የነፃ ፍለጋ</span>
-          <h3>🔍 Google</h3>
+          <span class="badge green">የፍለጋ ሞተር</span>
+          <h3>🔍 Google Search</h3>
           <p>በዓለም አቀፍ ድረ-ገጾች ላይ ይፈልጉ።</p>
           <a class="btn" href="https://www.google.com/" target="_blank">Google ክፈት ↗</a>
         </article>
         <article class="web-card">
           <span class="badge">ማህበራዊ</span>
-          <h3>📘 Facebook</h3>
-          <p>የFacebook ማህበራዊ መድረክ።</p>
+          <h3>📘 Facebook Mobile</h3>
+          <p>የማህበራዊ ግንኙነት መድረክ።</p>
           <a class="btn" href="https://m.facebook.com/" target="_blank">Facebook ክፈት ↗</a>
         </article>
         <article class="web-card">
-          <span class="badge red">ቪዲዮ</span>
+          <span class="badge red">መዝናኛ</span>
           <h3>▶️ YouTube</h3>
-          <p>ቪዲዮዎችንና የትምህርት ይዘቶችን ይመልከቱ።</p>
+          <p>ቪዲዮዎችንና የቀጥታ ስርጭቶችን ይመልከቱ።</p>
           <a class="btn" href="https://www.youtube.com/" target="_blank">YouTube ክፈት ↗</a>
         </article>
         <article class="web-card">
-          <span class="badge">መልዕክት</span>
+          <span class="badge purple">መልዕክት</span>
           <h3>💬 Telegram Web</h3>
-          <p>የቴሌግራም መድረክ።</p>
+          <p>የቴሌግራም መልዕክት መድረክ።</p>
           <a class="btn" href="https://web.telegram.org/" target="_blank">Telegram ክፈት ↗</a>
         </article>
         <article class="web-card">
-          <span class="badge green">ስፖርት</span>
+          <span class="badge gold">ስፖርት</span>
           <h3>⚽ Flashscore</h3>
-          <p>የቀጥታ ስፖርት ውጤቶች እና ስታቲስቲክስ።</p>
-          <a class="btn gold" href="https://www.flashscore.com/" target="_blank">ውጤቶችን ይመልከቱ ↗</a>
+          <p>የቀጥታ የእግር ኳስ ውጤቶችና ስታቲስቲክስ።</p>
+          <a class="btn gold" href="https://www.flashscore.com/" target="_blank">ውጤቶች ይመልከቱ ↗</a>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- 2. Ethiopian Media Tab -->
+  <!-- 2. Ethiopian Secular Media Tab -->
   <section id="mediaTab" class="section tab-panel" hidden>
     <div class="panel">
       <h2>📺 የሀገር ውስጥ ዓለማዊ የሚዲያ ተቋማት</h2>
-      <p>የሀገራችንን ትኩስ ዜናዎች፣ ዝግጅቶችና የመረጃ ምንጮች በቀጥታ ይከታተሉ።</p>
+      <p>የሀገራችንን ትኩስ ዜናዎች፣ ወቅታዊ ጉዳዮችና መረጃዎች የሚለቀቁባቸው ዋና ዋና የቴሌቪዥንና የዜና አውታሮች።</p>
       <div class="cards">
-        <article class="web-card"><h3>EBC (የኢትዮጵያ ብሮድካስቲንግ ኮርፖሬሽን)</h3><p>ብሄራዊ የቴሌቪዥንና ራዲዮ አገልግሎት።</p><a class="btn" href="https://www.ebc.et/" target="_blank">EBC ክፈት ↗</a></article>
-        <article class="web-card"><h3>Fana Broadcasting Corporate</h3><p>ፋና ብሮድካስቲንግ ኮርፖሬት።</p><a class="btn" href="https://www.fanamc.com/" target="_blank">Fana ክፈት ↗</a></article>
-        <article class="web-card"><h3>Walta Media & Communication</h3><p>ዋልታ ሚዲያና ኮሙዩኒኬሽን ኮርፖሬት።</p><a class="btn" href="https://waltainfo.com/" target="_blank">Walta ክፈት ↗</a></article>
-        <article class="web-card"><h3>Arts TV World</h3><p>አርትስ ቴሌቪዥን - ባህል፣ ጥበብና መዝናኛ።</p><a class="btn" href="https://artstv.et/" target="_blank">Arts TV ክፈት ↗</a></article>
-        <article class="web-card"><h3>Ethiopian News Agency (ENA)</h3><p>የኢትዮጵያ ዜና ኤጀንሲ።</p><a class="btn" href="https://www.ena.et/" target="_blank">ENA ክፈት ↗</a></article>
-        <article class="web-card"><h3>Addis Media Network (AMN)</h3><p>አዲስ ሚዲያ ኔትወርክ።</p><a class="btn" href="https://amn.et/" target="_blank">AMN ክፈት ↗</a></article>
+        <article class="web-card"><span class="badge red">ብሔራዊ</span><h3>EBC (ኢትዮጵያ ብሮድካስቲንግ ኮርፖሬሽን)</h3><p>የመንግስት ዋና የቴሌቪዥንና ራዲዮ ስርጭት።</p><a class="btn" href="https://www.ebc.et/" target="_blank">EBC ክፈት ↗</a></article>
+        <article class="web-card"><span class="badge">ዜና</span><h3>Fana Broadcasting Corporate</h3><p>ፋና ብሮድካስቲንግ ኮርፖሬት (ፋና ቲቪ)።</p><a class="btn" href="https://www.fanamc.com/" target="_blank">Fana ክፈት ↗</a></article>
+        <article class="web-card"><span class="badge">መረጃ</span><h3>Walta Media & Communication</h3><p>ዋልታ ሚዲያና ኮሙዩኒኬሽን ኮርፖሬት።</p><a class="btn" href="https://waltainfo.com/" target="_blank">Walta ክፈት ↗</a></article>
+        <article class="web-card"><span class="badge purple">ባህልና ጥበብ</span><h3>Arts TV World</h3><p>አርትስ ቴሌቪዥን - ባህል፣ ጥበብና መዝናኛ።</p><a class="btn" href="https://artstv.et/" target="_blank">Arts TV ክፈት ↗</a></article>
+        <article class="web-card"><span class="badge green">ኤጀንሲ</span><h3>Ethiopian News Agency (ENA)</h3><p>የኢትዮጵያ ዜና ኤጀንሲ ኦፊሻል ድረ-ገጽ።</p><a class="btn" href="https://www.ena.et/" target="_blank">ENA ክፈት ↗</a></article>
+        <article class="web-card"><span class="badge">ከተማ</span><h3>Addis Media Network (AMN)</h3><p>አዲስ ሚዲያ ኔትወርክ (አዲስ ቲቪ)።</p><a class="btn" href="https://amn.et/" target="_blank">AMN ክፈት ↗</a></article>
       </div>
     </div>
   </section>
@@ -285,29 +303,31 @@ footer{text-align:center;padding:16px;color:var(--muted);font-size:11px;line-hei
   <section id="faithTab" class="section tab-panel" hidden>
     <div class="panel">
       <h2>🕌 የሀገር ውስጥና ዓለም አቀፍ ሃይማኖታዊ ሚዲያዎች</h2>
-      <p>የተለያዩ እምነቶች አስተምህሮዎች፣ መንፈሳዊ መዝሙራትና ትምህርቶች።</p>
+      <p>የተለያዩ እምነቶች መንፈሳዊ ትምህርቶች፣ መዝሙራት፣ ቁርአን ንባቦች እና የሃይማኖት ውይይቶች።</p>
       <div class="cards">
-        <article class="web-card"><span class="badge">ኦርቶዶክስ</span><h3>EOTCTV</h3><p>የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተክርስቲያን ሚዲያ።</p><a class="btn" href="https://www.eotc.org.et/" target="_blank">EOTC TV ክፈት ↗</a></article>
-        <article class="web-card"><span class="badge">ኦርቶዶክስ</span><h3>Mahibere Kidusan</h3><p>ማኅበረ ቅዱሳን ቲቪ እና ድረ-ገጽ።</p><a class="btn" href="https://eotc-mk.org/" target="_blank">ማኅበረ ቅዱሳን ↗</a></article>
-        <article class="web-card"><span class="badge green">እስልምና</span><h3>Minber TV</h3><p>ሚንበር ቲቪ - የሰላምና የእውቀት ልሳን።</p><a class="btn" href="https://minbertv.com/" target="_blank">Minber TV ክፈት ↗</a></article>
-        <article class="web-card"><span class="badge green">እስልምና</span><h3>Afrihealth / Jeilu Media</h3><p>ጀይሉ ሚዲያና መንፈሳዊ ትምህርቶች።</p><a class="btn" href="https://jeilumedia.com/" target="_blank">Jeilu Media ↗</a></article>
-        <article class="web-card"><span class="badge purple">ፕሮቴስታንት</span><h3>CJ TV (Presence TV)</h3><p>ሲጄ ቲቪ እና ፕሬዘንስ ቲቪ ወንጌላዊ ስርጭት።</p><a class="btn" href="https://presencetv.org/" target="_blank">Presence TV ↗</a></article>
-        <article class="web-card"><span class="badge purple">ፕሮቴስታንት</span><h3>El-Shaddai Television</h3><p>ኤልሻዳይ ቴሌቪዥን።</p><a class="btn" href="http://elshaddai.tv/" target="_blank">El-Shaddai TV ↗</a></article>
+        <article class="web-card"><span class="badge gold">ኦርቶዶክስ</span><h3>EOTCTV</h3><p>የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተክርስቲያን ማዕከላዊ ሚዲያ።</p><a class="btn gold" href="https://www.eotc.org.et/" target="_blank">EOTC TV ↗</a></article>
+        <article class="web-card"><span class="badge gold">ኦርቶዶክስ</span><h3>Mahibere Kidusan</h3><p>ማኅበረ ቅዱሳን ቲቪ እና የትምህርት መድረክ።</p><a class="btn gold" href="https://eotc-mk.org/" target="_blank">ማኅበረ ቅዱሳን ↗</a></article>
+        <article class="web-card"><span class="badge green">እስልምና</span><h3>Minber TV</h3><p>ሚንበር ቲቪ - የሰላም፣ የዕውቀትና የህብረተሰብ ድምፅ።</p><a class="btn green" href="https://minbertv.com/" target="_blank">Minber TV ↗</a></article>
+        <article class="web-card"><span class="badge green">እስልምና</span><h3>Jeilu Media</h3><p>ጀይሉ ሚዲያና መንፈሳዊ ፕሮግራሞች።</p><a class="btn green" href="https://jeilumedia.com/" target="_blank">Jeilu Media ↗</a></article>
+        <article class="web-card"><span class="badge purple">ፕሮቴስታንት</span><h3>Presence TV (CJ TV)</h3><p>የወንጌል ስርጭትና መንፈሳዊ ሕይወት ማጠናከሪያ።</p><a class="btn" href="https://presencetv.org/" target="_blank">Presence TV ↗</a></article>
+        <article class="web-card"><span class="badge purple">ፕሮቴስታንት</span><h3>El-Shaddai Television</h3><p>ኤልሻዳይ ቴሌቪዥንና አምልኮ ማዕከል።</p><a class="btn" href="http://elshaddai.tv/" target="_blank">El-Shaddai TV ↗</a></article>
+        <article class="web-card"><span class="badge">ዓለም አቀፍ</span><h3>Quran.com</h3><p>ቅዱስ ቁርአንን በተለያዩ ቋንቋዎች ማንበብና ማዳመጥ።</p><a class="btn" href="https://quran.com/" target="_blank">Quran.com ↗</a></article>
+        <article class="web-card"><span class="badge">ዓለም አቀፍ</span><h3>Bible.com</h3><p>መጽሐፍ ቅዱስን በተለያዩ ትርጉሞች ማንበቢያ።</p><a class="btn" href="https://www.bible.com/" target="_blank">Bible.com ↗</a></article>
       </div>
     </div>
   </section>
 
-  <!-- 4. Movies and Music Entertainment -->
+  <!-- 4. Music & Movie Entertainment Tab -->
   <section id="entertainmentTab" class="section tab-panel" hidden>
     <div class="panel">
-      <h2>🎬 የሙዚቃ፣ ፊልም እና አጠቃላይ ኢንተርተይንመንት መድረኮች</h2>
-      <p>የሀገር ውስጥና የውጭ ሀገር ሙዚቃዎች፣ ፊልሞችና ድራማዎች።</p>
+      <h2>🎬 የሙዚቃ፣ የፊልም እና አጠቃላይ ኢንተርተይንመንት ዌብሳይቶች</h2>
+      <p>የሀገር ውስጥ አዳዲስ ፊልሞች፣ የሙዚቃ አልበሞች፣ ድራማዎች እና የዓለም አቀፍ መዝናኛዎች።</p>
       <div class="cards">
-        <article class="web-card"><span class="badge red">ኢትዮ ፊልም</span><h3>Sodere TV</h3><p>የኢትዮጵያ ፊልሞችና ድራማዎች ማለፊያ መድረክ።</p><a class="btn gold" href="https://sodere.com/" target="_blank">Sodere TV ↗</a></article>
-        <article class="web-card"><span class="badge green">ሙዚቃ</span><h3>Habesha Music / Muzika</h3><p>የኢትዮጵያ ዘመናዊና ባህላዊ ሙዚቃዎች።</p><a class="btn" href="https://www.youtube.com/results?search_query=ethiopian+music" target="_blank">ሙዚቃ አዳምጥ ↗</a></article>
-        <article class="web-card"><span class="badge">ፊልም</span><h3>Netflix</h3><p>ዓለም አቀፍ ፊልሞችና ተከታታይ ድራማዎች።</p><a class="btn" href="https://www.netflix.com/" target="_blank">Netflix ክፈት ↗</a></article>
-        <article class="web-card"><span class="badge red">ነፃ ፊልም</span><h3>IMDb (Movie Info & Trailers)</h3><p>የፊልም መረጃዎች፣ ደረጃዎችና ትሬለሮች።</p><a class="btn" href="https://www.imdb.com/" target="_blank">IMDb ክፈት ↗</a></article>
-        <article class="web-card"><span class="badge purple">ቲክቶክ</span><h3>TikTok Entertainment</h3><p>አጫጭር አዝናኝ ቪዲዮዎችና የፈጠራ ይዘቶች።</p><a class="btn" href="https://www.tiktok.com/" target="_blank">TikTok ክፈት ↗</a></article>
+        <article class="web-card"><span class="badge red">ኢትዮ ፊልም</span><h3>Sodere TV</h3><p>የኢትዮጵያ ፊልሞች፣ ድራማዎችና አስቂኝ ቪዲዮዎች።</p><a class="btn gold" href="https://sodere.com/" target="_blank">Sodere TV ↗</a></article>
+        <article class="web-card"><span class="badge green">ሙዚቃ</span><h3>Habesha Music Hub</h3><p>የኢትዮጵያ ዘመናዊና ባህላዊ ሙዚቃ ስብስቦች።</p><a class="btn green" href="https://www.youtube.com/results?search_query=ethiopian+music+new" target="_blank">ሙዚቃ አዳምጥ ↗</a></article>
+        <article class="web-card"><span class="badge red">ሲኒማ</span><h3>Netflix</h3><p>ዓለም አቀፍ ፊልሞችና ተከታታይ ድራማዎች መድረክ።</p><a class="btn" href="https://www.netflix.com/" target="_blank">Netflix ↗</a></article>
+        <article class="web-card"><span class="badge">ፊልም መረጃ</span><h3>IMDb</h3><p>የፊልም ደረጃዎች፣ መረጃዎችና ኦፊሻል ትሬለሮች።</p><a class="btn" href="https://www.imdb.com/" target="_blank">IMDb ↗</a></article>
+        <article class="web-card"><span class="badge purple">ቲክቶክ</span><h3>TikTok Entertainment</h3><p>አጫጭር አዝናኝ ቪዲዮዎችና ፈጠራዎች።</p><a class="btn" href="https://www.tiktok.com/" target="_blank">TikTok ↗</a></article>
       </div>
     </div>
   </section>
@@ -316,13 +336,13 @@ footer{text-align:center;padding:16px;color:var(--muted);font-size:11px;line-hei
   <section id="bettingTab" class="section tab-panel" hidden>
     <div class="panel">
       <h2>🎰 የካሲኖ እና የስፖርት ቤቲንግ (Betting) ሳይቶች</h2>
-      <p>ታዋቂና በህግ የተመዘገቡ የሀገር ውስጥና ዓለም አቀፍ የስፖርት ቤቲንግ መድረኮች። (ለ18 ዓመት በላይ ብቻ!)</p>
+      <p>በሀገራችንና በዓለም አቀፍ ደረጃ ተወዳጅ የሆኑ የስፖርት ውርርድና የጨዋታ መድረኮች። (ማሳሰቢያ፡ ለ18 ዓመት እና ከዛ በላይ ዕድሜ ያላቸው ብቻ!)</p>
       <div class="cards">
-        <article class="web-card"><span class="badge red">🔥 ተወዳጅ</span><h3>Habesha Betting</h3><p>የሀበሻ ቤቲንግ የስፖርት ውርርድ መድረክ።</p><a class="btn gold" href="https://www.habeshabets.com/" target="_blank">Habesha Bet ክፈት ↗</a></article>
-        <article class="web-card"><span class="badge green">ኢትዮጵያ</span><h3>An certain Betting / Vamos</h3><p>ቫሞስ ቤቲንግ የስፖርት ውርርድ።</p><a class="btn gold" href="https://vamos.bet/" target="_blank">Vamos Bet ክፈት ↗</a></article>
-        <article class="web-card"><span class="badge green">ኢትዮጵያ</span><h3>Winner Bet Ethiopia</h3><p>ዊነር ቤቲንግ ስፖርትና ካሲኖ።</p><a class="btn gold" href="https://winner.et/" target="_blank">Winner Bet ክፈት ↗</a></article>
-        <article class="web-card"><span class="badge">ዓለም አቀፍ</span><h3>1xBet</h3><p>1xBet ዓለም አቀፍ የስፖርትና የካሲኖ መድረክ።</p><a class="btn" href="https://1xbet.com/" target="_blank">1xBet ክፈት ↗</a></article>
-        <article class="web-card"><span class="badge">ዓለም አቀፍ</span><h3>Bet365</h3><p>የዓለማችን ትልቁ የስፖርት ውርርድ ድረ-ገጽ።</p><a class="btn" href="https://www.bet365.com/" target="_blank">Bet365 ክፈት ↗</a></article>
+        <article class="web-card"><span class="badge red">🔥 ተወዳጅ</span><h3>Habesha Bets</h3><p>የሀበሻ ቤቲንግ የስፖርት ውርርድ መድረክ።</p><a class="btn gold" href="https://www.habeshabets.com/" target="_blank">Habesha Bet ↗</a></article>
+        <article class="web-card"><span class="badge green">ውርርድ</span><h3>Vamos Bet Ethiopia</h3><p>ቫሞስ ቤቲንግ ስፖርትና የመስመር ላይ ጨዋታዎች።</p><a class="btn gold" href="https://vamos.bet/" target="_blank">Vamos Bet ↗</a></article>
+        <article class="web-card"><span class="badge green">ውርርድ</span><h3>Winner Bet Ethiopia</h3><p>ዊነር ቤቲንግ - ስፖርት ውርርድና ካሲኖ።</p><a class="btn gold" href="https://winner.et/" target="_blank">Winner Bet ↗</a></article>
+        <article class="web-card"><span class="badge">ዓለም አቀፍ</span><h3>1xBet</h3><p>ዓለም አቀፍ ትልቁ የስፖርት ውርርድና ካሲኖ።</p><a class="btn" href="https://1xbet.com/" target="_blank">1xBet ↗</a></article>
+        <article class="web-card"><span class="badge">ዓለም አቀፍ</span><h3>Bet365</h3><p>ታዋቂው የዓለም ውርርድ እና የላይቭ ጨዋታዎች ሳይት።</p><a class="btn" href="https://www.bet365.com/" target="_blank">Bet365 ↗</a></article>
       </div>
     </div>
   </section>
@@ -331,13 +351,13 @@ footer{text-align:center;padding:16px;color:var(--muted);font-size:11px;line-hei
   <section id="booksTab" class="section tab-panel" hidden>
     <div class="panel">
       <h2>📚 የኢትዮጵያ መጻሕፍት፣ ጋዜጦችና የፕሬስ ድርጅቶች</h2>
-      <p>የሀገር ውስጥና የውጭ ሀገር መጻሕፍት፣ ታሪካዊ ሰነዶችና ጋዜጦች።</p>
+      <p>ታሪካዊ ሰነዶች፣ የሀገር ውስጥ ጋዜጦች፣ አዳዲስ መጻሕፍትና የምርምር መማሪያዎች።</p>
       <div class="cards">
-        <article class="web-card"><h3>የኢትዮጵያ ፕሬስ ድርጅት (EPA)</h3><p>አዲስ ዘመን፣ የኢትዮጵያ ሄራልድ ጋዜጦች አታሚ።</p><a class="btn" href="https://press.et/" target="_blank">EPA ክፈት ↗</a></article>
-        <article class="web-card"><h3>የኢትዮጵያ ብሔራዊ ቤተ-መጻሕፍትና ቤተ-መዛግብት</h3><p>ወይም (ወይዘሮ ስን) ታሪካዊ ማህደሮችና መጻሕፍት።</p><a class="btn" href="https://www.nla.gov.et/" target="_blank">NALA ክፈት ↗</a></article>
-        <article class="web-card"><h3>Internet Archive (Ethiopic Books)</h3><p>የድሮና የታሪካዊ የኢትዮጵያ መጻሕፍት ስብስብ።</p><a class="btn gold" href="https://archive.org/details/ethiopia" target="_blank">መጻሕፍት ያንብቡ ↗</a></article>
-        <article class="web-card"><h3>Open Library</h3><p>በነፃ የሚነበቡ የዓለም አቀፍ መጻሕፍት ማህደር።</p><a class="btn" href="https://openlibrary.org/" target="_blank">Open Library ↗</a></article>
-        <article class="web-card"><h3>Reporter Ethiopia (ሪፖርተር)</h3><p>የእሁድና ረቡዕ አገር በቀል ጋዜጣ።</p><a class="btn" href="https://www.ethiopianreporter.com/" target="_blank">ሪፖርተር ክፈት ↗</a></article>
+        <article class="web-card"><span class="badge gold">ፕሬስ</span><h3>የኢትዮጵያ ፕሬስ ድርጅት (EPA)</h3><p>አዲስ ዘመንና የኢትዮጵያ ሄራልድ ጋዜጦች አታሚ።</p><a class="btn gold" href="https://press.et/" target="_blank">EPA ክፈት ↗</a></article>
+        <article class="web-card"><span class="badge">ቤተ-መጻሕፍት</span><h3>የኢትዮጵያ ብሔራዊ ቤተ-መጻሕፍትና ቤተ-መዛግብት</h3><p>ታሪካዊ ማህደሮችና የጥንት መጻሕፍት መረጃ።</p><a class="btn" href="https://www.nla.gov.et/" target="_blank">NALA ↗</a></article>
+        <article class="web-card"><span class="badge green">ዲጂታል መጽሐፍ</span><h3>Internet Archive (Ethiopic Books)</h3><p>በነፃ የሚገኙ የኢትዮጵያ ጥንታዊና ዘመናዊ መጻሕፍት።</p><a class="btn green" href="https://archive.org/details/ethiopia" target="_blank">መጻሕፍት ያንብቡ ↗</a></article>
+        <article class="web-card"><span class="badge">ጋዜጣ</span><h3>The Reporter Ethiopia (ሪፖርተር)</h3><p>ታዋቂው አገር በቀል የአማርኛና የእንግሊዝኛ ጋዜጣ።</p><a class="btn" href="https://www.ethiopianreporter.com/" target="_blank">ሪፖርተር ክፈት ↗</a></article>
+        <article class="web-card"><span class="badge">ዓለም አቀፍ</span><h3>Open Library</h3><p>მიሊዮኖች የሚቆጠሩ ነፃ መጻሕፍት ማህደር።</p><a class="btn" href="https://openlibrary.org/" target="_blank">Open Library ↗</a></article>
       </div>
     </div>
   </section>
@@ -345,12 +365,12 @@ footer{text-align:center;padding:16px;color:var(--muted);font-size:11px;line-hei
   <!-- 7. Opera Mini Style Practical Tools -->
   <section id="toolsTab" class="section tab-panel" hidden>
     <div class="panel">
-      <h2>⚡ የኢንተርኔትና የዕለታዊ መረጃ መሣሪያዎች (Opera Mini Widgets)</h2>
-      <p>የአየር ሁኔታ፣ የምንዛሬ ተመን፣ የኢንተርኔት ፍጥነት እና ሌሎች ጠቃሚ መሳሪያዎች።</p>
+      <h2>⚡ የኦፔራ ሚኒ አይነት መሣሪያዎችና የዕለት ተዕለት አገልግሎቶች</h2>
+      <p>የኢንተርኔት ፍጥነት መለኪያ፣ የምንዛሬ ተመን እና የአየር ሁኔታ ትንበያዎች።</p>
       <div class="cards">
-        <article class="web-card"><span class="badge green">ኢንተርኔት</span><h3>Speedtest by Ookla</h3><p>የኢንተርኔት ዳታ ፍጥነትዎን ይለኩ።</p><a class="btn gold" href="https://www.speedtest.net/" target="_blank">ፍጥነት ለካ ↗</a></article>
-        <article class="web-card"><span class="badge">ምንዛሬ</span><h3>CBE Exchange Rates</h3><p>የንግድ ባንክ የዕለቱ የውጭ ምንዛሬ ተመን።</p><a class="btn" href="https://combanketh.et/currency-rate/" target="_blank">ምንዛሬ ይመልከቱ ↗</a></article>
-        <article class="web-card"><span class="badge purple">አየር ሁኔታ</span><h3>AccuWeather Addis Ababa</h3><p>የዛሬ የአየር ሁኔታ ትንበያ።</p><a class="btn" href="https://www.accuweather.com/en/et/addis-ababa/126831/weather-forecast/126831" target="_blank">አየር ሁኔታ ↗</a></article>
+        <article class="web-card"><span class="badge green">ፍጥነት</span><h3>Speedtest by Ookla</h3><p>የኢንተርኔት ዳታ ፍጥነትዎን በፍጥነት ይለኩ።</p><a class="btn gold" href="https://www.speedtest.net/" target="_blank">ፍጥነት ለካ ↗</a></article>
+        <article class="web-card"><span class="badge">ምንዛሬ</span><h3>CBE Currency Rates</h3><p>የንግድ ባንክ የዕለቱ የውጭ ምንዛሬ ተመኖች።</p><a class="btn" href="https://combanketh.et/currency-rate/" target="_blank">ምንዛሬ ይመልከቱ ↗</a></article>
+        <article class="web-card"><span class="badge purple">አየር ሁኔታ</span><h3>AccuWeather Addis Ababa</h3><p>የአዲስ አበባ እና የክልል ከተሞች የአየር ሁኔታ።</p><a class="btn" href="https://www.accuweather.com/en/et/addis-ababa/126831/weather-forecast/126831" target="_blank">አየር ሁኔታ ↗</a></article>
       </div>
     </div>
   </section>
@@ -358,11 +378,11 @@ footer{text-align:center;padding:16px;color:var(--muted);font-size:11px;line-hei
   <!-- 8. AI & Tech -->
   <section id="aiTab" class="section tab-panel" hidden>
     <div class="panel">
-      <h2>🤖 የሰው ሠራሽ አስተውሎት (AI) እና የቴክኖሎጂ መድረኮች</h2>
+      <h2>🤖 የሰው ሠራሽ አስተውሎት (AI) እና ቴክኖሎጂ</h2>
       <div class="cards">
         <article class="web-card"><h3>ChatGPT</h3><p>የጽሑፍ፣ የምርምርና የሃሳብ አጋዥ።</p><a class="btn" href="https://chatgpt.com/" target="_blank">ChatGPT ↗</a></article>
-        <article class="web-card"><h3>Google Gemini</h3><p>የGoogle AI መሳሪያዎች።</p><a class="btn" href="https://gemini.google.com/" target="_blank">Gemini ↗</a></article>
-        <article class="web-card"><h3>GitHub</h3><p>የፕሮግራሚንግ ፕሮጀክቶችና ሶፍትዌር ማህደር።</p><a class="btn" href="https://github.com/" target="_blank">GitHub ↗</a></article>
+        <article class="web-card"><h3>Google Gemini</h3><p>የGoogle AI ዘመናዊ ረዳት።</p><a class="btn" href="https://gemini.google.com/" target="_blank">Gemini ↗</a></article>
+        <article class="web-card"><h3>GitHub</h3><p>የኮንፒዩተር ፕሮግራሚንግና ሶፍትዌር ማህደር።</p><a class="btn" href="https://github.com/" target="_blank">GitHub ↗</a></article>
       </div>
     </div>
   </section>
@@ -370,11 +390,11 @@ footer{text-align:center;padding:16px;color:var(--muted);font-size:11px;line-hei
   <!-- 9. Games -->
   <section id="gamesTab" class="section tab-panel" hidden>
     <div class="panel">
-      <h2>🎮 የመስመር ላይ ነፃ ጨዋታዎች (HTML5 Games)</h2>
+      <h2>🎮 ነፃ የመስመር ላይ ጨዋታዎች (HTML5 Games)</h2>
       <div class="cards">
-        <article class="web-card"><h3>CrazyGames</h3><p>በድረገጽ ላይ በነፃ የሚጫወቱ አዝናኝ ጨዋታዎች።</p><a class="btn gold" href="https://www.crazygames.com/" target="_blank">CrazyGames ↗</a></article>
-        <article class="web-card"><h3>Poki Games</h3><p>የተለያዩ የሞባይልና የኮምፒውተር ጨዋታዎች።</p><a class="btn" href="https://poki.com/" target="_blank">Poki ↗</a></article>
-        <article class="web-card"><h3>Chess.com</h3><p>የቼዝ ጨዋታና ልምምድ።</p><a class="btn" href="https://www.chess.com/" target="_blank">Chess ↗</a></article>
+        <article class="web-card"><h3>CrazyGames</h3><p>በድር አሳሽ በቀጥታ የሚጫወቷቸው አዝናኝ ጨዋታዎች።</p><a class="btn gold" href="https://www.crazygames.com/" target="_blank">CrazyGames ↗</a></article>
+        <article class="web-card"><h3>Poki Games</h3><p>የተለያዩ የሞባይልና ዴስክቶፕ ጨዋታዎች።</p><a class="btn" href="https://poki.com/" target="_blank">Poki ↗</a></article>
+        <article class="web-card"><h3>Chess.com</h3><p>የቼዝ ጨዋታ ልምምድና ውድድሮች።</p><a class="btn" href="https://www.chess.com/" target="_blank">Chess ↗</a></article>
       </div>
     </div>
   </section>
@@ -385,8 +405,8 @@ footer{text-align:center;padding:16px;color:var(--muted);font-size:11px;line-hei
       <h2>📰 ዓለም አቀፍ የዜና ምንጮች</h2>
       <div class="cards">
         <article class="web-card"><h3>BBC News Amharic</h3><p>ቢቢሲ ዜና በአማርኛ።</p><a class="btn" href="https://www.bbc.com/amharic" target="_blank">BBC አማርኛ ↗</a></article>
-        <article class="web-card"><h3>DW Amharic (ዶይቸ ቬለ)</h3><p>የጀርመን ድምፅ አማርኛ ስርጭት።</p><a class="btn" href="https://www.dw.com/am/" target="_blank">DW አማርኛ ↗</a></article>
-        <article class="web-card"><h3>VOA Amharic (የአሜሪካ ድምፅ)</h3><p>የአሜሪካ ድምፅ ራዲዮ ዜና።</p><a class="btn" href="https://amharic.voanews.com/" target="_blank">VOA አማርኛ ↗</a></article>
+        <article class="web-card"><h3>DW Amharic</h3><p>የጀርመን ድምፅ አማርኛ ስርጭት።</p><a class="btn" href="https://www.dw.com/am/" target="_blank">DW አማርኛ ↗</a></article>
+        <article class="web-card"><h3>VOA Amharic</h3><p>የአሜሪካ ድምፅ ራዲዮ ዜናዎች።</p><a class="btn" href="https://amharic.voanews.com/" target="_blank">VOA አማርኛ ↗</a></article>
       </div>
     </div>
   </section>
@@ -394,46 +414,49 @@ footer{text-align:center;padding:16px;color:var(--muted);font-size:11px;line-hei
   <!-- 11. Ad Apply Tab -->
   <section id="adApplyTab" class="section tab-panel" hidden>
     <div class="panel">
-      <h2>📢 የማስታወቂያ ማመልከቻ</h2>
+      <h2>📢 የማስታወቂያ ማመልከቻ (መረጃ መመዝገቢያ)</h2>
+      <p>የድርጅትዎን መረጃ ይሙሉ፤ ቅጹ መረጃውን በአካባቢዎ በማከማቸት ይመዝግበዋል እንጂ በቀጥታ ወደ አገልጋይ አይልክም።</p>
       <form id="adForm" class="card">
-        <label for="bizName">የንግድ ስም</label>
+        <label for="bizName">የንግድ ስም / ድርጅት</label>
         <input id="bizName" name="bizName" required maxlength="120" placeholder="የድርጅትዎ ስም">
         <label for="bizText">የማስታወቂያ መግለጫ</label>
         <textarea id="bizText" name="bizText" required maxlength="2000" placeholder="ስለ ማስታወቂያዎ አጭር መግለጫ"></textarea>
         <label for="bizContact">የመገኛ ስልክ ወይም ኢሜይል</label>
         <input id="bizContact" name="bizContact" required maxlength="150" placeholder="ስልክ / ኢሜይል">
-        <button class="btn" type="submit">ማመልከቻውን አዘጋጅ</button>
-        <p id="adResult" role="status" aria-live="polite"></p>
+        <button class="btn gold" type="submit">ማመልከቻውን መዝግብ</button>
+        <p id="adResult" role="status" aria-live="polite" style="color:var(--gold-light);font-weight:bold;margin-top:8px;"></p>
       </form>
     </div>
   </section>
 
-  <!-- 12. Payment Tab -->
+  <!-- 12. Payment & Receipt Tab -->
   <section id="paymentTab" class="section tab-panel" hidden>
     <div class="panel">
-      <h2>💳 የክፍያና የደረሰኝ መረጃ</h2>
+      <h2>💳 የክፍያና የደረሰኝ መረጃ መመዝገቢያ</h2>
+      <p>ክፍያ ከፈጸሙ በኋላ የግብይት መረጃዎን እዚህ በመሙላት መዝገብዎትን ይያዙ (መረጃው ይመዘገብ እንጂ አውቶማቲክ አይልክም)።</p>
       <form id="receiptForm" class="card">
         <label for="receiptName">ሙሉ ስም</label>
-        <input id="receiptName" name="receiptName" required maxlength="120">
+        <input id="receiptName" name="receiptName" required maxlength="120" placeholder="ስምዎ">
         <label for="receiptMethod">የክፍያ ዘዴ</label>
         <select id="receiptMethod" name="receiptMethod" required>
           <option value="">ይምረጡ</option>
           <option value="CBE">Commercial Bank of Ethiopia (CBE)</option>
           <option value="Telebirr">Telebirr</option>
+          <option value="Other">ሌላ</option>
         </select>
         <label for="receiptAmount">የተከፈለው መጠን (ብር)</label>
-        <input id="receiptAmount" name="receiptAmount" type="number" min="1" step="0.01" required>
-        <label for="receiptTxn">የግብይት ቁጥር (Transaction Ref)</label>
-        <input id="receiptTxn" name="receiptTxn" required maxlength="150">
-        <button class="btn" type="submit">መረጃውን ላክ</button>
-        <p id="receiptResult" role="status" aria-live="polite"></p>
+        <input id="receiptAmount" name="receiptAmount" type="number" min="1" step="0.01" required placeholder="ለምሳሌ 500">
+        <label for="receiptTxn">የግብይት ቁጥር (Transaction Reference)</label>
+        <input id="receiptTxn" name="receiptTxn" required maxlength="150" placeholder="የባንክ ወይም የቴሌብር ትራንዛክሽን ቁጥር">
+        <button class="btn gold" type="submit">የደረሰኝ መረጃ መዝግብ</button>
+        <p id="receiptResult" role="status" aria-live="polite" style="color:var(--gold-light);font-weight:bold;margin-top:8px;"></p>
       </form>
     </div>
   </section>
 </main>
 
 <footer>
-  <p>© 2026 ኢትዮ ዲጂታል ሱፐር ፖርታል (Ethio Digital Super Portal) | መብቱ በህግ የተጠበቀ ነው።</p>
+  <p>© 2026 TAHA — ኢትዮ ዲጂታል ሱፐር ፖርታል (Ethio Digital Super Portal) | መብቱ በህግ የተጠበቀ ነው።</p>
 </footer>
 
 <script>
@@ -533,15 +556,17 @@ function runPortalSearch() {
 
   const heading = document.createElement("p");
   heading.textContent = "የተገኙ ውጤቶች፦ " + matches.length;
+  heading.style.color = "var(--gold-light)";
   resultBox.appendChild(heading);
 
   matches.forEach(function (element) {
     const item = document.createElement("div");
     item.className = "search-result-item";
-    item.style.padding = "8px";
-    item.style.margin = "5px 0";
-    item.style.background = "#07111f";
-    item.style.borderRadius = "8px";
+    item.style.padding = "10px";
+    item.style.margin = "6px 0";
+    item.style.background = "#050b14";
+    item.style.border = "1px solid #1e3656";
+    item.style.borderRadius = "10px";
     item.textContent = element.textContent.trim().slice(0, 180);
     resultBox.appendChild(item);
   });
@@ -552,7 +577,19 @@ function initializeAdForm() {
   if (!form) return;
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-    document.getElementById("adResult").textContent = "ማመልከቻው በተካሄደው ቅንብር መሰረት ተዘጋጅቷል!";
+    const name = document.getElementById("bizName").value.trim();
+    const desc = document.getElementById("bizText").value.trim();
+    const contact = document.getElementById("bizContact").value.trim();
+    const result = document.getElementById("adResult");
+    
+    if(!name || !desc || !contact) return;
+
+    const dataString = "ማስታወሻ፡ " + name + " | " + contact + " | " + desc;
+    try {
+      sessionStorage.setItem("tahaAdRecord", dataString);
+    } catch(e) {}
+
+    result.textContent = "✅ የማስታወቂያ መረጃዎ በተሳካ ሁኔታ ተመዝግቧል! (መረጃው ተይዟል)";
   });
 }
 
@@ -561,7 +598,20 @@ function initializeReceiptForm() {
   if (!form) return;
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-    document.getElementById("receiptResult").textContent = "የደረሰኝ መረጃው በተሳካ ሁኔታ ተመዝግቧል!";
+    const name = document.getElementById("receiptName").value.trim();
+    const method = document.getElementById("receiptMethod").value;
+    const amount = document.getElementById("receiptAmount").value;
+    const txn = document.getElementById("receiptTxn").value.trim();
+    const result = document.getElementById("receiptResult");
+
+    if(!name || !method || !amount || !txn) return;
+
+    const receiptString = "ደረሰኝ፡ " + name + " - " + method + " - " + amount + " ብር (Ref: " + txn + ")";
+    try {
+      sessionStorage.setItem("tahaReceiptRecord", receiptString);
+    } catch(e) {}
+
+    result.textContent = "✅ የክፍያ ደረሰኝ መረጃዎ ተመዝግቧል! (መረጃው ተይዟል እንጂ አልተላከም)";
   });
 }
 </script>
